@@ -882,13 +882,14 @@ header#home {
   border: 1px solid var(--border-color);
   backdrop-filter: blur(18px);
   box-shadow: var(--shadow-soft);
-  overflow: hidden;
+  overflow: visible; /* was hidden */
   display: flex;
   flex-direction: column;
   transform: translateY(0);
   transition: transform var(--transition-fast), box-shadow var(--transition-fast),
     border-color var(--transition-fast);
 }
+
 
 .project-card:hover {
   transform: translateY(-10px);
@@ -1551,4 +1552,64 @@ form h3 {
   .section-padding {
     padding: 70px 0;
   }
+}
+/* Project button tooltips using data-tip */
+.project-links .button[data-tip] {
+  position: relative;
+  overflow: visible;
+}
+
+/* tooltip box */
+.project-links .button[data-tip]::after {
+  content: attr(data-tip);
+  position: absolute;
+  left: 50%;
+  bottom: 130%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 260px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(5, 5, 15, 0.98);
+  color: #e0f7fa;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  text-align: left;
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(0, 188, 212, 0.6);
+  opacity: 0;
+  pointer-events: none;
+  white-space: normal;
+  z-index: 999;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* clamp horizontally so it doesn't overflow off-screen */
+@media (min-width: 0px) {
+  .project-links .button[data-tip]::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* small arrow */
+.project-links .button[data-tip]::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 118%;
+  transform: translateX(-50%);
+  border-width: 7px;
+  border-style: solid;
+  border-color: rgba(5, 5, 15, 0.98) transparent transparent transparent;
+  opacity: 0;
+  z-index: 998;
+  transition: opacity 0.2s ease;
+}
+
+/* show tooltip on hover */
+.project-links .button[data-tip]:hover::after,
+.project-links .button[data-tip]:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-2px);
 }
