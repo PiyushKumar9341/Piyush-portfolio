@@ -198,9 +198,8 @@ function hideTyping() {
   }
 }
 
-// AI endpoint (YOU will implement this as a serverless function)
+// AI endpoint
 const AI_ENDPOINT = '/.netlify/functions/portfolio-chat';
- 
 
 // Handle form submit
 if (aiChatForm && aiUserInput) {
@@ -220,10 +219,14 @@ if (aiChatForm && aiUserInput) {
         headers: {
           'Content-Type': 'application/json'
         },
+        // YAHAN CHANGE: backend `message` expect kar raha hai
         body: JSON.stringify({
-          question
+          message: question
         })
       });
+
+      const data = await response.json();
+      console.log('FUNCTION RAW RESPONSE:', data); // debug
 
       hideTyping();
 
@@ -232,10 +235,13 @@ if (aiChatForm && aiUserInput) {
         return;
       }
 
-      const data = await response.json();
-      const answer = data.answer || 'I could not generate a response right now.';
+      const answer =
+        data && typeof data.answer === 'string'
+          ? data.answer
+          : 'I could not generate a response right now.';
       appendAiMessage(answer, 'bot');
     } catch (err) {
+      console.error('Frontend error:', err);
       hideTyping();
       appendAiMessage('Network error. Please check your connection and try again.');
     }
