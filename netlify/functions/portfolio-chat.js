@@ -1,4 +1,3 @@
-// No external imports needed! Netlify uses built-in fetch (Node.js 18+)
 
 exports.handler = async (event) => {
   // Only allow POST requests

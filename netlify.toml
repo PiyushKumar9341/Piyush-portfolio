@@ -1,4 +1,4 @@
-gitgi[build]
+[build]
   publish = "/"
 
 [functions]
