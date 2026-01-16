@@ -1,1 +1,5 @@
-gitgi
+gitgi[build]
+  publish = "/"
+
+[functions]
+  directory = "netlify/functions"

@@ -1,17 +1,25 @@
-// netlify/functions/portfolio-chat.js
-const fetch = require('node-fetch');
+// No external imports needed! Netlify uses built-in fetch (Node.js 18+)
 
 exports.handler = async (event) => {
+  // Only allow POST requests
   if (event.httpMethod !== 'POST') {
-    return { statusCode: 405, body: 'Method Not Allowed' };
+    return { 
+      statusCode: 405, 
+      body: 'Method Not Allowed' 
+    };
   }
 
+  // Pull the API Key from your Netlify Environment Variables
   const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
   if (!GEMINI_API_KEY) {
-    return { statusCode: 500, body: 'Missing GEMINI_API_KEY' };
+    return { 
+      statusCode: 500, 
+      body: JSON.stringify({ error: 'Missing GEMINI_API_KEY in Netlify settings' }) 
+    };
   }
 
   try {
+    // Parse the question sent from your script.js
     const { question } = JSON.parse(event.body || '{}');
 
     if (!question) {
@@ -21,6 +29,7 @@ exports.handler = async (event) => {
       };
     }
 
+    // This tells the AI who it is and how to behave
     const systemPrompt = `
 You are an AI assistant for Piyush's developer portfolio website.
 
@@ -37,6 +46,7 @@ Tone:
 
     const GEMINI_MODEL = 'gemini-1.5-flash';
 
+    // Call the Google Gemini API using built-in fetch
     const apiRes = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`,
       {
@@ -59,6 +69,7 @@ Tone:
 
     const data = await apiRes.json();
 
+    // Extract the text response from the API result
     const answer =
       data.candidates?.[0]?.content?.parts?.[0]?.text ||
       'I could not generate a response right now.';
@@ -67,7 +78,9 @@ Tone:
       statusCode: 200,
       body: JSON.stringify({ answer })
     };
+
   } catch (err) {
+    console.error('Error:', err);
     return {
       statusCode: 500,
       body: JSON.stringify({ error: 'Server error' })
