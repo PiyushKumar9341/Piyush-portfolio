@@ -247,3 +247,78 @@ if (aiChatForm && aiUserInput) {
     }
   });
 }
+// === Netlify contact form AJAX + Thank You toast ===
+const contactForm = document.getElementById('contact-form');
+const formMessage = document.getElementById('form-message');
+
+function encode(data) {
+  return Object.keys(data)
+    .map(
+      (key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])
+    )
+    .join('&');
+}
+
+if (contactForm) {
+  contactForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const formData = {
+      'form-name': 'contact',
+      name: contactForm.name.value,
+      email: contactForm.email.value,
+      message: contactForm.message.value
+    };
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode(formData)
+    })
+      .then(() => {
+        // cool thank you toast
+        if (formMessage) {
+          formMessage.textContent = 'Thank you! Your message has been sent.';
+          formMessage.style.color = '#27c93f';
+        }
+
+        const toast = document.createElement('div');
+        toast.textContent = 'Message sent successfully!';
+        toast.style.position = 'fixed';
+        toast.style.right = '24px';
+        toast.style.bottom = '24px';
+        toast.style.padding = '10px 16px';
+        toast.style.borderRadius = '999px';
+        toast.style.background =
+          'linear-gradient(135deg, #00bcd4, #4caf50)';
+        toast.style.color = '#fff';
+        toast.style.fontSize = '0.85rem';
+        toast.style.boxShadow = '0 12px 25px rgba(0,0,0,0.7)';
+        toast.style.zIndex = '9999';
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(10px)';
+        toast.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+        document.body.appendChild(toast);
+
+        requestAnimationFrame(() => {
+          toast.style.opacity = '1';
+          toast.style.transform = 'translateY(0)';
+        });
+
+        setTimeout(() => {
+          toast.style.opacity = '0';
+          toast.style.transform = 'translateY(10px)';
+          setTimeout(() => toast.remove(), 300);
+        }, 6000);
+
+        contactForm.reset();
+      })
+      .catch(() => {
+        if (formMessage) {
+          formMessage.textContent =
+            'Something went wrong. Please try again later.';
+          formMessage.style.color = '#ff5252';
+        }
+      });
+  });
+}
