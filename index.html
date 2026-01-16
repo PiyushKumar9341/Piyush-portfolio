@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Piyush Kumar | Full-Stack Developer Portfolio</title>
+  <meta
+    name="description"
+    content="Portfolio of Piyush Kumar, a Full-Stack Developer specializing in React, Node.js and Java."
+  />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://piyushvision.netlify.app/" />
+  <meta property="og:title" content="Piyush Kumar | Full-Stack Developer Portfolio" />
+  <meta property="og:image" content="pk2.jpeg" />
+
+  <!-- Favicon & Fonts -->
+  <link rel="icon" type="image/jpeg" href="pk2.jpeg" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Background watermark / glows -->
+  <div class="logo-watermark-container">
+    <img src="pk2.jpeg" alt="" class="watermark-img" />
+  </div>
+  <div class="third-glow"></div>
+
+  <div class="tech-stack-bg">
+    <i class="fab fa-react floating-icon" style="top: 15%; left: 10%"></i>
+    <i class="fab fa-js-square floating-icon" style="top: 45%; right: 10%"></i>
+    <i class="fab fa-node-js floating-icon" style="top: 120%; left: 15%"></i>
+    <i class="fab fa-java floating-icon" style="top: 180%; right: 20%"></i>
+
+    <span class="code-snippet" style="top: 15%; left: 10%">&lt;div&gt;</span>
+    <span class="code-snippet" style="top: 60%; left: 5%">const dev = true;</span>
+    <span class="code-snippet" style="top: 20%; right: 15%">React.useState()</span>
+    <span class="code-snippet" style="top: 70%; right: 10%">System.out.println();</span>
+
+    <div class="data-column left">01011001 11001010 10101011 01011001</div>
+    <div class="data-column right">import { React } from 'react';</div>
+    <div class="code-frame top-left">&lt;/&gt;</div>
+    <div class="code-frame bottom-right">{}</div>
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container nav-container">
+      <div class="hero-logo-container">
+        <div class="neon-ring"></div>
+        <div class="hero-logo-wrapper">
+          <a href="#home">
+            <img src="pk2.jpeg" alt="PK" class="hero-main-logo" />
+          </a>
+        </div>
+      </div>
+
+      <ul id="main-nav">
+        <li><a href="#home" class="active-link">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#toolbox">Tech Toolbox</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <button class="hamburger" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header id="home">
+    <div class="hero-content">
+      <div class="hero-grid">
+        <div class="hero-text-wrapper">
+          <div class="hero-greeting">Hi, I'm</div>
+          <h1 class="hero-name">PIYUSH KUMAR</h1>
+          <p class="hero-roles">
+            <span class="role-label">I am a</span>
+            <span id="role-typing" class="role-typing"></span>
+            <span class="role-caret">|</span>
+          </p>
+          <p class="hero-description">
+            I bring digital visions to life, crafting pixel-perfect, high-performance web
+            applications that captivate and engage.
+          </p>
+          <p class="hero-looking-for">
+            Actively looking for Full-Stack Developer roles and internships.
+          </p>
+
+          <!-- Hero buttons – all same base style, color variants -->
+          <div class="hero-buttons">
+            <a href="#projects" class="button btn-cyan">
+              View My Work
+            </a>
+
+            <a href="Piyush.pdf" download class="button btn-blue">
+              <i class="fas fa-download"></i>
+              <span>Download Resume</span>
+            </a>
+
+            <a href="#contact" class="button btn-pink">
+              <i class="fas fa-envelope"></i>
+              <span>Get In Touch</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero side panel -->
+        <div class="hero-panel-wrapper">
+          <div class="hero-panel animate-on-scroll">
+            <h3><i class="fas fa-robot"></i> Working with GenAI</h3>
+            <p>
+              Exploring modern AI tooling, integrating LLMs into products, and building
+              data-aware assistants.
+            </p>
+            <ul>
+              <li><i class="fas fa-check-circle"></i> Prompt engineering & workflows</li>
+              <li><i class="fas fa-check-circle"></i> API-driven app integrations</li>
+              <li><i class="fas fa-check-circle"></i> Analytics & insights from data</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section id="about" class="about-section section-padding animate-on-scroll">
+    <div class="container about-wrapper">
+      <h2 class="section-title">
+        <span class="code-bracket">&lt;</span> About Me <span class="code-bracket">/&gt;</span>
+      </h2>
+
+      <div class="about-top">
+        <div class="about-image-wrapper glow">
+          <div class="image-glow"></div>
+          <img src="Image.png" alt="Piyush Kumar" class="about-profile-img" />
+        </div>
+      </div>
+
+      <div class="about-bottom">
+        <div class="about-content">
+          <div class="about-card">
+            <p>
+              I am a
+              <span class="tech-tag cyan">Full-Stack Developer</span>
+              specializing in high-performance apps using
+              <span class="tech-tag cyan">React</span> and
+              <span class="tech-tag pink">Node.js</span>.
+            </p>
+            <p>
+              With a strong foundation in Java and modern web tooling, I focus on building
+              scalable digital products that feel intuitive and responsive.
+            </p>
+            <p>
+              I enjoy designing system architectures, optimizing performance, and translating
+              complex ideas into clean, maintainable code.
+            </p>
+          </div>
+
+          <div class="about-highlights">
+            <div class="highlight-item">
+              <h3>02+ Years</h3>
+              <p>Hands-on experience with modern web technologies.</p>
+            </div>
+            <div class="highlight-item">
+              <h3>10+ Projects</h3>
+              <p>End-to-end applications delivered for learning and practice.</p>
+            </div>
+            <div class="highlight-item">
+              <h3>Always Exploring</h3>
+              <p>Currently diving deeper into AI tooling and cloud-native design.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="skills-section section-padding animate-on-scroll">
+    <div class="container">
+      <h2 class="section-title">
+        <span class="code-bracket">{</span> Core_Competencies <span class="code-bracket">}</span>
+      </h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fab fa-java"></i></div>
+          <h3>Backend Architecture</h3>
+          <p>Core Java, Spring Boot, Microservices</p>
+          <div class="skill-level-bar"><div class="level java-level"></div></div>
+          <span class="status-tag">Intermediate</span>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fab fa-react"></i></div>
+          <h3>Frontend Engineering</h3>
+          <p>React.js, Modern CSS, Redux</p>
+          <div class="skill-level-bar"><div class="level web-level"></div></div>
+          <span class="status-tag">Advanced</span>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-database"></i></div>
+          <h3>Data Management</h3>
+          <p>MySQL, PostgreSQL, MongoDB</p>
+          <div class="skill-level-bar"><div class="level db-level"></div></div>
+          <span class="status-tag">Proficient</span>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-brain"></i></div>
+          <h3>AI & Intelligence</h3>
+          <p>OpenAI API, LangChain, Prompt Engineering</p>
+          <div class="skill-level-bar"><div class="level ai-level"></div></div>
+          <span class="status-tag">Exploring</span>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-cloud"></i></div>
+          <h3>Cloud Infrastructure</h3>
+          <p>AWS, Azure Fundamentals, Cloud Storage</p>
+          <div class="skill-level-bar"><div class="level cloud-level"></div></div>
+          <span class="status-tag">Learning</span>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-tools"></i></div>
+          <h3>DevOps & Version Control</h3>
+          <p>Git, GitHub, Docker, CI/CD Basics</p>
+          <div class="skill-level-bar"><div class="level devops-level"></div></div>
+          <span class="status-tag">Proficient</span>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-vial"></i></div>
+          <h3>Testing & Quality</h3>
+          <p>Jest, React Testing Library, Postman Collections</p>
+          <div class="skill-level-bar"><div class="level test-level"></div></div>
+          <span class="status-tag">Proficient</span>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-users-cog"></i></div>
+          <h3>Collaboration & Workflow</h3>
+          <p>Agile, Code Reviews, Documentation</p>
+          <div class="skill-level-bar"><div class="level collab-level"></div></div>
+          <span class="status-tag">Strong</span>
+        </div>
+      </div>
+    </div>
+    <div class="skills-footer">
+      <p class="console-text"><span class="cursor">></span> Total_Skills_Loaded: 14</p>
+      <p class="console-text">
+        <span class="cursor">></span> System_Status:
+        <span class="green-text">Ready_to_Deploy</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section id="certifications" class="section-padding animate-on-scroll">
+    <div class="container">
+      <h2 class="section-title">
+        <span class="code-bracket">&lt;</span> Certifications <span class="code-bracket">/&gt;</span>
+      </h2>
+      <div class="cert-grid">
+        <article class="cert-card js-cert">
+          <div class="cert-header">
+            <span class="cert-icon"><i class="fas fa-cloud"></i></span>
+            <h3>Introduction to Generative AI Studio</h3>
+          </div>
+          <p class="cert-org">Google Cloud · 2025</p>
+          <p class="cert-desc">
+            Learned how to build and experiment with GenAI workflows using Google Cloud’s
+            AI Studio.
+          </p>
+        </article>
+
+        <article class="cert-card js-cert">
+          <div class="cert-header">
+            <span class="cert-icon"><i class="fas fa-database"></i></span>
+            <h3>Databricks for Generative AI</h3>
+          </div>
+          <p class="cert-org">Simplilearn · 2025</p>
+          <p class="cert-desc">
+            Gained hands-on exposure to using Databricks for GenAI and data-driven
+            applications.
+          </p>
+        </article>
+
+        <article class="cert-card js-cert">
+          <div class="cert-header">
+            <span class="cert-icon"><i class="fas fa-chart-line"></i></span>
+            <h3>GenAI Data Analytics Job Simulation</h3>
+          </div>
+          <p class="cert-org">TATA Forage · 2025</p>
+          <p class="cert-desc">
+            Simulated real-world analytics tasks using GenAI to extract insights from data.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Toolbox -->
+  <section id="toolbox" class="section-padding animate-on-scroll">
+    <div class="container toolbox-container">
+      <h2 class="section-title">
+        <span class="code-bracket">&lt;</span> Tech_Toolbox <span class="code-bracket">/&gt;</span>
+      </h2>
+      <div class="toolbox-grid">
+        <div class="toolbox-column">
+          <h3>Languages</h3>
+          <ul>
+            <li><span class="pill pill-primary">Java</span> – daily driver</li>
+            <li><span class="pill pill-primary">JavaScript</span> – daily driver</li>
+            <li><span class="pill pill-soft">TypeScript</span> – exploring</li>
+          </ul>
+        </div>
+        <div class="toolbox-column">
+          <h3>Frontend</h3>
+          <ul>
+            <li><span class="pill pill-primary">React</span>, <span class="pill pill-soft">Redux</span></li>
+            <li><span class="pill pill-soft">HTML5</span>, <span class="pill pill-soft">CSS3</span></li>
+            <li><span class="pill pill-soft">Responsive UI</span>, <span class="pill pill-soft">Animations</span></li>
+          </ul>
+        </div>
+        <div class="toolbox-column">
+          <h3>Backend & DB</h3>
+          <ul>
+            <li><span class="pill pill-primary">Node.js</span>, <span class="pill pill-soft">Express</span></li>
+            <li><span class="pill pill-soft">Spring Boot</span></li>
+            <li><span class="pill pill-soft">MySQL</span>, <span class="pill pill-soft">MongoDB</span></li>
+          </ul>
+        </div>
+        <div class="toolbox-column">
+          <h3>Tools & Cloud</h3>
+          <ul>
+            <li><span class="pill pill-soft">Git</span>, <span class="pill pill-soft">GitHub</span></li>
+            <li><span class="pill pill-soft">VS Code</span>, <span class="pill pill-soft">Postman</span></li>
+            <li><span class="pill pill-soft">Netlify</span>, <span class="pill pill-soft">Render</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="section-padding animate-on-scroll">
+    <div class="container">
+      <h2 class="section-title">
+        <span class="code-bracket">&lt;</span> Experience <span class="code-bracket">/&gt;</span>
+      </h2>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-dot"></span>
+          <div class="timeline-content">
+            <h3>Full-Stack Developer</h3>
+            <p class="timeline-meta">Freelance | 2024 - Present</p>
+            <ul>
+              <li>Built responsive web applications using React, Node.js, and REST APIs.</li>
+              <li>Implemented authentication, dashboards, and reusable UI components.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <span class="timeline-dot"></span>
+          <div class="timeline-content">
+            <h3>Web Developer Intern</h3>
+            <p class="timeline-meta">Startup | 2023 - 2024</p>
+            <ul>
+              <li>Collaborated on UI improvements and bug fixes in a production codebase.</li>
+              <li>Learned Git workflows, code reviews, and agile processes.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <span class="timeline-dot"></span>
+          <div class="timeline-content">
+            <h3>MCA</h3>
+            <p class="timeline-meta">Galgotia College</p>
+            <ul>
+              <li>Focused on data structures, algorithms, and software engineering.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+ <section id="projects" class="section-padding animate-on-scroll">
+  <div class="container">
+    <h2 class="section-title">
+      <span class="code-bracket">[</span> Featured_Projects <span class="code-bracket">]</span>
+    </h2>
+
+    <div class="projects-grid">
+  <!-- Project 1: Advanced Todo List -->
+  <div class="project-card" data-category="frontend">
+    <div class="project-image">
+      <img src="Adva.jpeg" alt="Advanced Todo List" />
+    </div>
+
+    <div class="project-description">
+      <h3>Advanced Todo List</h3>
+      <p>
+        A fast, keyboard-friendly task manager to handle daily work entirely in the browser.
+      </p>
+      <p>
+        Focused on smooth micro-interactions, LocalStorage persistence, and a clean, minimal UI.
+      </p>
+      <div class="project-tags">
+        <span class="tech-tag cyan">JavaScript</span>
+        <span class="tech-tag pink">LocalStorage</span>
+        <span class="tech-tag cyan">UX Details</span>
+      </div>
+    </div>
+
+    <div class="button-container">
+      <div class="project-links">
+        <a href="#" target="_blank" class="button btn-cyan">
+          Demo
+        </a>
+        <a href="#" target="_blank" class="button btn-ghost">
+          Code
+        </a>
+        <button class="button btn-ghost" type="button"
+                data-tip="Bulk actions, status filters, keyboard shortcuts, and auto-save.">
+          Features
+        </button>
+        <button class="button btn-ghost" type="button"
+                data-tip="Improved state handling, input validation, and empty-state UX.">
+          Learnings
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project 2: Analytics Dashboard -->
+  <div class="project-card" data-category="fullstack">
+    <div class="project-image">
+      <img src="Dashboard.jpeg" alt="Analytics Dashboard" />
+    </div>
+
+    <div class="project-description">
+      <h3>Analytics Dashboard</h3>
+      <p>
+        A responsive dashboard for monitoring KPIs with charts, filters, and role-based views.
+      </p>
+      <p>
+        Practiced structuring React components, handling API data, and keeping UI performant.
+      </p>
+      <div class="project-tags">
+        <span class="tech-tag cyan">React</span>
+        <span class="tech-tag pink">Node.js</span>
+        <span class="tech-tag cyan">Charts</span>
+      </div>
+    </div>
+
+    <div class="button-container">
+      <div class="project-links">
+        <a href="#" target="_blank" class="button btn-cyan">
+          Demo
+        </a>
+        <a href="#" target="_blank" class="button btn-ghost">
+          Code
+        </a>
+        <button class="button btn-ghost" type="button"
+                data-tip="Dynamic charts, date filters, and role-based menu sections.">
+          Features
+        </button>
+        <button class="button btn-ghost" type="button"
+                data-tip="Learned API error handling, loading states, and dashboard layout.">
+          Learnings
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project 3: AI-Powered Assistant -->
+  <div class="project-card" data-category="ai">
+    <div class="project-image">
+      <img src="Aii.jpeg" alt="AI-Powered Assistant" />
+    </div>
+
+    <div class="project-description">
+      <h3>AI-Powered Assistant</h3>
+      <p>
+        A web interface that connects to GenAI APIs to generate content and answer questions.
+      </p>
+      <p>
+        Experimented with prompt design, API integration, and handling latency gracefully.
+      </p>
+      <div class="project-tags">
+        <span class="tech-tag cyan">OpenAI API</span>
+        <span class="tech-tag pink">LangChain</span>
+        <span class="tech-tag cyan">GenAI</span>
+      </div>
+    </div>
+
+    <div class="button-container">
+      <div class="project-links">
+        <a href="#" target="_blank" class="button btn-cyan">
+          Demo
+        </a>
+        <a href="#" target="_blank" class="button btn-ghost">
+          Code
+        </a>
+        <button class="button btn-ghost" type="button"
+                data-tip="Multi-step prompts, context-aware replies, and simple history view.">
+          Features
+        </button>
+        <button class="button btn-ghost" type="button"
+                data-tip="Learned prompt tuning, rate-limit handling, and error messaging.">
+          Learnings
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project 4: This Portfolio -->
+  <div class="project-card" data-category="frontend">
+    <div class="project-image">
+      <img src="Portfolio.jpeg" alt="Portfolio Website" />
+    </div>
+
+    <div class="project-description">
+      <h3>This Portfolio</h3>
+      <p>
+        A modern single-page portfolio with glassmorphism, neon accents, and scroll animations.
+      </p>
+      <p>
+        Implemented responsive layouts, reusable components, and smooth navigation for recruiters.
+      </p>
+      <div class="project-tags">
+        <span class="tech-tag cyan">HTML</span>
+        <span class="tech-tag pink">CSS</span>
+        <span class="tech-tag cyan">JavaScript</span>
+      </div>
+    </div>
+
+    <div class="button-container">
+      <div class="project-links">
+        <a href="https://piyushvision.netlify.app/" target="_blank" class="button btn-cyan">
+          Demo
+        </a>
+        <a href="#" target="_blank" class="button btn-ghost">
+          Code
+        </a>
+        <button class="button btn-ghost" type="button"
+                data-tip="Hero typing, tech background, certifications, and experience timeline.">
+          Features
+        </button>
+        <button class="button btn-ghost" type="button"
+                data-tip="Learned portfolio storytelling, responsive design, and UI consistency.">
+          Learnings
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>
+</section>
+
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="section-padding animate-on-scroll">
+    <div class="container">
+      <h2 class="section-title">
+        <span class="code-bracket">&lt;</span> Testimonials <span class="code-bracket">/&gt;</span>
+      </h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p>
+            "Piyush delivered a clean, responsive web application on time and suggested
+            thoughtful UX improvements."
+          </p>
+          <h4>Gautam Kumar</h4>
+          <span class="testimonial-role">Startup</span>
+        </div>
+        <div class="testimonial-card">
+          <p>
+            "Strong problem-solving mindset, quick to pick up new tools, and very
+            collaborative in the team."
+          </p>
+          <h4> Neeraj Kaushik (Mentor)</h4>
+          <span class="testimonial-role">Engineering Lead</span>
+        </div>
+        <div class="testimonial-card">
+          <p>
+            "He turns vague ideas into well-structured features with attention to detail and
+            maintainable code."
+          </p>
+          <h4>Colleague</h4>
+          <span class="testimonial-role">Software Engineer</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resume -->
+  <section id="resume" class="section-padding animate-on-scroll">
+    <div class="container resume-container">
+      <h2 class="section-title">
+        <span class="code-bracket">&lt;</span> My_Resume <span class="code-bracket">/&gt;</span>
+      </h2>
+      <p>
+        Download my resume to explore detailed experience, education, and the technologies I
+        work with.
+      </p>
+      <a href="Piyush.pdf" download class="button btn-cyan">
+        <i class="fas fa-download"></i> Download Resume (PDF)
+      </a>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section-padding animate-on-scroll">
+    <div class="container contact-container">
+      <h2 class="section-title">
+        <span class="code-bracket">&lt;</span> Get_In_Touch <span class="code-bracket">/&gt;</span>
+      </h2>
+      <p>
+        I'm always open to new opportunities, collaborations, and interesting problems. Feel
+        free to reach out.
+      </p>
+      <div class="contact-info">
+        <p>Greater Noida, India · Open to remote and onsite roles.</p>
+        <p>
+          <i class="fas fa-envelope"></i> Email:
+          <a href="mailto:piyush.s9341@gmail.com">piyush.s9341@gmail.com</a>
+        </p>
+        <p>
+          <i class="fab fa-linkedin"></i> LinkedIn:
+          <a href="https://www.linkedin.com/in/piyush-kumar111/" target="_blank"
+            >piyush-kumar111</a
+          >
+        </p>
+        <p>
+          <i class="fab fa-github"></i> GitHub:
+          <a href="https://github.com/PiyushKumar9341" target="_blank"
+            >PiyushKumar9341</a
+          >
+        </p>
+      </div>
+
+      <form id="contact-form" name="contact">
+        <h3>Send Me a Message</h3>
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="6" required></textarea>
+        </div>
+        <button type="submit" class="button btn-pink">
+          Send Message
+        </button>
+        <p id="form-message" class="message-text"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="gift-footer">
+    <div class="container">
+      <div class="footer-line"></div>
+      <p>&copy; <span id="current-year"></span> Piyush Kumar. All rights reserved.</p>
+      <p>Designed & Developed with ❤️ by <span>Piyush Kumar</span></p>
+      <div class="footer-logo-wrapper">
+        <img src="pk2.jpeg" alt="PK Logo" class="footer-logo" />
+      </div>
+    </div>
+  </footer>
+
+  <!-- AI Portfolio Assistant -->
+<div id="ai-assistant">
+  <button id="ai-toggle-btn" class="ai-toggle-btn" title="Chat with my AI Assistant">
+    <i class="fas fa-robot"></i>
+  </button>
+
+  <div id="ai-chat-panel" class="ai-chat-panel">
+    <div class="ai-chat-header">
+      <div class="ai-chat-title">
+        <i class="fas fa-robot"></i>
+        <span>AI Portfolio Assistant</span>
+      </div>
+      <button id="ai-close-btn" class="ai-close-btn" aria-label="Close chat">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <div id="ai-chat-messages" class="ai-chat-messages">
+      <div class="ai-message ai-bot">
+        <p>Hi, I can answer questions about Piyush’s skills, projects, and tech choices. Ask anything!</p>
+      </div>
+    </div>
+
+    <form id="ai-chat-form" class="ai-chat-input-row">
+      <input
+        type="text"
+        id="ai-user-input"
+        placeholder="Ask about a project, tech, or role..."
+        autocomplete="off"
+        required
+      />
+      <button type="submit" id="ai-send-btn">
+        <i class="fas fa-paper-plane"></i>
+      </button>
+    </form>
+  </div>
+</div>
+
+
+  <!-- Scroll To Top -->
+  <button id="scrollToTopBtn" title="Go to top" class="button btn-cyan">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
