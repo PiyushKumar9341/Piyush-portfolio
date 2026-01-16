@@ -199,7 +199,8 @@ function hideTyping() {
 }
 
 // AI endpoint (YOU will implement this as a serverless function)
-const AI_ENDPOINT = 'https://your-ai-endpoint.example.com/chat'; // change this later
+const AI_ENDPOINT = '/.netlify/functions/portfolio-chat';
+ 
 
 // Handle form submit
 if (aiChatForm && aiUserInput) {
