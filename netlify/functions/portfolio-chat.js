@@ -1,89 +1,115 @@
-// netlify/functions/portfolio-chat.js
+
+
+import fetch from 'node-fetch'; // if using Node 18+ fetch is built-in, you can remove this line
+
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+const MODEL_NAME = 'gemini-2.5-flash'; // switched from gemini-2.0-flash
 
 export const handler = async (event) => {
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
-      body: JSON.stringify({ error: 'Method Not Allowed' })
+      body: JSON.stringify({ error: 'Method not allowed' }),
+    };
+  }
+
+  if (!GEMINI_API_KEY) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({
+        error: 'Server configuration error',
+        message: 'Missing GEMINI_API_KEY environment variable',
+      }),
     };
   }
 
   try {
-    const { message } = JSON.parse(event.body || '{}');
+    const { message, history } = JSON.parse(event.body || '{}');
 
     if (!message || typeof message !== 'string') {
       return {
         statusCode: 400,
-        body: JSON.stringify({ error: 'Invalid message' })
+        body: JSON.stringify({ error: 'Bad request', message: 'Missing message' }),
       };
     }
 
-    const apiKey = process.env.GEMINI_API_KEY;
+    // Build contents with simple history (optional)
+    const contents = [];
 
-    if (!apiKey) {
-      return {
-        statusCode: 500,
-        body: JSON.stringify({ error: 'Missing GEMINI_API_KEY' })
-      };
+    if (Array.isArray(history)) {
+      history.forEach((turn) => {
+        if (turn.role && turn.text) {
+          contents.push({
+            role: turn.role,
+            parts: [{ text: turn.text }],
+          });
+        }
+      });
     }
 
-    // Gemini REST API call
-    const apiRes = await fetch(
-      'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' + apiKey,
+    contents.push({
+      role: 'user',
+      parts: [{ text: message }],
+    });
+
+    // Call Gemini API (REST)
+    const response = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/${MODEL_NAME}:generateContent?key=${GEMINI_API_KEY}`,
       {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          contents: [
-            {
-              role: 'user',
-              parts: [{ text: message }]
-            }
-          ]
-        })
+          contents,
+          generationConfig: {
+            temperature: 0.7,
+            maxOutputTokens: 512,
+          },
+        }),
       }
     );
 
-    if (!apiRes.ok) {
-      const errorText = await apiRes.text();
-      console.error('Gemini API error:', apiRes.status, errorText);
+    const data = await response.json();
+
+    if (!response.ok) {
+      console.error('Gemini API error response:', data);
+
+      const statusCode =
+        data?.error?.code === 429
+          ? 429
+          : data?.error?.code && Number.isInteger(data.error.code)
+          ? data.error.code
+          : 500;
+
       return {
-        statusCode: 500,
-        body: JSON.stringify({ error: 'Gemini API error', details: errorText })
+        statusCode,
+        body: JSON.stringify({
+          error: 'Gemini API error',
+          details: JSON.stringify(data, null, 2),
+        }),
       };
     }
 
-    const data = await apiRes.json();
-
-    // Optional: raw response dekhna ho to temporary enable karo
-    // console.log('Gemini raw:', JSON.stringify(data, null, 2));
-
-    let answer = 'I could not generate a response right now.';
-
-    // Safe parsing: candidates / parts empty hone par crash nahi karega
-    if (
-      data &&
-      Array.isArray(data.candidates) &&
-      data.candidates.length > 0 &&
-      data.candidates[0].content &&
-      Array.isArray(data.candidates[0].content.parts) &&
-      data.candidates[0].content.parts.length > 0 &&
-      typeof data.candidates[0].content.parts[0].text === 'string'
-    ) {
-      answer = data.candidates[0].content.parts[0].text;
-    }
+    const modelText =
+      data?.candidates?.[0]?.content?.parts?.[0]?.text ||
+      'Sorry, I could not generate a response.';
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ answer })
+      body: JSON.stringify({
+        reply: modelText,
+      }),
     };
   } catch (err) {
-    console.error('Function error:', err);
+    console.error('Unexpected server error:', err);
+
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: 'Server error' })
+      body: JSON.stringify({
+        error: 'Server error',
+        message: err.message || 'Unknown error',
+      }),
     };
   }
 };

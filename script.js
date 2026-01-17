@@ -201,6 +201,9 @@ function hideTyping() {
 // AI endpoint
 const AI_ENDPOINT = '/.netlify/functions/portfolio-chat';
 
+// Optional simple history (kept but not required)
+let aiHistory = [];
+
 // Handle form submit
 if (aiChatForm && aiUserInput) {
   aiChatForm.addEventListener('submit', async (e) => {
@@ -219,34 +222,58 @@ if (aiChatForm && aiUserInput) {
         headers: {
           'Content-Type': 'application/json'
         },
-        // YAHAN CHANGE: backend `message` expect kar raha hai
+        // backend `message` expect kar raha hai; history optional
         body: JSON.stringify({
-          message: question
+          message: question,
+          history: aiHistory
         })
       });
 
-      const data = await response.json();
+      let data;
+      try {
+        data = await response.json();
+      } catch (err) {
+        console.error('Failed to parse JSON from function:', err);
+        hideTyping();
+        appendAiMessage('Assistant returned an invalid response.', 'bot');
+        return;
+      }
+
       console.log('FUNCTION RAW RESPONSE:', data); // debug
 
       hideTyping();
 
       if (!response.ok) {
-        appendAiMessage('Sorry, something went wrong. Please try again later.');
+        if (response.status === 429) {
+          appendAiMessage(
+            'AI limit reached for now. Please try again later or check Gemini API quota.',
+            'bot'
+          );
+        } else {
+          appendAiMessage(
+            data.message || 'Sorry, something went wrong. Please try again later.',
+            'bot'
+          );
+        }
         return;
       }
 
       const answer =
-        data && typeof data.answer === 'string'
-          ? data.answer
+        data && typeof data.reply === 'string'
+          ? data.reply
           : 'I could not generate a response right now.';
       appendAiMessage(answer, 'bot');
+
+      aiHistory.push({ role: 'user', text: question });
+      aiHistory.push({ role: 'model', text: answer });
     } catch (err) {
       console.error('Frontend error:', err);
       hideTyping();
-      appendAiMessage('Network error. Please check your connection and try again.');
+      appendAiMessage('Network error. Please check your connection and try again.', 'bot');
     }
   });
 }
+
 // === Netlify contact form AJAX + Thank You toast ===
 const contactForm = document.getElementById('contact-form');
 const formMessage = document.getElementById('form-message');
