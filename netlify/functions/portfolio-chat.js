@@ -1,7 +1,34 @@
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const MODEL_NAME = 'gemini-2.5-flash'; // switched from gemini-2.0-flash
+const MODEL_NAME = 'gemini-2.5-flash';
+
+// Static portfolio context so the AI knows about your site and work
+const portfolioContext = `
+You are an AI assistant for the personal portfolio website of Piyush Kumar.
+
+ABOUT:
+- Name: Piyush Kumar
+- Location: Greater Noida, India
+- Degree: MCA student
+- Role: Full-Stack Developer, React & Node.js Engineer, Generative AI Enthusiast.
+- Focus: Modern web development and AI-powered applications.
+
+PORTFOLIO SECTIONS:
+- Hero: Shows name, title, short bio, and a dynamic typing effect with roles like "Full-Stack Developer", "React & Node.js Engineer", and "Generative AI Enthusiast".
+- About: Explains Piyush's background as an MCA student, interests in full-stack development and AI, and passion for building real-world projects.
+- Skills: Frontend (HTML, CSS, JavaScript, React), Backend (Node.js, Express), Databases (MongoDB with Mongoose), Tools (Git/GitHub, VS Code, Netlify, Render), and Generative AI.
+- Projects: Includes an advanced Todo App and other web apps; each project has title, description, tech stack, and links.
+- Experience & Certifications: Timeline of roles or internships and certifications that highlight practical exposure.
+- Contact: A form for visitors to send messages, integrated with Netlify and/or backend.
+
+HOW TO ANSWER:
+- When the user says "my portfolio", "my skills", "my projects", or similar, you are talking about THIS portfolio and Piyush Kumar, not about yourself.
+- Give answers that refer directly to Piyush's skills, projects, and experience based on the above description.
+- You can also answer general questions about programming, full-stack development, MCA career advice, and learning paths.
+- Be concise, friendly, and helpful.
+`;
 
 export const handler = async (event) => {
+  // Only allow POST
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
@@ -29,9 +56,16 @@ export const handler = async (event) => {
       };
     }
 
-    // Build contents with simple history (optional)
+    // Build contents: system portfolio context + optional history + user message
     const contents = [];
 
+    // System-style instruction with portfolio info
+    contents.push({
+      role: 'system',
+      parts: [{ text: portfolioContext }],
+    });
+
+    // Optional chat history (kept lightweight)
     if (Array.isArray(history)) {
       history.forEach((turn) => {
         if (turn.role && turn.text) {
@@ -43,12 +77,13 @@ export const handler = async (event) => {
       });
     }
 
+    // Current user message
     contents.push({
       role: 'user',
       parts: [{ text: message }],
     });
 
-    // Call Gemini API (REST)
+    // Call Gemini API (REST) with contents + generationConfig
     const response = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/${MODEL_NAME}:generateContent?key=${GEMINI_API_KEY}`,
       {
