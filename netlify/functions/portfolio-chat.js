@@ -56,28 +56,29 @@ export const handler = async (event) => {
       };
     }
 
-    // Build contents: system portfolio context + optional history + user message
+    // Build contents: portfolio context + optional history + user message
     const contents = [];
 
-    // System-style instruction with portfolio info
+    // 1) Portfolio context as an initial user-style instruction
     contents.push({
-      role: 'system',
+      role: 'user',
       parts: [{ text: portfolioContext }],
     });
 
-    // Optional chat history (kept lightweight)
+    // 2) Optional chat history (only user/model roles allowed)
     if (Array.isArray(history)) {
       history.forEach((turn) => {
-        if (turn.role && turn.text) {
-          contents.push({
-            role: turn.role,
-            parts: [{ text: turn.text }],
-          });
-        }
+        if (!turn.role || !turn.text) return;
+        if (turn.role !== 'user' && turn.role !== 'model') return;
+
+        contents.push({
+          role: turn.role,
+          parts: [{ text: turn.text }],
+        });
       });
     }
 
-    // Current user message
+    // 3) Current user message
     contents.push({
       role: 'user',
       parts: [{ text: message }],
