@@ -1,7 +1,3 @@
-
-
-import fetch from 'node-fetch'; // if using Node 18+ fetch is built-in, you can remove this line
-
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const MODEL_NAME = 'gemini-2.5-flash'; // switched from gemini-2.0-flash
 
