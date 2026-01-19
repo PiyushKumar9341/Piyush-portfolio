@@ -15,22 +15,48 @@ if (hamburger && nav) {
   });
 }
 
-// Active link on scroll
-const sections = document.querySelectorAll('section[id]');
+// Smooth scroll with offset for fixed navbar
+const navScrollLinks = document.querySelectorAll('#main-nav a[href^="#"]');
+const headerOffset = 80; // adjust if your navbar height is different
+
+navScrollLinks.forEach((link) => {
+  link.addEventListener('click', (e) => {
+    const targetId = link.getAttribute('href').substring(1);
+    const targetEl = document.getElementById(targetId);
+    if (!targetEl) return;
+
+    e.preventDefault();
+
+    const elementPosition = targetEl.getBoundingClientRect().top + window.pageYOffset;
+    const offsetPosition = elementPosition - headerOffset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth',
+    });
+  });
+});
+
+// Active link on scroll (updated)
+const sections = document.querySelectorAll('section[id], header#home');
 const navLinks = document.querySelectorAll('#main-nav a');
 
 window.addEventListener('scroll', () => {
-  const scrollY = window.pageYOffset;
+  let currentId = 'home'; // default when at very top
 
   sections.forEach((section) => {
-    const sectionTop = section.offsetTop - 120;
-    const sectionHeight = section.offsetHeight;
-    const id = section.getAttribute('id');
+    const rect = section.getBoundingClientRect();
+    const id = section.id;
 
-    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-      navLinks.forEach((link) => link.classList.remove('active-link'));
-      const active = document.querySelector(`#main-nav a[href="#${id}"]`);
-      if (active) active.classList.add('active-link');
+    if (rect.top <= 120 && rect.bottom >= 200) {
+      currentId = id;
+    }
+  });
+
+  navLinks.forEach((link) => {
+    link.classList.remove('active-link');
+    if (link.getAttribute('href') === `#${currentId}`) {
+      link.classList.add('active-link');
     }
   });
 });
@@ -91,17 +117,51 @@ function eraseRole() {
 
 typeRole();
 
-// Scroll reveal + certifications stagger
+// Scroll reveal + certifications stagger (JS-controlled animations)
 const observerOptions = {
   threshold: 0.2
 };
 
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('revealed');
-      revealObserver.unobserve(entry.target);
+    if (!entry.isIntersecting) return;
+
+    const el = entry.target;
+
+    // Decide animation based on element type / id
+    if (el.matches('header#home')) {
+      el.classList.add('reveal-fade-up');
+    } else if (el.matches('#about')) {
+      el.classList.add('reveal-left');
+    } else if (el.matches('#skills')) {
+      el.classList.add('reveal-right');
+    } else if (el.matches('#projects')) {
+      el.classList.add('reveal-up');
+    } else if (el.matches('#experience')) {
+      el.classList.add('reveal-up-slow');
+    } else if (el.matches('#certifications')) {
+      el.classList.add('reveal-up');
+    } else if (el.matches('#toolbox')) {
+      el.classList.add('reveal-right');
+    } else if (el.matches('#testimonials')) {
+      el.classList.add('reveal-left');
+    } else if (el.matches('#resume')) {
+      el.classList.add('reveal-fade-up');
+    } else if (el.matches('#contact')) {
+      el.classList.add('reveal-fade-up');
+    } else if (el.classList.contains('skill-card')) {
+      el.classList.add('reveal-up');
+    } else if (el.classList.contains('project-card')) {
+      el.classList.add('reveal-up');
+    } else if (el.classList.contains('about-card')) {
+      el.classList.add('reveal-up');
+    } else {
+      // default fallback
+      el.classList.add('reveal-up');
     }
+
+    el.classList.add('revealed');
+    revealObserver.unobserve(el);
   });
 }, observerOptions);
 
@@ -201,7 +261,7 @@ function hideTyping() {
 // AI endpoint
 const AI_ENDPOINT = '/.netlify/functions/portfolio-chat';
 
-// Optional simple history (kept but not required)
+// Optional simple history
 let aiHistory = [];
 
 // Handle form submit
@@ -222,7 +282,6 @@ if (aiChatForm && aiUserInput) {
         headers: {
           'Content-Type': 'application/json'
         },
-        // backend `message` expect kar raha hai; history optional
         body: JSON.stringify({
           message: question,
           history: aiHistory
@@ -239,7 +298,7 @@ if (aiChatForm && aiUserInput) {
         return;
       }
 
-      console.log('FUNCTION RAW RESPONSE:', data); // debug
+      console.log('FUNCTION RAW RESPONSE:', data);
 
       hideTyping();
 
@@ -303,7 +362,6 @@ if (contactForm) {
       body: encode(formData)
     })
       .then(() => {
-        // cool thank you toast
         if (formMessage) {
           formMessage.textContent = 'Thank you! Your message has been sent.';
           formMessage.style.color = '#27c93f';

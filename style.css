@@ -12,6 +12,9 @@
   --radius-pill: 999px;
   --nav-height: 80px;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 *,
 *::before,
