@@ -1,6 +1,5 @@
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const MODEL_NAME = 'gemini-2.5-flash';
-
+const MODEL_NAME = 'gemini-1.5-flash'; // Optimized for speed and point-wise clarity
 // Static portfolio context so the AI knows about your site and work
 const portfolioContext = `
 You are an AI assistant for the personal portfolio website of Piyush Kumar.
@@ -66,7 +65,6 @@ HOW TO ANSWER:
 `;
 
 export const handler = async (event) => {
-  // Only allow POST
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
@@ -94,16 +92,15 @@ export const handler = async (event) => {
       };
     }
 
-    // Build contents: portfolio context + optional history + user message
     const contents = [];
 
-    // 1) Portfolio context as an initial user-style instruction
+    // 1) Context instruction
     contents.push({
       role: 'user',
       parts: [{ text: portfolioContext }],
     });
 
-    // 2) Optional chat history (only user/model roles allowed)
+    // 2) Optional chat history logic (PRESERVED)
     if (Array.isArray(history)) {
       history.forEach((turn) => {
         if (!turn.role || !turn.text) return;
@@ -122,7 +119,6 @@ export const handler = async (event) => {
       parts: [{ text: message }],
     });
 
-    // Call Gemini API (REST) with contents + generationConfig
     const response = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/${MODEL_NAME}:generateContent?key=${GEMINI_API_KEY}`,
       {
@@ -133,8 +129,8 @@ export const handler = async (event) => {
         body: JSON.stringify({
           contents,
           generationConfig: {
-            temperature: 0.7,
-            maxOutputTokens: 512,
+            temperature: 0.5, // Lowered slightly for more specific, less creative responses
+            maxOutputTokens: 800, // Increased to prevent cut-offs
           },
         }),
       }
@@ -143,27 +139,18 @@ export const handler = async (event) => {
     const data = await response.json();
 
     if (!response.ok) {
-      console.error('Gemini API error response:', data);
-
-      const statusCode =
-        data?.error?.code === 429
-          ? 429
-          : data?.error?.code && Number.isInteger(data.error.code)
-          ? data.error.code
-          : 500;
-
       return {
-        statusCode,
+        statusCode: response.status,
         body: JSON.stringify({
           error: 'Gemini API error',
-          details: JSON.stringify(data, null, 2),
+          details: JSON.stringify(data),
         }),
       };
     }
 
     const modelText =
       data?.candidates?.[0]?.content?.parts?.[0]?.text ||
-      'Sorry, I could not generate a response.';
+      'I apologize, but I could not generate a response right now.';
 
     return {
       statusCode: 200,
@@ -172,13 +159,11 @@ export const handler = async (event) => {
       }),
     };
   } catch (err) {
-    console.error('Unexpected server error:', err);
-
     return {
       statusCode: 500,
       body: JSON.stringify({
         error: 'Server error',
-        message: err.message || 'Unknown error',
+        message: err.message,
       }),
     };
   }
