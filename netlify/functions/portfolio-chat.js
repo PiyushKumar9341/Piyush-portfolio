@@ -1,7 +1,7 @@
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-// Note: Changed model name to a verified stable version for Netlify deployment
-const MODEL_NAME = 'gemini-1.5-flash'; 
+const MODEL_NAME = 'gemini-2.5-flash';
 
+// Static portfolio context so the AI knows about your site and work
 const portfolioContext = `
 You are a highly polite, professional, and insightful AI assistant for the personal portfolio of Piyush Kumar.
 
@@ -37,6 +37,7 @@ HOW TO TALK:
 `;
 
 export const handler = async (event) => {
+  // Only allow POST
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
@@ -64,15 +65,16 @@ export const handler = async (event) => {
       };
     }
 
+    // Build contents: portfolio context + optional history + user message
     const contents = [];
 
-    // 1) Initial instruction
+    // 1) Portfolio context as an initial user-style instruction
     contents.push({
       role: 'user',
       parts: [{ text: portfolioContext }],
     });
 
-    // 2) Optional chat history logic (Preserved)
+    // 2) Optional chat history (only user/model roles allowed)
     if (Array.isArray(history)) {
       history.forEach((turn) => {
         if (!turn.role || !turn.text) return;
@@ -91,6 +93,7 @@ export const handler = async (event) => {
       parts: [{ text: message }],
     });
 
+    // Call Gemini API (REST) with contents + generationConfig
     const response = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/${MODEL_NAME}:generateContent?key=${GEMINI_API_KEY}`,
       {
@@ -112,18 +115,26 @@ export const handler = async (event) => {
 
     if (!response.ok) {
       console.error('Gemini API error response:', data);
+
+      const statusCode =
+        data?.error?.code === 429
+          ? 429
+          : data?.error?.code && Number.isInteger(data.error.code)
+          ? data.error.code
+          : 500;
+
       return {
-        statusCode: response.status,
+        statusCode,
         body: JSON.stringify({
           error: 'Gemini API error',
-          details: JSON.stringify(data),
+          details: JSON.stringify(data, null, 2),
         }),
       };
     }
 
     const modelText =
       data?.candidates?.[0]?.content?.parts?.[0]?.text ||
-      'I apologize, but I am having trouble processing that right now.';
+      'Sorry, I could not generate a response.';
 
     return {
       statusCode: 200,
@@ -132,11 +143,13 @@ export const handler = async (event) => {
       }),
     };
   } catch (err) {
+    console.error('Unexpected server error:', err);
+
     return {
       statusCode: 500,
       body: JSON.stringify({
         error: 'Server error',
-        message: err.message,
+        message: err.message || 'Unknown error',
       }),
     };
   }
