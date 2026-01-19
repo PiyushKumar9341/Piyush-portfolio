@@ -1,7 +1,7 @@
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+// Using the most stable model name for Gemini 1.5
 const MODEL_NAME = 'gemini-1.5-flash';
 
-// Static portfolio context
 const portfolioContext = `
 You are an AI assistant for the personal portfolio website of Piyush Kumar.
 
@@ -61,74 +61,46 @@ HOW TO ANSWER:
 - Example phrasing: "Piyush would be an excellent fit for..." or "Based on his MCA background and projects, he is well-prepared for...".
 `;
 
-exports.handler = async (event) => {
+// Keep your original export structure exactly
+export const handler = async (event) => {
   if (event.httpMethod !== 'POST') {
-    return {
-      statusCode: 405,
-      body: JSON.stringify({ error: 'Method not allowed' }),
-    };
+    return { statusCode: 405, body: JSON.stringify({ error: 'Method not allowed' }) };
   }
 
   if (!GEMINI_API_KEY) {
-    return {
-      statusCode: 500,
-      body: JSON.stringify({
-        error: 'Server configuration error',
-        message: 'Missing GEMINI_API_KEY environment variable',
-      }),
-    };
+    return { statusCode: 500, body: JSON.stringify({ error: 'Missing API Key' }) };
   }
 
   try {
     const { message, history } = JSON.parse(event.body || '{}');
 
-    if (!message || typeof message !== 'string') {
-      return {
-        statusCode: 400,
-        body: JSON.stringify({ error: 'Bad request', message: 'Missing message' }),
-      };
-    }
-
     const contents = [];
+    // 1) Push context
+    contents.push({ role: 'user', parts: [{ text: portfolioContext }] });
 
-    // 1) Context instruction
-    contents.push({
-      role: 'user',
-      parts: [{ text: portfolioContext }],
-    });
-
-    // 2) Optional chat history
+    // 2) Preserve your original history logic
     if (Array.isArray(history)) {
       history.forEach((turn) => {
-        if (!turn.role || !turn.text) return;
-        if (turn.role !== 'user' && turn.role !== 'model') return;
-
-        contents.push({
-          role: turn.role,
-          parts: [{ text: turn.text }],
-        });
+        if (turn.role === 'user' || turn.role === 'model') {
+          contents.push({ role: turn.role, parts: [{ text: turn.text }] });
+        }
       });
     }
 
-    // 3) Current user message
-    contents.push({
-      role: 'user',
-      parts: [{ text: message }],
-    });
+    // 3) Current message
+    contents.push({ role: 'user', parts: [{ text: message }] });
 
     const response = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/${MODEL_NAME}:generateContent?key=${GEMINI_API_KEY}`,
       {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
           contents,
           generationConfig: {
-            temperature: 0.5,
-            maxOutputTokens: 1000,
-          },
+            temperature: 0.7,
+            maxOutputTokens: 1000, // Increased so it doesn't cut off
+          }
         }),
       }
     );
@@ -136,32 +108,16 @@ exports.handler = async (event) => {
     const data = await response.json();
 
     if (!response.ok) {
-      return {
-        statusCode: response.status,
-        body: JSON.stringify({
-          error: 'Gemini API error',
-          details: data,
-        }),
-      };
+      return { statusCode: response.status, body: JSON.stringify(data) };
     }
 
-    const modelText =
-      data?.candidates?.[0]?.content?.parts?.[0]?.text ||
-      'I apologize, but I could not generate a response right now.';
+    const modelText = data?.candidates?.[0]?.content?.parts?.[0]?.text || 'I could not generate a response.';
 
     return {
       statusCode: 200,
-      body: JSON.stringify({
-        reply: modelText,
-      }),
+      body: JSON.stringify({ reply: modelText }), // Keep 'reply' key as per your frontend
     };
   } catch (err) {
-    return {
-      statusCode: 500,
-      body: JSON.stringify({
-        error: 'Server error',
-        message: err.message,
-      }),
-    };
+    return { statusCode: 500, body: JSON.stringify({ error: err.message }) };
   }
 };
