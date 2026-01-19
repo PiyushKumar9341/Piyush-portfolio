@@ -1,5 +1,5 @@
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const MODEL_NAME = 'gemini-1.5-flash'; // Optimized for speed and point-wise clarity
+const MODEL_NAME = 'gemini-1.5-flash'; // Stable model for consistent, specific replies
 // Static portfolio context so the AI knows about your site and work
 const portfolioContext = `
 You are an AI assistant for the personal portfolio website of Piyush Kumar.
@@ -100,7 +100,7 @@ export const handler = async (event) => {
       parts: [{ text: portfolioContext }],
     });
 
-    // 2) Optional chat history logic (PRESERVED)
+    // 2) Optional chat history (Preserved)
     if (Array.isArray(history)) {
       history.forEach((turn) => {
         if (!turn.role || !turn.text) return;
@@ -129,8 +129,8 @@ export const handler = async (event) => {
         body: JSON.stringify({
           contents,
           generationConfig: {
-            temperature: 0.5, // Lowered slightly for more specific, less creative responses
-            maxOutputTokens: 800, // Increased to prevent cut-offs
+            temperature: 0.5, // Lowered for more specific, less creative responses
+            maxOutputTokens: 1000, // High enough to avoid cutting off mid-sentence
           },
         }),
       }
