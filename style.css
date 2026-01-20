@@ -12,10 +12,8 @@
   --radius-pill: 999px;
   --nav-height: 80px;
 }
-html {
-  scroll-behavior: smooth;
-}
 
+/* Reset */
 *,
 *::before,
 *::after {
@@ -24,17 +22,23 @@ html {
   box-sizing: border-box;
 }
 
+/* Root scrolling + mobile alignment */
 html {
-  scroll-behavior: smooth;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;               /* smooth in-page scroll */ /* [web:427][web:490] */
+  scroll-padding-top: var(--nav-height); /* avoid header overlap */  /* [web:483] */
 }
 
+/* Page base */
 body {
   width: 100%;
   min-height: 100vh;
   background: radial-gradient(circle at top left, #12122a 0, #050509 45%, #020208 100%);
   font-family: "Open Sans", sans-serif;
   color: #ffffff;
-  overflow-x: hidden;
+  overflow-x: hidden; /* prevent horizontal scroll on mobile */ /* [web:494] */
   padding-top: var(--nav-height);
 }
 
@@ -497,7 +501,7 @@ header#home {
   filter: brightness(1.05);
 }
 
-/* Neutral ghost (for less-important actions) */
+/* Neutral ghost */
 .btn-ghost {
   border-color: rgba(255, 255, 255, 0.16);
   color: var(--text-muted);
@@ -885,14 +889,13 @@ header#home {
   border: 1px solid var(--border-color);
   backdrop-filter: blur(18px);
   box-shadow: var(--shadow-soft);
-  overflow: visible; /* was hidden */
+  overflow: visible;
   display: flex;
   flex-direction: column;
   transform: translateY(0);
   transition: transform var(--transition-fast), box-shadow var(--transition-fast),
     border-color var(--transition-fast);
 }
-
 
 .project-card:hover {
   transform: translateY(-10px);
@@ -929,13 +932,13 @@ header#home {
   opacity: 1;
 }
 
-/* middle content that stretches */
+/* middle content */
 .project-description {
   padding: 1.4rem 1.5rem 1.6rem;
   flex-grow: 1;
 }
 
-/* if you still have project-info somewhere */
+/* if project-info used */
 .project-info {
   padding: 0;
 }
@@ -960,7 +963,7 @@ header#home {
   margin-bottom: 1.1rem;
 }
 
-/* bottom area for buttons */
+/* bottom buttons */
 .button-container {
   margin-top: auto;
   padding: 0 1.5rem 1.6rem;
@@ -1402,7 +1405,7 @@ form h3 {
   transform: translateY(0);
 }
 
-/* Scroll reveal base */
+/* Scroll reveal base: hidden state */
 .animate-on-scroll,
 .skill-card,
 .project-card,
@@ -1411,11 +1414,75 @@ form h3 {
   transform: translateY(30px);
 }
 
-/* JS adds .revealed */
+/* common final state when revealed */
 .revealed {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-  transition: all 0.8s ease-out;
+  opacity: 1;
+}
+
+/* direction-specific animations chosen by JS */
+.reveal-up {
+  animation: fadeUp 0.7s ease-out forwards;
+}
+
+.reveal-up-slow {
+  animation: fadeUp 1s ease-out forwards;
+}
+
+.reveal-left {
+  animation: fadeLeft 0.8s ease-out forwards;
+}
+
+.reveal-right {
+  animation: fadeRight 0.8s ease-out forwards;
+}
+
+.reveal-fade-up {
+  animation: fadeUpSoft 0.9s ease-out forwards;
+}
+
+/* keyframes for reveal */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUpSoft {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 /* Animations */
@@ -1536,9 +1603,14 @@ form h3 {
     padding-left: 10px;
   }
 
+  #scrollToTopBtn {
+    right: 16px;
+    bottom: 16px;
+  }
+
   #ai-assistant {
     right: 16px;
-    bottom: 72px;
+    bottom: 80px;
   }
 
   .ai-chat-panel {
@@ -1556,6 +1628,7 @@ form h3 {
     padding: 70px 0;
   }
 }
+
 /* Project button tooltips using data-tip */
 .project-links .button[data-tip] {
   position: relative;
@@ -1587,7 +1660,7 @@ form h3 {
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-/* clamp horizontally so it doesn't overflow off-screen */
+/* clamp horizontally */
 @media (min-width: 0px) {
   .project-links .button[data-tip]::after {
     left: 50%;

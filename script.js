@@ -37,21 +37,43 @@ navScrollLinks.forEach((link) => {
   });
 });
 
-// Active link on scroll (updated)
+// Scroll to top button
+const scrollBtn = document.getElementById('scrollToTopBtn');
+
+// Sections + nav links for active highlight
 const sections = document.querySelectorAll('section[id], header#home');
 const navLinks = document.querySelectorAll('#main-nav a');
 
-window.addEventListener('scroll', () => {
-  let currentId = 'home'; // default when at very top
-
+// Cache section positions
+const sectionPositions = [];
+function computeSectionPositions() {
+  sectionPositions.length = 0;
   sections.forEach((section) => {
-    const rect = section.getBoundingClientRect();
-    const id = section.id;
+    sectionPositions.push({
+      id: section.id,
+      top: section.offsetTop
+    });
+  });
+}
+computeSectionPositions();
 
-    if (rect.top <= 120 && rect.bottom >= 200) {
+// Recompute after full load (images/fonts may shift layout)
+window.addEventListener('load', computeSectionPositions);
+
+// Active link + scroll-to-top visibility (throttled + passive)
+let ticking = false;
+
+function handleScroll() {
+  const scrollY = window.pageYOffset;
+  const viewOffset = 150; // adjust to align with your header height
+  let currentId = 'home';
+
+  for (let i = 0; i < sectionPositions.length; i++) {
+    const { id, top } = sectionPositions[i];
+    if (scrollY + viewOffset >= top) {
       currentId = id;
     }
-  });
+  }
 
   navLinks.forEach((link) => {
     link.classList.remove('active-link');
@@ -59,14 +81,9 @@ window.addEventListener('scroll', () => {
       link.classList.add('active-link');
     }
   });
-});
 
-// Scroll to top button
-const scrollBtn = document.getElementById('scrollToTopBtn');
-
-if (scrollBtn) {
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
+  if (scrollBtn) {
+    if (scrollY > 300) {
       scrollBtn.style.opacity = '1';
       scrollBtn.style.visibility = 'visible';
       scrollBtn.style.transform = 'translateY(0)';
@@ -75,8 +92,24 @@ if (scrollBtn) {
       scrollBtn.style.visibility = 'hidden';
       scrollBtn.style.transform = 'translateY(10px)';
     }
-  });
+  }
 
+  ticking = false;
+}
+
+window.addEventListener(
+  'scroll',
+  () => {
+    if (!ticking) {
+      window.requestAnimationFrame(handleScroll);
+      ticking = true;
+    }
+  },
+  { passive: true }
+);
+
+// Scroll-to-top click
+if (scrollBtn) {
   scrollBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
