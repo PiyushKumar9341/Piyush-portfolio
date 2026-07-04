@@ -1541,31 +1541,6 @@ form h3 {
   color: #c2cfde;
 }
 
-body.recruiter-mode .logo-watermark-container,
-body.recruiter-mode .third-glow,
-body.recruiter-mode .tech-stack-bg,
-body.recruiter-mode .hero-panel-wrapper,
-body.recruiter-mode .dot-points,
-body.recruiter-mode .project-dot-highlights,
-body.recruiter-mode .ai-toggle-btn,
-body.recruiter-mode .ai-chat-panel {
-  display: none !important;
-}
-
-body.recruiter-mode * {
-  animation: none !important;
-  transition: none !important;
-}
-
-body.recruiter-mode .section-padding {
-  padding: 70px 0;
-}
-
-body.recruiter-mode .project-links .button[data-tip]::after,
-body.recruiter-mode .project-links .button[data-tip]::before {
-  display: none !important;
-}
-
 /* Footer */
 .gift-footer {
   padding: 32px 0 28px;

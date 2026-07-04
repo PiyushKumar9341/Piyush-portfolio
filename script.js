@@ -265,17 +265,6 @@ if (projectFilterButtons.length && projectCards.length) {
   });
 }
 
-// Recruiter mode toggle (clean, concise view)
-const recruiterToggleBtn = document.getElementById('recruiter-mode-toggle');
-if (recruiterToggleBtn) {
-  recruiterToggleBtn.addEventListener('click', () => {
-    document.body.classList.toggle('recruiter-mode');
-    const enabled = document.body.classList.contains('recruiter-mode');
-    recruiterToggleBtn.textContent = enabled ? 'Classic Mode' : 'Recruiter Mode';
-    computeSectionPositions();
-  });
-}
-
 // Case study modal
 const caseStudyModal = document.getElementById('case-study-modal');
 const caseStudyTitle = document.getElementById('case-study-title');
