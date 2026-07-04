@@ -59,6 +59,7 @@ computeSectionPositions();
 
 // Recompute after full load (images/fonts may shift layout)
 window.addEventListener('load', computeSectionPositions);
+window.addEventListener('resize', computeSectionPositions);
 
 // Active link + scroll-to-top visibility (throttled + passive)
 let ticking = false;
@@ -226,6 +227,103 @@ const certObserver = new IntersectionObserver(
 if (certCards.length) {
   certObserver.observe(certCards[0]);
 }
+
+// Timeline line-fill activation
+const timeline = document.querySelector('.timeline');
+if (timeline) {
+  const timelineObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        timeline.classList.add('timeline-active');
+        timelineObserver.disconnect();
+      });
+    },
+    { threshold: 0.35 }
+  );
+  timelineObserver.observe(timeline);
+}
+
+// Project role filters
+const projectFilterButtons = document.querySelectorAll('.project-filter-btn');
+const projectCards = document.querySelectorAll('.project-card');
+
+if (projectFilterButtons.length && projectCards.length) {
+  projectFilterButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const selected = button.getAttribute('data-filter');
+
+      projectFilterButtons.forEach((btn) => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      projectCards.forEach((card) => {
+        const roles = (card.getAttribute('data-roles') || '').split(/\s+/).filter(Boolean);
+        const shouldShow = selected === 'all' || roles.includes(selected);
+        card.classList.toggle('is-hidden', !shouldShow);
+      });
+    });
+  });
+}
+
+// Recruiter mode toggle (clean, concise view)
+const recruiterToggleBtn = document.getElementById('recruiter-mode-toggle');
+if (recruiterToggleBtn) {
+  recruiterToggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('recruiter-mode');
+    const enabled = document.body.classList.contains('recruiter-mode');
+    recruiterToggleBtn.textContent = enabled ? 'Classic Mode' : 'Recruiter Mode';
+    computeSectionPositions();
+  });
+}
+
+// Case study modal
+const caseStudyModal = document.getElementById('case-study-modal');
+const caseStudyTitle = document.getElementById('case-study-title');
+const caseStudyProblem = document.getElementById('case-study-problem');
+const caseStudyBuild = document.getElementById('case-study-build');
+const caseStudyImpact = document.getElementById('case-study-impact');
+const caseStudyClose = document.getElementById('case-study-close');
+const caseStudyButtons = document.querySelectorAll('.case-study-btn');
+
+function closeCaseStudyModal() {
+  if (!caseStudyModal) return;
+  caseStudyModal.classList.remove('open');
+  caseStudyModal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+if (caseStudyModal && caseStudyButtons.length) {
+  caseStudyButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      if (!caseStudyTitle || !caseStudyProblem || !caseStudyBuild || !caseStudyImpact) return;
+      caseStudyTitle.textContent = btn.getAttribute('data-case-title') || 'Case Study';
+      caseStudyProblem.textContent = btn.getAttribute('data-case-problem') || '';
+      caseStudyBuild.textContent = btn.getAttribute('data-case-build') || '';
+      caseStudyImpact.textContent = btn.getAttribute('data-case-impact') || '';
+      caseStudyModal.classList.add('open');
+      caseStudyModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  caseStudyModal.addEventListener('click', (e) => {
+    const target = e.target;
+    if (!(target instanceof HTMLElement)) return;
+    if (target.hasAttribute('data-close-modal')) {
+      closeCaseStudyModal();
+    }
+  });
+}
+
+if (caseStudyClose) {
+  caseStudyClose.addEventListener('click', closeCaseStudyModal);
+}
+
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeCaseStudyModal();
+  }
+});
 
 // Current year in footer
 const yearSpan = document.getElementById('current-year');

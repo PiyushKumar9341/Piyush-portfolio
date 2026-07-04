@@ -80,6 +80,10 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
 
+        <button id="recruiter-mode-toggle" class="button btn-ghost recruiter-toggle" type="button">
+          Recruiter Mode
+        </button>
+
         <button class="hamburger" aria-label="Toggle navigation">
           <i class="fas fa-bars"></i>
         </button>
@@ -112,7 +116,7 @@
                 View My Work
               </a>
 
-              <a href="Piyush.pdf" download class="button btn-blue">
+              <a href="Resume.pdf" download class="button btn-blue">
                 <i class="fas fa-download"></i>
                 <span>Download Resume</span>
               </a>
@@ -153,7 +157,7 @@
         <div class="about-top">
           <div class="about-image-wrapper glow">
             <div class="image-glow"></div>
-            <img src="Image.png" alt="Piyush Kumar" class="about-profile-img" />
+            <img src="piyush.jpeg" alt="Piyush Kumar" class="about-profile-img" />
           </div>
         </div>
 
@@ -175,6 +179,11 @@
                 I enjoy designing system architectures, optimizing performance, and translating
                 complex ideas into clean, maintainable code.
               </p>
+              <ul class="dot-points animate-on-scroll">
+                <li>Building role-focused products with clean and scalable architecture.</li>
+                <li>Combining engineering quality with practical UI/UX thinking.</li>
+                <li>Turning AI and analytics concepts into usable real-world features.</li>
+              </ul>
             </div>
 
             <div class="about-highlights">
@@ -310,6 +319,11 @@
             <p class="cert-desc">
               Simulated real-world analytics tasks using GenAI to extract insights from data.
             </p>
+            <p class="cert-verify">
+              <a href="https://www.linkedin.com/posts/piyush-kumar111_generativeai-dataanalytics-ai-activity-7349714450175643648-aS6N?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEDMls4BD1Sm6ghZLzTy25bQaAJUHNlaGr4" target="_blank" rel="noopener noreferrer" class="cert-verify-link" title="View LinkedIn verification post">
+                Verification link
+              </a>
+            </p>
           </article>
         </div>
       </div>
@@ -399,6 +413,11 @@
                 <li>Built responsive web applications using React, Node.js, and REST APIs.</li>
                 <li>Implemented authentication, dashboards, and reusable UI components.</li>
               </ul>
+              <div class="timeline-tags">
+                <span class="timeline-chip">Built</span>
+                <span class="timeline-chip">Shipped</span>
+                <span class="timeline-chip">Improved UX</span>
+              </div>
             </div>
           </div>
 
@@ -411,6 +430,11 @@
                 <li>Collaborated on UI improvements and bug fixes in a production codebase.</li>
                 <li>Learned Git workflows, code reviews, and agile processes.</li>
               </ul>
+              <div class="timeline-tags">
+                <span class="timeline-chip">Collaborated</span>
+                <span class="timeline-chip">Debugged</span>
+                <span class="timeline-chip">Delivered</span>
+              </div>
             </div>
           </div>
 
@@ -422,6 +446,10 @@
               <ul>
                 <li>Focused on data structures, algorithms, and software engineering.</li>
               </ul>
+              <div class="timeline-tags">
+                <span class="timeline-chip">Core CS</span>
+                <span class="timeline-chip">Problem Solving</span>
+              </div>
             </div>
           </div>
         </div>
@@ -435,9 +463,20 @@
           <span class="code-bracket">[</span> Featured_Projects <span class="code-bracket">]</span>
         </h2>
 
+        <div class="project-filters animate-on-scroll" role="tablist" aria-label="Project role filters">
+          <button type="button" class="project-filter-btn active" data-filter="all">All</button>
+          <button type="button" class="project-filter-btn" data-filter="fullstack">Full Stack</button>
+          <button type="button" class="project-filter-btn" data-filter="ai">AI / ML</button>
+          <button type="button" class="project-filter-btn" data-filter="analytics">Business Analytics</button>
+        </div>
+
         <div class="projects-grid">
           <!-- Project 1: Advanced Todo List -->
-          <div class="project-card" data-category="frontend">
+          <div class="project-card" data-category="frontend" data-roles="fullstack">
+            <div class="project-meta-row">
+              <span class="project-no">01</span>
+              <span class="project-track">Frontend</span>
+            </div>
             <div class="project-image">
               <img src="Adva.jpeg" alt="Advanced Todo List" />
             </div>
@@ -455,6 +494,11 @@
                 <span class="tech-tag pink">LocalStorage</span>
                 <span class="tech-tag cyan">UX Details</span>
               </div>
+              <div class="project-dot-highlights animate-on-scroll">
+                <div class="dot-highlight"><span class="dot"></span><span>Problem: daily task clutter</span></div>
+                <div class="dot-highlight"><span class="dot"></span><span>Build: fast keyboard flow</span></div>
+                <div class="dot-highlight"><span class="dot"></span><span>Impact: smoother daily planning</span></div>
+              </div>
             </div>
 
             <div class="button-container">
@@ -462,9 +506,19 @@
                 <a href="https://advatodo.netlify.app/" target="_blank" class="button btn-cyan">
                   Demo
                 </a>
-                <a href="https://github.com/PiyushKumar9341" target="_blank" class="button btn-ghost">
-                  Code
+                <a href="#" class="button btn-ghost" title="Add Advanced Todo repository URL">
+                  Repo Soon
                 </a>
+                <button
+                  class="button btn-ghost case-study-btn"
+                  type="button"
+                  data-case-title="Advanced Todo List"
+                  data-case-problem="Managing daily tasks quickly without losing progress on refresh."
+                  data-case-build="Built a keyboard-friendly task manager with localStorage persistence, filters, and micro-interactions."
+                  data-case-impact="Improved productivity flow and delivered a fast, responsive UX for everyday planning."
+                >
+                  Case Study
+                </button>
                 <button
                   class="button btn-ghost"
                   type="button"
@@ -484,7 +538,11 @@
           </div>
 
           <!-- Project 2: Analytics Dashboard -->
-          <div class="project-card" data-category="fullstack">
+          <div class="project-card" data-category="fullstack" data-roles="fullstack analytics">
+            <div class="project-meta-row">
+              <span class="project-no">02</span>
+              <span class="project-track">Full Stack</span>
+            </div>
             <div class="project-image">
               <img src="Dashboard.jpeg" alt="Analytics Dashboard" />
             </div>
@@ -502,16 +560,31 @@
                 <span class="tech-tag pink">Node.js</span>
                 <span class="tech-tag cyan">Charts</span>
               </div>
+              <div class="project-dot-highlights animate-on-scroll">
+                <div class="dot-highlight"><span class="dot"></span><span>Problem: KPI visibility gaps</span></div>
+                <div class="dot-highlight"><span class="dot"></span><span>Build: charts + role-based views</span></div>
+                <div class="dot-highlight"><span class="dot"></span><span>Impact: quicker monitoring decisions</span></div>
+              </div>
             </div>
 
             <div class="button-container">
               <div class="project-links">
-                <a href="#" target="_blank" class="button btn-cyan">
-                  Demo
+                <a href="#" class="button btn-cyan" title="Demo coming soon">
+                  Demo Soon
                 </a>
-                <a href="https://github.com/PiyushKumar9341" target="_blank" class="button btn-ghost">
-                  Code
+                <a href="#" class="button btn-ghost" title="Add Analytics Dashboard repository URL">
+                  Repo Soon
                 </a>
+                <button
+                  class="button btn-ghost case-study-btn"
+                  type="button"
+                  data-case-title="Analytics Dashboard"
+                  data-case-problem="Teams lacked one place to track KPI trends and role-specific views."
+                  data-case-build="Created a responsive dashboard layout with chart zones, filters, and API-driven role sections."
+                  data-case-impact="Made key metrics easier to read quickly and improved decision visibility."
+                >
+                  Case Study
+                </button>
                 <button
                   class="button btn-ghost"
                   type="button"
@@ -531,7 +604,11 @@
           </div>
 
           <!-- Project 3: AI-Powered Assistant -->
-          <div class="project-card" data-category="ai">
+          <div class="project-card" data-category="ai" data-roles="ai fullstack">
+            <div class="project-meta-row">
+              <span class="project-no">03</span>
+              <span class="project-track">AI / GenAI</span>
+            </div>
             <div class="project-image">
               <img src="Aii.jpeg" alt="AI-Powered Assistant" />
             </div>
@@ -549,16 +626,31 @@
                 <span class="tech-tag pink">LangChain</span>
                 <span class="tech-tag cyan">GenAI</span>
               </div>
+              <div class="project-dot-highlights animate-on-scroll">
+                <div class="dot-highlight"><span class="dot"></span><span>Problem: instant AI guidance</span></div>
+                <div class="dot-highlight"><span class="dot"></span><span>Build: prompt-aware assistant flow</span></div>
+                <div class="dot-highlight"><span class="dot"></span><span>Impact: better user engagement</span></div>
+              </div>
             </div>
 
             <div class="button-container">
               <div class="project-links">
-                <a href="#" target="_blank" class="button btn-cyan">
-                  Demo
+                <a href="#" class="button btn-cyan" title="Demo coming soon">
+                  Demo Soon
                 </a>
-                <a href="https://github.com/PiyushKumar9341" target="_blank" class="button btn-ghost">
-                  Code
+                <a href="#" class="button btn-ghost" title="Add AI Assistant repository URL">
+                  Repo Soon
                 </a>
+                <button
+                  class="button btn-ghost case-study-btn"
+                  type="button"
+                  data-case-title="AI-Powered Assistant"
+                  data-case-problem="Users needed quick contextual answers inside a web product."
+                  data-case-build="Integrated GenAI APIs with frontend chat flow, prompt tuning, and response/error handling."
+                  data-case-impact="Delivered interactive AI support and improved engagement with guided responses."
+                >
+                  Case Study
+                </button>
                 <button
                   class="button btn-ghost"
                   type="button"
@@ -578,7 +670,11 @@
           </div>
 
           <!-- Project 4: This Portfolio -->
-          <div class="project-card" data-category="frontend">
+          <div class="project-card" data-category="frontend" data-roles="fullstack ai">
+            <div class="project-meta-row">
+              <span class="project-no">04</span>
+              <span class="project-track">Brand / UI</span>
+            </div>
             <div class="project-image">
               <img src="Portfolio.jpeg" alt="Portfolio Website" />
             </div>
@@ -596,6 +692,11 @@
                 <span class="tech-tag pink">CSS</span>
                 <span class="tech-tag cyan">JavaScript</span>
               </div>
+              <div class="project-dot-highlights animate-on-scroll">
+                <div class="dot-highlight"><span class="dot"></span><span>Problem: showcase skills clearly</span></div>
+                <div class="dot-highlight"><span class="dot"></span><span>Build: modern neon UI + sections</span></div>
+                <div class="dot-highlight"><span class="dot"></span><span>Impact: stronger recruiter storytelling</span></div>
+              </div>
             </div>
 
             <div class="button-container">
@@ -603,9 +704,19 @@
                 <a href="https://piyushdev-ai.netlify.app/" target="_blank" class="button btn-cyan">
                   Demo
                 </a>
-                <a href="https://github.com/PiyushKumar9341" target="_blank" class="button btn-ghost">
-                  Code
+                <a href="#" class="button btn-ghost" title="Add Portfolio repository URL">
+                  Repo Soon
                 </a>
+                <button
+                  class="button btn-ghost case-study-btn"
+                  type="button"
+                  data-case-title="Portfolio Website"
+                  data-case-problem="Needed one platform to present skills across Full Stack, AI/ML, and Analytics roles."
+                  data-case-build="Designed and built a modern portfolio with role filters, animations, AI assistant, and Netlify integrations."
+                  data-case-impact="Improved recruiter clarity and created a memorable personal brand experience."
+                >
+                  Case Study
+                </button>
                 <button
                   class="button btn-ghost"
                   type="button"
@@ -622,6 +733,49 @@
                 </button>
               </div>
             </div>
+          </div>
+
+          <!-- Project 5: Business Analytics Case Study -->
+          
+        </div>
+      </div>
+    </section>
+
+    <section id="analytics-artifact" class="section-padding animate-on-scroll">
+      <div class="container analytics-artifact-container">
+        <h2 class="section-title">
+          <span class="code-bracket">&lt;</span> Analytics_Artifact <span class="code-bracket">/&gt;</span>
+        </h2>
+        <div class="analytics-artifact-card">
+          <div class="artifact-header">
+            <h3>Sample KPI Insight Snapshot</h3>
+            <span class="artifact-badge">Business Analytics Focus</span>
+          </div>
+          <p>
+            This artifact style shows how I convert data into business actions: define KPIs, detect
+            trend movement, and summarize recommendations for stakeholders.
+          </p>
+          <div class="artifact-kpis">
+            <div class="artifact-kpi">
+              <span class="kpi-label">Revenue Growth</span>
+              <strong class="kpi-value">+18.4%</strong>
+              <span class="kpi-note">Quarter-over-quarter trend</span>
+            </div>
+            <div class="artifact-kpi">
+              <span class="kpi-label">Customer Churn</span>
+              <strong class="kpi-value">-7.2%</strong>
+              <span class="kpi-note">Retention improved after campaign</span>
+            </div>
+            <div class="artifact-kpi">
+              <span class="kpi-label">Lead Conversion</span>
+              <strong class="kpi-value">+11.6%</strong>
+              <span class="kpi-note">Funnel drop-offs reduced</span>
+            </div>
+          </div>
+          <div class="artifact-insights">
+            <p><span>Insight 1:</span> Revenue momentum is strongest in recurring-customer segments.</p>
+            <p><span>Insight 2:</span> Churn reduction correlates with faster support response windows.</p>
+            <p><span>Recommendation:</span> Prioritize retention playbooks before scaling acquisition spend.</p>
           </div>
         </div>
       </div>
@@ -672,7 +826,7 @@
           Download my resume to explore detailed experience, education, and the technologies I
           work with.
         </p>
-        <a href="Piyush.pdf" download class="button btn-cyan">
+        <a href="Resume.pdf" download class="button btn-cyan">
           <i class="fas fa-download"></i> Download Resume (PDF)
         </a>
       </div>
@@ -804,6 +958,28 @@
     <button id="scrollToTopBtn" title="Go to top" class="button btn-cyan">
       <i class="fas fa-arrow-up"></i>
     </button>
+
+    <div id="case-study-modal" class="case-study-modal" aria-hidden="true">
+      <div class="case-study-backdrop" data-close-modal="true"></div>
+      <div class="case-study-content" role="dialog" aria-modal="true" aria-labelledby="case-study-title">
+        <button id="case-study-close" class="case-study-close" type="button" aria-label="Close case study">
+          <i class="fas fa-times"></i>
+        </button>
+        <h3 id="case-study-title"></h3>
+        <div class="case-study-block">
+          <h4>Problem</h4>
+          <p id="case-study-problem"></p>
+        </div>
+        <div class="case-study-block">
+          <h4>What I Built</h4>
+          <p id="case-study-build"></p>
+        </div>
+        <div class="case-study-block">
+          <h4>Impact</h4>
+          <p id="case-study-impact"></p>
+        </div>
+      </div>
+    </div>
 
     <!-- Scripts -->
     <script src="script.js"></script>
