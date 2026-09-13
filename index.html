@@ -1660,34 +1660,48 @@
 
   <!-- AI Portfolio Assistant -->
   <div id="ai-assistant">
-    <button id="ai-toggle-btn" class="ai-toggle-btn" title="Chat with my AI Assistant">
+    <button id="ai-toggle-btn" class="ai-toggle-btn" title="Chat with Piyush AI Assistant" aria-label="Open AI Portfolio Assistant">
+      <div class="ai-toggle-glow"></div>
       <i class="fas fa-robot"></i>
+      <span class="ai-toggle-badge">AI</span>
     </button>
 
     <div id="ai-chat-panel" class="ai-chat-panel">
       <div class="ai-chat-header">
-        <div class="ai-chat-title">
-          <i class="fas fa-robot"></i>
-          <span>AI Portfolio Assistant</span>
+        <div class="ai-chat-title-group">
+          <div class="ai-chat-avatar">
+            <i class="fas fa-robot"></i>
+          </div>
+          <div class="ai-chat-meta">
+            <span class="ai-chat-name">Piyush AI Assistant</span>
+            <span class="ai-chat-status"><span class="status-dot"></span> Online • Local KB Ready</span>
+          </div>
         </div>
         <button id="ai-close-btn" class="ai-close-btn" aria-label="Close chat">
           <i class="fas fa-times"></i>
         </button>
       </div>
 
+      <!-- Quick Prompt Suggestions -->
+      <div class="ai-quick-prompts">
+        <button class="ai-chip" data-prompt="What are Piyush's top projects?">🚀 Top Projects</button>
+        <button class="ai-chip" data-prompt="What is Piyush's technical skill set?">⚡ Tech Stack</button>
+        <button class="ai-chip" data-prompt="Tell me about Piyush's education & certifications">🎓 Education</button>
+        <button class="ai-chip" data-prompt="How can I contact or hire Piyush?">📩 Contact Info</button>
+      </div>
+
       <div id="ai-chat-messages" class="ai-chat-messages">
         <div class="ai-message ai-bot">
-          <p>
-            Hi, I can answer questions about Piyush’s skills, projects, and tech choices. Ask
-            anything!
-          </p>
+          <div class="ai-msg-avatar"><i class="fas fa-robot"></i></div>
+          <div class="ai-msg-bubble">
+            <p>👋 Hi! I'm Piyush's AI Assistant. Ask me anything about his skills, projects, background, or click a quick prompt below!</p>
+          </div>
         </div>
       </div>
 
       <form id="ai-chat-form" class="ai-chat-input-row">
-        <input type="text" id="ai-user-input" placeholder="Ask about a project, tech, or role..." autocomplete="off"
-          required />
-        <button type="submit" id="ai-send-btn">
+        <input type="text" id="ai-user-input" placeholder="Ask about Piyush's projects, skills..." autocomplete="off" required />
+        <button type="submit" id="ai-send-btn" title="Send message" aria-label="Send message">
           <i class="fas fa-paper-plane"></i>
         </button>
       </form>

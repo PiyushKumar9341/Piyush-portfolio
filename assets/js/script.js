@@ -397,16 +397,43 @@ if (aiCloseBtn && aiChatPanel) {
   });
 }
 
+// Quick Prompt Chips Trigger
+const promptChips = document.querySelectorAll('.ai-chip');
+promptChips.forEach((chip) => {
+  chip.addEventListener('click', () => {
+    const promptText = chip.getAttribute('data-prompt');
+    if (promptText && aiUserInput) {
+      aiUserInput.value = promptText;
+      if (aiChatForm) {
+        aiChatForm.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
+      }
+    }
+  });
+});
+
 // Helper: append message bubble
 function appendAiMessage(text, type = 'bot') {
   if (!aiMessages) return;
   const wrapper = document.createElement('div');
-  wrapper.classList.add('ai-message');
-  wrapper.classList.add(type === 'user' ? 'ai-user' : 'ai-bot');
+  wrapper.classList.add('ai-message', type === 'user' ? 'ai-user' : 'ai-bot');
 
-  const p = document.createElement('p');
-  p.textContent = text;
-  wrapper.appendChild(p);
+  const avatar = document.createElement('div');
+  avatar.classList.add('ai-msg-avatar');
+  avatar.innerHTML = type === 'user' ? '<i class="fas fa-user"></i>' : '<i class="fas fa-robot"></i>';
+
+  const bubble = document.createElement('div');
+  bubble.classList.add('ai-msg-bubble');
+
+  if (typeof text === 'string' && (text.includes('<br>') || text.includes('<strong>') || text.includes('<ul>'))) {
+    bubble.innerHTML = `<p>${text}</p>`;
+  } else {
+    const p = document.createElement('p');
+    p.textContent = text;
+    bubble.appendChild(p);
+  }
+
+  wrapper.appendChild(avatar);
+  wrapper.appendChild(bubble);
 
   aiMessages.appendChild(wrapper);
   aiMessages.scrollTop = aiMessages.scrollHeight;
@@ -417,11 +444,19 @@ let typingEl = null;
 function showTyping() {
   if (!aiMessages) return;
   typingEl = document.createElement('div');
-  typingEl.classList.add('ai-message', 'ai-bot', 'ai-typing');
-  typingEl.textContent = 'Thinking...';
+  typingEl.classList.add('ai-message', 'ai-bot');
+  typingEl.innerHTML = `
+    <div class="ai-msg-avatar"><i class="fas fa-robot"></i></div>
+    <div class="ai-msg-bubble">
+      <div class="ai-typing-dots">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  `;
   aiMessages.appendChild(typingEl);
   aiMessages.scrollTop = aiMessages.scrollHeight;
 }
+
 function hideTyping() {
   if (typingEl && typingEl.parentNode) {
     typingEl.parentNode.removeChild(typingEl);
@@ -429,10 +464,52 @@ function hideTyping() {
   }
 }
 
+// Smart Local Knowledge Base Fallback Engine
+function getLocalAiReply(question) {
+  const q = question.toLowerCase();
+
+  if (q.includes('project') || q.includes('work') || q.includes('build') || q.includes('budget') || q.includes('yatra') || q.includes('task') || q.includes('logistics') || q.includes('agri') || q.includes('resolve')) {
+    return `<strong>Piyush's Key Projects:</strong><br>
+    • <strong>BudgetYatra:</strong> Travel expense splitter & budget management app.<br>
+    • <strong>TaskCraft Pro:</strong> Kanban workflow platform with real-time metrics.<br>
+    • <strong>Logistics BI:</strong> NSDC supply chain performance analytics dashboard.<br>
+    • <strong>Agriculture Analytics:</strong> ML crop yield prediction platform.`;
+  }
+
+  if (q.includes('skill') || q.includes('tech') || q.includes('stack') || q.includes('python') || q.includes('javascript') || q.includes('sql') || q.includes('react') || q.includes('power bi')) {
+    return `<strong>Piyush's Technical Stack:</strong><br>
+    • <strong>Languages:</strong> Python, JavaScript, SQL, HTML5, CSS3.<br>
+    • <strong>Analytics & Data:</strong> Power BI, EDA, Advanced Excel, SQL Aggregations.<br>
+    • <strong>Frameworks & Tools:</strong> Firebase, REST APIs, Git/GitHub, Netlify.`;
+  }
+
+  if (q.includes('education') || q.includes('mca') || q.includes('bca') || q.includes('degree') || q.includes('college') || q.includes('cgpa')) {
+    return `<strong>Educational Qualifications:</strong><br>
+    • <strong>MCA:</strong> Chandigarh University (2024–2026) | CGPA: 8.5 / 10.<br>
+    • <strong>BCA:</strong> Tilka Manjhi Bhagalpur University (2020–2023) | 77.8%.`;
+  }
+
+  if (q.includes('certif') || q.includes('cert') || q.includes('ibm') || q.includes('vois') || q.includes('yuva') || q.includes('hackerrank')) {
+    return `<strong>Featured Certifications:</strong><br>
+    • <strong>IBM SkillsBuild:</strong> Data Analytics with AI (#PLAN-D44A9C2C463C).<br>
+    • <strong>VOIS for Tech AICTE:</strong> Data Analytics Intern Cohort.<br>
+    • <strong>YuvaIntern NSDC:</strong> Supply Chain Data Analyst (#YI/2026/164976).<br>
+    • <strong>HackerRank:</strong> SQL & Python Skill Badges.`;
+  }
+
+  if (q.includes('contact') || q.includes('hire') || q.includes('email') || q.includes('linkedin') || q.includes('github') || q.includes('job') || q.includes('reach')) {
+    return `<strong>Contact Information:</strong><br>
+    • <strong>Email:</strong> piyus.kr9341@gmail.com<br>
+    • <strong>LinkedIn:</strong> linkedin.com/in/piyush-kumar-9341<br>
+    • <strong>GitHub:</strong> github.com/PiyushKumar9341<br>
+    • <strong>Status:</strong> 🟢 Available for Web Dev & Data Analytics opportunities!`;
+  }
+
+  return `Piyush is a Full-Stack Developer and Data Analyst completing his MCA at Chandigarh University (8.5 CGPA). Ask me about his <strong>projects</strong>, <strong>skills</strong>, <strong>education</strong>, or <strong>contact details</strong>!`;
+}
+
 // AI endpoint
 const AI_ENDPOINT = '/.netlify/functions/portfolio-chat';
-
-// Optional simple history
 let aiHistory = [];
 
 // Handle form submit
@@ -459,47 +536,31 @@ if (aiChatForm && aiUserInput) {
         })
       });
 
-      let data;
-      try {
-        data = await response.json();
-      } catch (err) {
-        console.error('Failed to parse JSON from function:', err);
-        hideTyping();
-        appendAiMessage('Assistant returned an invalid response.', 'bot');
-        return;
-      }
-
-      console.log('FUNCTION RAW RESPONSE:', data);
-
-      hideTyping();
-
-      if (!response.ok) {
-        if (response.status === 429) {
-          appendAiMessage(
-            'AI limit reached for now. Please try again later or check Gemini API quota.',
-            'bot'
-          );
-        } else {
-          appendAiMessage(
-            data.message || 'Sorry, something went wrong. Please try again later.',
-            'bot'
-          );
+      let data = null;
+      if (response.ok) {
+        try {
+          data = await response.json();
+        } catch (err) {
+          console.warn('JSON parse error from AI endpoint:', err);
         }
-        return;
       }
 
-      const answer =
-        data && typeof data.reply === 'string'
-          ? data.reply
-          : 'I could not generate a response right now.';
-      appendAiMessage(answer, 'bot');
-
-      aiHistory.push({ role: 'user', text: question });
-      aiHistory.push({ role: 'model', text: answer });
-    } catch (err) {
-      console.error('Frontend error:', err);
       hideTyping();
-      appendAiMessage('Network error. Please check your connection and try again.', 'bot');
+
+      if (data && typeof data.reply === 'string' && data.reply.trim().length > 0) {
+        appendAiMessage(data.reply, 'bot');
+        aiHistory.push({ role: 'user', text: question });
+        aiHistory.push({ role: 'model', text: data.reply });
+      } else {
+        // Use smart local fallback engine when API is unavailable or rate limited
+        const localReply = getLocalAiReply(question);
+        appendAiMessage(localReply, 'bot');
+      }
+    } catch (err) {
+      console.warn('Backend fetch failed, falling back to local KB engine:', err);
+      hideTyping();
+      const localReply = getLocalAiReply(question);
+      appendAiMessage(localReply, 'bot');
     }
   });
 }
