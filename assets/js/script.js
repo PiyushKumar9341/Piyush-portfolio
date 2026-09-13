@@ -472,17 +472,26 @@ function getLocalAiReply(question) {
     return `Piyush Kumar is a Data Analyst and Full-Stack Developer completing his MCA at Chandigarh University (8.5 CGPA). He builds web applications and analytics dashboards.`;
   }
 
-  // Data Analytics (DA)
-  if (q.includes('da') || q.includes('data analyst') || q.includes('data analytics') || q.includes('business analytics') || q.includes('power bi') || q.includes('eda') || q.includes('kpi')) {
+  // Web Development (Strictly Web Dev only)
+  if (q.includes('web dev') || q.includes('web development') || q.includes('frontend') || q.includes('backend') || q.includes('full stack') || q.includes('fullstack') || q.includes('javascript') || q.includes('react') || q.includes('html') || q.includes('css') || q.includes('dits') || q.includes('freelance')) {
+    return `<strong>Piyush's Web Development Specialization:</strong><br>
+    • <strong>Experience:</strong> Web Developer Intern at Dits Company India & Freelance Web Developer (Retail Business App).<br>
+    • <strong>Tech Stack:</strong> JavaScript (ES6+), HTML5, Modern CSS (Glassmorphism, Flexbox, Grid), Node.js, Express, REST APIs, Firebase Auth.<br>
+    • <strong>Web Projects:</strong> BudgetYatra (Travel Budget Splitter), TaskCraft Pro (Kanban Workflow App), ResolveDesk.<br>
+    • <strong>Fit:</strong> 🟢 Ready for Web Development & Full-Stack Engineering roles!`;
+  }
+
+  // Data Analytics (Strictly DA only)
+  if (q.includes('da') || q.includes('data analyst') || q.includes('data analytics') || q.includes('business analytics') || q.includes('power bi') || q.includes('eda') || q.includes('kpi') || q.includes('sql') || q.includes('excel')) {
     return `<strong>Piyush's Data Analytics (DA) Specialization:</strong><br>
-    • <strong>DA Internships:</strong> Logistics Analyst at NSDC (#YI/2026/164976), IBM SkillsBuild DA with AI (#PLAN-D44A9C2C463C), and _VOIS AICTE.<br>
+    • <strong>DA Internships:</strong> Logistics Data Analyst at NSDC (#YI/2026/164976), IBM SkillsBuild DA with AI (#PLAN-D44A9C2C463C), and _VOIS AICTE.<br>
     • <strong>Tools & Stack:</strong> SQL (Complex Aggregations & Joins), Power BI, Advanced Excel (DAX & Pivots), Python (Pandas, NumPy, EDA).<br>
     • <strong>DA Projects:</strong> Logistics BI Dashboard (Supply Chain KPIs) & Agriculture Analytics Platform.<br>
     • <strong>Fit:</strong> 🟢 Ready for Data Analyst & Business Intelligence roles!`;
   }
 
   // Internships & Experience
-  if (q.includes('experience') || q.includes('intern') || q.includes('company') || q.includes('dits') || q.includes('freelance') || q.includes('ibm') || q.includes('nsdc')) {
+  if (q.includes('experience') || q.includes('intern') || q.includes('company') || q.includes('ibm') || q.includes('nsdc')) {
     return `<strong>Piyush's Experience & Internships:</strong><br>
     • <strong>Web Developer Intern:</strong> Dits Company India (Frontend, SQL, Backend, Git).<br>
     • <strong>Freelance Web Developer:</strong> Built Retail Business App (Booking, Auth, Firebase).<br>
@@ -502,7 +511,7 @@ function getLocalAiReply(question) {
   }
 
   // Technical Skills
-  if (q.includes('skill') || q.includes('tech') || q.includes('stack') || q.includes('python') || q.includes('javascript') || q.includes('sql') || q.includes('react') || q.includes('power bi')) {
+  if (q.includes('skill') || q.includes('tech') || q.includes('stack') || q.includes('python')) {
     return `<strong>Piyush's Technical Stack:</strong><br>
     • <strong>Data & Analytics:</strong> Power BI, SQL (Aggregations & Joins), Advanced Excel (DAX & Pivots), Python (Pandas, NumPy, EDA).<br>
     • <strong>Languages & Web:</strong> Python, JavaScript (ES6+), HTML5, CSS3 (Glassmorphism), REST APIs.<br>
@@ -535,7 +544,7 @@ function getLocalAiReply(question) {
     • <strong>Status:</strong> 🟢 Open to Data Analytics & Full-Stack Web Development roles!`;
   }
 
-  return `I can answer questions about Piyush's <strong>projects</strong>, <strong>technical skills</strong>, <strong>Data Analytics background</strong>, <strong>education</strong>, or <strong>contact info</strong>. What would you like to know?`;
+  return `I can answer questions about Piyush's <strong>Web Development skills</strong>, <strong>Data Analytics background</strong>, <strong>projects</strong>, <strong>education</strong>, or <strong>contact info</strong>. What would you like to know?`;
 }
 
 // AI endpoint
