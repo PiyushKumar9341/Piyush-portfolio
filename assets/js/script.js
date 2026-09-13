@@ -417,22 +417,17 @@ function appendAiMessage(text, type = 'bot') {
   const wrapper = document.createElement('div');
   wrapper.classList.add('ai-message', type === 'user' ? 'ai-user' : 'ai-bot');
 
-  const avatar = document.createElement('div');
-  avatar.classList.add('ai-msg-avatar');
-  avatar.innerHTML = type === 'user' ? '<i class="fas fa-user"></i>' : '<i class="fas fa-robot"></i>';
-
   const bubble = document.createElement('div');
   bubble.classList.add('ai-msg-bubble');
 
   if (typeof text === 'string' && (text.includes('<br>') || text.includes('<strong>') || text.includes('<ul>'))) {
-    bubble.innerHTML = `<p>${text}</p>`;
+    bubble.innerHTML = text;
   } else {
     const p = document.createElement('p');
     p.textContent = text;
     bubble.appendChild(p);
   }
 
-  wrapper.appendChild(avatar);
   wrapper.appendChild(bubble);
 
   aiMessages.appendChild(wrapper);
@@ -446,7 +441,6 @@ function showTyping() {
   typingEl = document.createElement('div');
   typingEl.classList.add('ai-message', 'ai-bot');
   typingEl.innerHTML = `
-    <div class="ai-msg-avatar"><i class="fas fa-robot"></i></div>
     <div class="ai-msg-bubble">
       <div class="ai-typing-dots">
         <span></span><span></span><span></span>
