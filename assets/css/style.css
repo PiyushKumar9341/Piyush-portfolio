@@ -2269,96 +2269,93 @@ form h3 {
   object-fit: cover;
 }
 
-/* Scroll to top button */
-#scrollToTopBtn {
-  position: fixed;
-  right: 24px;
-  bottom: 24px;
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  border: 1px solid #00bcd4;
-  background:
-    radial-gradient(circle at 30% 0%, rgba(0, 188, 212, 0.35), rgba(5, 5, 15, 0.96));
-  box-shadow:
-    0 0 14px rgba(0, 188, 212, 0.8),
-    0 0 26px rgba(255, 64, 129, 0.55);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #e0f7fa;
-  cursor: pointer;
-  z-index: 500;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(10px);
-  transition:
-    opacity 0.25s ease,
-    visibility 0.25s ease,
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    background 0.25s ease;
-}
-
-/* override pill padding from .button */
-#scrollToTopBtn.button {
-  padding: 0;
-  border-radius: 50%;
-}
-
-#scrollToTopBtn i {
-  font-size: 0.95rem;
-}
-
-#scrollToTopBtn:hover {
-  box-shadow:
-    0 0 20px rgba(0, 188, 212, 1),
-    0 0 40px rgba(255, 64, 129, 0.85);
-  transform: translateY(0) scale(1.07);
-}
-
-#scrollToTopBtn:active {
-  transform: translateY(1px) scale(0.97);
-}
-
 /* ==========================================================================
-   AI Assistant Glassmorphic Panel & Floating Launcher
+   Floating Action Buttons (Scroll To Top & AI Assistant Twin Launchers)
    ========================================================================== */
-#ai-assistant {
-  position: fixed;
-  right: 24px;
-  bottom: 82px;
-  z-index: 10000;
-}
-
-/* Floating Launcher Button */
+/* Base Shared FAB Container & Dimensions */
+#scrollToTopBtn,
 .ai-toggle-btn {
   width: 46px;
   height: 46px;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
   border-radius: 50%;
-  border: 1px solid rgba(0, 242, 254, 0.5);
-  background: radial-gradient(circle at 30% 20%, rgba(0, 242, 254, 0.35), rgba(8, 12, 26, 0.95));
-  box-shadow: 
-    0 0 16px rgba(0, 242, 254, 0.45),
-    0 8px 24px rgba(0, 0, 0, 0.6);
-  color: #00f2fe;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   outline: none;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease, visibility 0.25s ease;
+}
+
+#scrollToTopBtn:active,
+.ai-toggle-btn:active {
+  transform: scale(0.96) !important;
+}
+
+/* 1) AI Assistant Launcher (Electric Cyan Theme) */
+.ai-toggle-btn {
+  border: 1px solid rgba(0, 242, 254, 0.6);
+  background: radial-gradient(circle at 30% 20%, rgba(0, 242, 254, 0.4), rgba(8, 12, 26, 0.96));
+  box-shadow: 
+    0 0 16px rgba(0, 242, 254, 0.5),
+    0 6px 20px rgba(0, 0, 0, 0.7);
+  color: #00f2fe;
 }
 
 .ai-toggle-btn i {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
+  color: #00f2fe;
+  filter: drop-shadow(0 0 6px rgba(0, 242, 254, 0.8));
 }
 
 .ai-toggle-btn:hover {
-  transform: scale(1.08);
+  transform: scale(1.08) !important;
   box-shadow: 
-    0 0 24px rgba(0, 242, 254, 0.7),
-    0 10px 30px rgba(0, 0, 0, 0.8);
+    0 0 24px rgba(0, 242, 254, 0.8),
+    0 8px 26px rgba(0, 0, 0, 0.85);
+}
+
+/* 2) Scroll To Top Launcher (Neon Pink / Magenta Theme) */
+#scrollToTopBtn {
+  border: 1px solid rgba(255, 64, 129, 0.6);
+  background: radial-gradient(circle at 30% 20%, rgba(255, 64, 129, 0.4), rgba(15, 8, 24, 0.96));
+  box-shadow: 
+    0 0 16px rgba(255, 64, 129, 0.5),
+    0 6px 20px rgba(0, 0, 0, 0.7);
+  color: #ff4081;
+}
+
+#scrollToTopBtn i {
+  font-size: 1.05rem;
+  color: #ff4081;
+  filter: drop-shadow(0 0 6px rgba(255, 64, 129, 0.8));
+}
+
+#scrollToTopBtn:hover {
+  transform: scale(1.08) !important;
+  box-shadow: 
+    0 0 24px rgba(255, 64, 129, 0.8),
+    0 8px 26px rgba(0, 0, 0, 0.85);
+}
+
+/* Positioning */
+#scrollToTopBtn {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 500;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+}
+
+#ai-assistant {
+  position: fixed;
+  right: 24px;
+  bottom: 82px;
+  z-index: 10000;
 }
 
 /* Glassmorphic Chat Panel */
