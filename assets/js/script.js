@@ -460,8 +460,19 @@ function hideTyping() {
 
 // Smart Local Fallback Engine
 function getLocalAiReply(question) {
-  const q = question.toLowerCase();
+  const q = question.toLowerCase().trim();
 
+  // Simple Greetings
+  if (['hi', 'hii', 'hiii', 'hello', 'hey', 'heyy', 'namaste', 'kaise ho', 'hlo'].includes(q) || q.startsWith('hi ') || q.startsWith('hello ')) {
+    return `Hello! 👋 How can I help you learn about Piyush's work today?`;
+  }
+
+  // Who is Piyush / About
+  if (q.includes('who is piyush') || q.includes('about piyush') || q.includes('kaun hai') || q.includes('kon h') || q.includes('tell me about piyush')) {
+    return `Piyush Kumar is a Data Analyst and Full-Stack Developer completing his MCA at Chandigarh University (8.5 CGPA). He builds web applications and analytics dashboards.`;
+  }
+
+  // Data Analytics (DA)
   if (q.includes('da') || q.includes('data analyst') || q.includes('data analytics') || q.includes('business analytics') || q.includes('power bi') || q.includes('eda') || q.includes('kpi')) {
     return `<strong>Piyush's Data Analytics (DA) Specialization:</strong><br>
     • <strong>DA Internships:</strong> Logistics Analyst at NSDC (#YI/2026/164976), IBM SkillsBuild DA with AI (#PLAN-D44A9C2C463C), and _VOIS AICTE.<br>
@@ -470,6 +481,7 @@ function getLocalAiReply(question) {
     • <strong>Fit:</strong> 🟢 Ready for Data Analyst & Business Intelligence roles!`;
   }
 
+  // Internships & Experience
   if (q.includes('experience') || q.includes('intern') || q.includes('company') || q.includes('dits') || q.includes('freelance') || q.includes('ibm') || q.includes('nsdc')) {
     return `<strong>Piyush's Experience & Internships:</strong><br>
     • <strong>Web Developer Intern:</strong> Dits Company India (Frontend, SQL, Backend, Git).<br>
@@ -479,6 +491,7 @@ function getLocalAiReply(question) {
     • <strong>Data Analytics Intern:</strong> _VOIS for Tech AICTE.`;
   }
 
+  // Projects
   if (q.includes('project') || q.includes('build') || q.includes('budget') || q.includes('yatra') || q.includes('task') || q.includes('logistics') || q.includes('agri') || q.includes('resolve')) {
     return `<strong>Piyush's Featured Projects:</strong><br>
     • <strong>BudgetYatra:</strong> Travel expense splitter & budget management app.<br>
@@ -488,6 +501,7 @@ function getLocalAiReply(question) {
     • <strong>ResolveDesk:</strong> Complaint escalation platform with image upload tracking.`;
   }
 
+  // Technical Skills
   if (q.includes('skill') || q.includes('tech') || q.includes('stack') || q.includes('python') || q.includes('javascript') || q.includes('sql') || q.includes('react') || q.includes('power bi')) {
     return `<strong>Piyush's Technical Stack:</strong><br>
     • <strong>Data & Analytics:</strong> Power BI, SQL (Aggregations & Joins), Advanced Excel (DAX & Pivots), Python (Pandas, NumPy, EDA).<br>
@@ -495,12 +509,14 @@ function getLocalAiReply(question) {
     • <strong>Tools & Platforms:</strong> Git/GitHub, Netlify, Firebase, VS Code.`;
   }
 
+  // Education
   if (q.includes('education') || q.includes('mca') || q.includes('bca') || q.includes('degree') || q.includes('college') || q.includes('cgpa') || q.includes('cu')) {
     return `<strong>Educational Qualifications:</strong><br>
     • <strong>MCA:</strong> Chandigarh University (2024–2026) | CGPA: 8.5 / 10.<br>
     • <strong>BCA:</strong> Tilka Manjhi Bhagalpur University (2020–2023) | 77.8%.`;
   }
 
+  // Certifications
   if (q.includes('certif') || q.includes('cert') || q.includes('ibm') || q.includes('vois') || q.includes('yuva') || q.includes('hackerrank')) {
     return `<strong>Verified Certifications:</strong><br>
     • <strong>IBM SkillsBuild:</strong> Data Analytics with AI (#PLAN-D44A9C2C463C).<br>
@@ -510,6 +526,7 @@ function getLocalAiReply(question) {
     • <strong>HackerRank:</strong> SQL & Python Skill Badges.`;
   }
 
+  // Contact
   if (q.includes('contact') || q.includes('hire') || q.includes('email') || q.includes('linkedin') || q.includes('github') || q.includes('job') || q.includes('reach') || q.includes('number')) {
     return `<strong>Contact Information:</strong><br>
     • <strong>Email:</strong> piyus.kr9341@gmail.com<br>
@@ -518,7 +535,7 @@ function getLocalAiReply(question) {
     • <strong>Status:</strong> 🟢 Open to Data Analytics & Full-Stack Web Development roles!`;
   }
 
-  return `Piyush is a Data Analyst and Full-Stack Developer completing his MCA at Chandigarh University (8.5 CGPA). Ask me about his <strong>Data Analytics background</strong>, <strong>internships</strong>, <strong>projects</strong>, <strong>skills</strong>, or <strong>contact info</strong>!`;
+  return `I can answer questions about Piyush's <strong>projects</strong>, <strong>technical skills</strong>, <strong>Data Analytics background</strong>, <strong>education</strong>, or <strong>contact info</strong>. What would you like to know?`;
 }
 
 // AI endpoint
