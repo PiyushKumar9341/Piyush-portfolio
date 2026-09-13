@@ -569,11 +569,19 @@ function getLocalAiReply(question) {
     return `Piyush holds verified certifications across both domains! 📜<br><br>Which certifications would you like to see?<br>• <strong>Data Analytics & AI</strong> (IBM SkillsBuild, NSDC YuvaIntern, _VOIS AICTE)<br>• <strong>Web Development & Programming</strong> (Dits Company India, HackerRank SQL/Python)`;
   }
 
-  // Education
-  if (q.includes('education') || q.includes('mca') || q.includes('bca') || q.includes('degree') || q.includes('college') || q.includes('cgpa') || q.includes('cu') || q.includes('study') || q.includes('qualification')) {
-    return `Here is Piyush's educational background: 🎓<br><br>
-    • <strong>Master of Computer Applications (MCA):</strong> Chandigarh University (2024–2026) | <strong>8.5 CGPA</strong><br>
-    • <strong>Bachelor of Computer Applications (BCA):</strong> Tilka Manjhi Bhagalpur University (2020–2023) | <strong>77.8% Marks</strong>`;
+  // Specific Education: Graduation / Undergrad
+  if (q.includes('graduation') || q.includes('bca') || q.includes('undergrad') || q.includes('bachelor') || q.includes('tmbu')) {
+    return `Piyush completed his Bachelor of Computer Applications (BCA) at Tilka Manjhi Bhagalpur University (TMBU) with 77.8% marks (2020–2023). 🎓<br><br>Would you like to know about his Master's degree (MCA) at Chandigarh University as well?`;
+  }
+
+  // Specific Education: Masters / Postgrad
+  if (q.includes('master') || q.includes('mca') || q.includes('postgrad') || q.includes('cu') || q.includes('chandigarh')) {
+    return `Piyush is currently pursuing his Master of Computer Applications (MCA) at Chandigarh University (2024–2026) with an 8.5 CGPA. 🎓<br><br>Would you like to know about his graduation background (BCA) or check out his technical projects next?`;
+  }
+
+  // General Education Query
+  if (q.includes('education') || q.includes('degree') || q.includes('college') || q.includes('study') || q.includes('qualification') || q.includes('cgpa')) {
+    return `Piyush is completing his MCA at Chandigarh University (8.5 CGPA) after earning his BCA from TMBU (77.8%). 🎓<br><br>Which degree would you like more details about—his <strong>Masters (MCA)</strong> or <strong>Graduation (BCA)</strong>?`;
   }
 
   // Achievements Sub-Categories
