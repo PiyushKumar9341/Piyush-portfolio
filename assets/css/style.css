@@ -2274,8 +2274,8 @@ form h3 {
   position: fixed;
   right: 24px;
   bottom: 24px;
-  width: 44px;
-  height: 44px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
   border: 1px solid #00bcd4;
   background:
@@ -2326,15 +2326,15 @@ form h3 {
    ========================================================================== */
 #ai-assistant {
   position: fixed;
-  right: 20px;
-  bottom: 75px;
+  right: 24px;
+  bottom: 82px;
   z-index: 10000;
 }
 
 /* Floating Launcher Button */
 .ai-toggle-btn {
-  width: 48px;
-  height: 48px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
   border: 1px solid rgba(0, 242, 254, 0.5);
   background: radial-gradient(circle at 30% 20%, rgba(0, 242, 254, 0.35), rgba(8, 12, 26, 0.95));
@@ -2936,17 +2936,24 @@ form h3 {
   #scrollToTopBtn {
     right: 16px;
     bottom: 16px;
+    width: 44px;
+    height: 44px;
   }
 
   #ai-assistant {
     right: 16px;
-    bottom: 80px;
+    bottom: 70px;
+  }
+
+  .ai-toggle-btn {
+    width: 44px;
+    height: 44px;
   }
 
   .ai-chat-panel {
-    width: 100vw;
-    max-width: 360px;
-    right: -4px;
+    width: calc(100vw - 32px);
+    max-width: 340px;
+    right: 0;
   }
 }
 
