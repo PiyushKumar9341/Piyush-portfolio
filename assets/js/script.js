@@ -458,23 +458,31 @@ function hideTyping() {
   }
 }
 
-// Smart Local Knowledge Base Fallback Engine
+// Smart Local Fallback Engine
 function getLocalAiReply(question) {
   const q = question.toLowerCase();
 
+  if (q.includes('da') || q.includes('data analyst') || q.includes('data analytics') || q.includes('business analytics') || q.includes('power bi') || q.includes('eda') || q.includes('kpi')) {
+    return `<strong>Piyush's Data Analytics (DA) Specialization:</strong><br>
+    • <strong>DA Internships:</strong> Logistics Data Analyst at NSDC (#YI/2026/164976), IBM SkillsBuild DA with AI (#PLAN-D44A9C2C463C), and _VOIS AICTE.<br>
+    • <strong>Tools & Stack:</strong> SQL (Complex Aggregations & Joins), Power BI, Advanced Excel (DAX & Pivots), Python (Pandas, NumPy, EDA).<br>
+    • <strong>DA Projects:</strong> Logistics BI Dashboard (Supply Chain KPIs) & Agriculture Analytics Platform.<br>
+    • <strong>Fit:</strong> 🟢 Ready for Data Analyst & Business Intelligence roles!`;
+  }
+
   if (q.includes('project') || q.includes('work') || q.includes('build') || q.includes('budget') || q.includes('yatra') || q.includes('task') || q.includes('logistics') || q.includes('agri') || q.includes('resolve')) {
     return `<strong>Piyush's Key Projects:</strong><br>
-    • <strong>BudgetYatra:</strong> Travel expense splitter & budget management app.<br>
-    • <strong>TaskCraft Pro:</strong> Kanban workflow platform with real-time metrics.<br>
     • <strong>Logistics BI:</strong> NSDC supply chain performance analytics dashboard.<br>
-    • <strong>Agriculture Analytics:</strong> ML crop yield prediction platform.`;
+    • <strong>Agriculture Analytics:</strong> ML crop yield prediction platform.<br>
+    • <strong>BudgetYatra:</strong> Travel expense splitter & budget management app.<br>
+    • <strong>TaskCraft Pro:</strong> Kanban workflow platform with real-time metrics.`;
   }
 
   if (q.includes('skill') || q.includes('tech') || q.includes('stack') || q.includes('python') || q.includes('javascript') || q.includes('sql') || q.includes('react') || q.includes('power bi')) {
     return `<strong>Piyush's Technical Stack:</strong><br>
-    • <strong>Languages:</strong> Python, JavaScript, SQL, HTML5, CSS3.<br>
-    • <strong>Analytics & Data:</strong> Power BI, EDA, Advanced Excel, SQL Aggregations.<br>
-    • <strong>Frameworks & Tools:</strong> Firebase, REST APIs, Git/GitHub, Netlify.`;
+    • <strong>Data & Analytics:</strong> Power BI, SQL (Aggregations & Joins), Advanced Excel (DAX & Pivots), Python (Pandas, NumPy, EDA).<br>
+    • <strong>Languages & Web:</strong> Python, JavaScript, HTML5, CSS3, REST APIs.<br>
+    • <strong>Tools & Platforms:</strong> Git/GitHub, Netlify, Firebase, VS Code.`;
   }
 
   if (q.includes('education') || q.includes('mca') || q.includes('bca') || q.includes('degree') || q.includes('college') || q.includes('cgpa')) {
@@ -486,8 +494,8 @@ function getLocalAiReply(question) {
   if (q.includes('certif') || q.includes('cert') || q.includes('ibm') || q.includes('vois') || q.includes('yuva') || q.includes('hackerrank')) {
     return `<strong>Featured Certifications:</strong><br>
     • <strong>IBM SkillsBuild:</strong> Data Analytics with AI (#PLAN-D44A9C2C463C).<br>
-    • <strong>VOIS for Tech AICTE:</strong> Data Analytics Intern Cohort.<br>
     • <strong>YuvaIntern NSDC:</strong> Supply Chain Data Analyst (#YI/2026/164976).<br>
+    • <strong>VOIS for Tech AICTE:</strong> Data Analytics Intern Cohort.<br>
     • <strong>HackerRank:</strong> SQL & Python Skill Badges.`;
   }
 
@@ -496,10 +504,10 @@ function getLocalAiReply(question) {
     • <strong>Email:</strong> piyus.kr9341@gmail.com<br>
     • <strong>LinkedIn:</strong> linkedin.com/in/piyush-kumar-9341<br>
     • <strong>GitHub:</strong> github.com/PiyushKumar9341<br>
-    • <strong>Status:</strong> 🟢 Available for Web Dev & Data Analytics opportunities!`;
+    • <strong>Status:</strong> 🟢 Available for Data Analytics & Web Development roles!`;
   }
 
-  return `Piyush is a Full-Stack Developer and Data Analyst completing his MCA at Chandigarh University (8.5 CGPA). Ask me about his <strong>projects</strong>, <strong>skills</strong>, <strong>education</strong>, or <strong>contact details</strong>!`;
+  return `Piyush is a Data Analyst and Full-Stack Developer completing his MCA at Chandigarh University (8.5 CGPA). Ask me about his <strong>Data Analytics background</strong>, <strong>projects</strong>, <strong>skills</strong>, or <strong>contact details</strong>!`;
 }
 
 // AI endpoint
