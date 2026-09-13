@@ -2306,8 +2306,8 @@ form h3 {
 
 .ai-toggle-btn i {
   font-size: 1.15rem;
-  color: #00f2fe;
-  filter: drop-shadow(0 0 6px rgba(0, 242, 254, 0.8));
+  color: #ffffff;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.7));
 }
 
 .ai-toggle-btn:hover {
@@ -2411,8 +2411,9 @@ form h3 {
 }
 
 .ai-chat-title i {
-  color: #00f2fe;
+  color: #ffffff;
   font-size: 0.95rem;
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.5));
 }
 
 .status-pill {
