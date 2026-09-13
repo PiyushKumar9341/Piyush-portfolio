@@ -458,93 +458,148 @@ function hideTyping() {
   }
 }
 
-// Smart Local Fallback Engine
+// Smart Local AI Engine
 function getLocalAiReply(question) {
   const q = question.toLowerCase().trim();
 
   // Simple Greetings
-  if (['hi', 'hii', 'hiii', 'hello', 'hey', 'heyy', 'namaste', 'kaise ho', 'hlo'].includes(q) || q.startsWith('hi ') || q.startsWith('hello ')) {
-    return `Hello! 👋 How can I help you learn about Piyush's work today?`;
+  if (['hi', 'hii', 'hiii', 'hello', 'hey', 'heyy', 'namaste', 'kaise ho', 'hlo', 'yo'].includes(q) || q.startsWith('hi ') || q.startsWith('hello ') || q.startsWith('hey ')) {
+    return `Hey there! 👋 I'm Piyush's AI assistant. How can I help you explore Piyush's work today?`;
+  }
+
+  // Who are you / Identity
+  if (q.includes('who are you') || q.includes('who r u') || q.includes('who are u') || q.includes('who made you') || q.includes('who created you') || q.includes('tell me about yourself') || q.includes('your name')) {
+    return `Hey! I'm Piyush Kumar's portfolio assistant. I'm here to share quick insights into Piyush's full-stack web dev projects, data analytics experience, tech stack, or get you directly in touch with him. How can I help?`;
   }
 
   // Who is Piyush / About
-  if (q.includes('who is piyush') || q.includes('about piyush') || q.includes('kaun hai') || q.includes('kon h') || q.includes('tell me about piyush')) {
-    return `Piyush Kumar is a Data Analyst and Full-Stack Developer completing his MCA at Chandigarh University (8.5 CGPA). He builds web applications and analytics dashboards.`;
+  if (q.includes('who is piyush') || q.includes('about piyush') || q.includes('kaun hai') || q.includes('kon h') || q.includes('tell me about piyush') || q.includes('about him')) {
+    return `Piyush Kumar is a Data Analyst & Full-Stack Web Developer currently pursuing his MCA at Chandigarh University (8.5 CGPA). He specializes in building data-driven applications, glassmorphic UI experiences, and analytical dashboards.`;
   }
 
   // Web Development (Strictly Web Dev only)
   if (q.includes('web dev') || q.includes('web development') || q.includes('frontend') || q.includes('backend') || q.includes('full stack') || q.includes('fullstack') || q.includes('javascript') || q.includes('react') || q.includes('html') || q.includes('css') || q.includes('dits') || q.includes('freelance')) {
-    return `<strong>Piyush's Web Development Specialization:</strong><br>
-    • <strong>Experience:</strong> Web Developer Intern at Dits Company India & Freelance Web Developer (Retail Business App).<br>
-    • <strong>Tech Stack:</strong> JavaScript (ES6+), HTML5, Modern CSS (Glassmorphism, Flexbox, Grid), Node.js, Express, REST APIs, Firebase Auth.<br>
-    • <strong>Web Projects:</strong> BudgetYatra (Travel Budget Splitter), TaskCraft Pro (Kanban Workflow App), ResolveDesk.<br>
-    • <strong>Fit:</strong> 🟢 Ready for Web Development & Full-Stack Engineering roles!`;
+    return `Piyush is a skilled Full-Stack Developer! He has experience as a Web Developer Intern at Dits Company India and has built freelance custom web applications with seat/order management & Firebase auth. His primary stack includes JavaScript (ES6+), HTML5/CSS3, Node.js, Express, and REST APIs.`;
   }
 
   // Data Analytics (Strictly DA only)
   if (q.includes('da') || q.includes('data analyst') || q.includes('data analytics') || q.includes('business analytics') || q.includes('power bi') || q.includes('eda') || q.includes('kpi') || q.includes('sql') || q.includes('excel')) {
-    return `<strong>Piyush's Data Analytics (DA) Specialization:</strong><br>
-    • <strong>DA Internships:</strong> Logistics Data Analyst at NSDC (#YI/2026/164976), IBM SkillsBuild DA with AI (#PLAN-D44A9C2C463C), and _VOIS AICTE.<br>
-    • <strong>Tools & Stack:</strong> SQL (Complex Aggregations & Joins), Power BI, Advanced Excel (DAX & Pivots), Python (Pandas, NumPy, EDA).<br>
-    • <strong>DA Projects:</strong> Logistics BI Dashboard (Supply Chain KPIs) & Agriculture Analytics Platform.<br>
-    • <strong>Fit:</strong> 🟢 Ready for Data Analyst & Business Intelligence roles!`;
+    return `Data Analytics is one of Piyush's core domains! He's completed 3 analytics internships—including Logistics Data Analyst at NSDC (#YI/2026/164976), IBM SkillsBuild DA with AI (#PLAN-D44A9C2C463C), and _VOIS AICTE. His core stack covers SQL (aggregations & complex joins), Power BI, Advanced Excel (DAX), and Python (Pandas/NumPy).`;
   }
 
-  // Internships & Experience
-  if (q.includes('experience') || q.includes('intern') || q.includes('company') || q.includes('ibm') || q.includes('nsdc')) {
-    return `<strong>Piyush's Experience & Internships:</strong><br>
-    • <strong>Web Developer Intern:</strong> Dits Company India (Frontend, SQL, Backend, Git).<br>
-    • <strong>Freelance Web Developer:</strong> Built Retail Business App (Booking, Auth, Firebase).<br>
-    • <strong>Logistics Data Analyst Intern:</strong> YuvaIntern NSDC (#YI/2026/164976).<br>
-    • <strong>Data Analytics with AI Intern:</strong> IBM SkillsBuild (#PLAN-D44A9C2C463C).<br>
-    • <strong>Data Analytics Intern:</strong> _VOIS for Tech AICTE.`;
+  // Specific Web Dev Internships & Experience
+  if (q.includes('web dev intern') || q.includes('web dev experience') || q.includes('frontend intern') || q.includes('fullstack intern') || q.includes('dits') || q.includes('freelance')) {
+    return `Here is Piyush's <strong>Full-Stack Web Development</strong> experience:<br>
+    • <strong>Web Developer Intern @ Dits Company India:</strong> Backend engineering, SQL logic, REST APIs, Git & web application design.<br>
+    • <strong>Freelance Web Developer:</strong> Developed full-featured retail business app with seat booking, online order placement, and Firebase Auth.`;
   }
 
-  // Projects
-  if (q.includes('project') || q.includes('build') || q.includes('budget') || q.includes('yatra') || q.includes('task') || q.includes('logistics') || q.includes('agri') || q.includes('resolve')) {
-    return `<strong>Piyush's Featured Projects:</strong><br>
-    • <strong>BudgetYatra:</strong> Travel expense splitter & budget management app.<br>
-    • <strong>TaskCraft Pro:</strong> Kanban workflow platform with category analytics.<br>
-    • <strong>Logistics BI Dashboard:</strong> NSDC supply chain KPI dashboard.<br>
-    • <strong>Agriculture Analytics:</strong> ML crop yield prediction platform.<br>
-    • <strong>ResolveDesk:</strong> Complaint escalation platform with image upload tracking.`;
+  // Specific Data Analytics Internships
+  if (q.includes('da intern') || q.includes('data analytics intern') || q.includes('analytics intern') || q.includes('logistics intern') || q.includes('nsdc') || q.includes('ibm') || q.includes('vois')) {
+    return `Here are Piyush's <strong>Data Analytics & BI</strong> internships:<br>
+    • <strong>Logistics Data Analyst Intern @ YuvaIntern | NSDC:</strong> Supply chain bottleneck analysis, throughput metrics & SQL queries (Cert #YI/2026/164976).<br>
+    • <strong>Data Analytics with AI @ IBM SkillsBuild:</strong> AI-driven Exploratory Data Analysis (EDA) & executive visualization reports (#PLAN-D44A9C2C463C).<br>
+    • <strong>Data Analytics Intern @ _VOIS for Tech | AICTE:</strong> Capstone project transforming complex datasets into interactive KPI dashboards.`;
   }
 
-  // Technical Skills
-  if (q.includes('skill') || q.includes('tech') || q.includes('stack') || q.includes('python')) {
-    return `<strong>Piyush's Technical Stack:</strong><br>
-    • <strong>Data & Analytics:</strong> Power BI, SQL (Aggregations & Joins), Advanced Excel (DAX & Pivots), Python (Pandas, NumPy, EDA).<br>
-    • <strong>Languages & Web:</strong> Python, JavaScript (ES6+), HTML5, CSS3 (Glassmorphism), REST APIs.<br>
-    • <strong>Tools & Platforms:</strong> Git/GitHub, Netlify, Firebase, VS Code.`;
+  // General Internships & Experience Query (Ask user to distinguish role)
+  if (q.includes('intern') || q.includes('experience') || q.includes('company') || q.includes('work history') || q.includes('kahan kaam kiya')) {
+    return `Piyush has completed hands-on internships across both software engineering and data analytics! 💼<br><br>Which track's experience would you like to explore?<br>• <strong>Full-Stack Web Development</strong> (Dits Company India & Freelance Retail App)<br>• <strong>Data Analytics & BI</strong> (NSDC Logistics Analyst, IBM SkillsBuild DA with AI, _VOIS AICTE)`;
+  }
+
+  // Specific Web Dev Projects
+  if (q.includes('web dev project') || q.includes('web project') || q.includes('frontend project') || q.includes('full stack project') || q.includes('fullstack project') || q.includes('budget') || q.includes('yatra') || q.includes('taskcraft') || q.includes('resolve')) {
+    return `Here are Piyush's featured <strong>Full-Stack Web Development</strong> projects:<br>
+    • <strong>BudgetYatra:</strong> Travel expense splitter & budget tracker app.<br>
+    • <strong>TaskCraft Pro:</strong> Smart Kanban workflow management platform.<br>
+    • <strong>ResolveDesk:</strong> Complaint escalation platform with image uploads & tracking.`;
+  }
+
+  // Specific Data Analytics Projects
+  if (q.includes('da project') || q.includes('data analytics project') || q.includes('analytics project') || q.includes('ml project') || q.includes('logistics') || q.includes('agri') || q.includes('bi dashboard')) {
+    return `Here are Piyush's featured <strong>Data Analytics & ML</strong> projects:<br>
+    • <strong>Logistics BI Dashboard:</strong> Supply chain KPI analytics tool tracking order SLAs & vehicle metrics.<br>
+    • <strong>Agriculture Analytics:</strong> ML crop yield predictor dashboard based on soil & weather data.`;
+  }
+
+  // General Projects Query (Ask user to distinguish role)
+  if (q.includes('project') || q.includes('build') || q.includes('kon se project')) {
+    return `Piyush has built impressive projects across both software engineering and data analytics! 🚀<br><br>Which role's projects would you like to explore?<br>• <strong>Full-Stack Web Development</strong> (BudgetYatra, TaskCraft Pro, ResolveDesk)<br>• <strong>Data Analytics & BI</strong> (Logistics BI Dashboard, Agriculture Analytics)`;
+  }
+
+  // Specific Web Dev Skills
+  if (q.includes('web dev skill') || q.includes('web skill') || q.includes('frontend skill') || q.includes('backend skill') || q.includes('fullstack skill')) {
+    return `Here is Piyush's <strong>Full-Stack Web Development</strong> toolkit:<br>
+    • <strong>Languages & Logic:</strong> JavaScript (ES6+), HTML5, CSS3 (Glassmorphism design)<br>
+    • <strong>Backend & APIs:</strong> Node.js, Express.js, REST APIs, Firebase Auth<br>
+    • <strong>Tools & Deployment:</strong> Git, GitHub, Netlify, VS Code`;
+  }
+
+  // Specific Data Analytics Skills
+  if (q.includes('da skill') || q.includes('data analytics skill') || q.includes('bi skill') || q.includes('analytics skill')) {
+    return `Here is Piyush's <strong>Data Analytics & BI</strong> toolkit:<br>
+    • <strong>BI & Visualization:</strong> Power BI (Dashboards, KPI Cards), Advanced Excel (DAX, PivotTables)<br>
+    • <strong>Database & SQL:</strong> SQL (Complex Joins, Aggregations, Subqueries)<br>
+    • <strong>Python & Data Science:</strong> Python (Pandas, NumPy, Matplotlib, Seaborn, EDA)`;
+  }
+
+  // General Technical Skills Query (Ask user to distinguish role)
+  if (q.includes('skill') || q.includes('tech') || q.includes('stack')) {
+    return `Piyush possesses strong skill sets in both Web Engineering and Data Analytics! 🛠️<br><br>Which stack would you like to inspect?<br>• <strong>Full-Stack Web Development</strong> (JS, Node.js, REST APIs, Glassmorphic UI)<br>• <strong>Data Analytics & BI</strong> (Power BI, SQL, Python EDA, DAX)`;
+  }
+
+  // Specific Web Dev Certifications
+  if (q.includes('web dev cert') || q.includes('web cert') || q.includes('dits cert')) {
+    return `Here are Piyush's <strong>Web Development</strong> credentials:<br>
+    • <strong>Dits Company India:</strong> Web Engineering & Backend Internship Certificate<br>
+    • <strong>HackerRank:</strong> Verified JavaScript & Software Logic Badges`;
+  }
+
+  // Specific Data Analytics Certifications
+  if (q.includes('da cert') || q.includes('data analytics cert') || q.includes('ibm cert') || q.includes('nsdc cert') || q.includes('vois cert')) {
+    return `Here are Piyush's <strong>Data Analytics & AI</strong> certifications:<br>
+    • <strong>IBM SkillsBuild:</strong> Data Analytics with AI (#PLAN-D44A9C2C463C)<br>
+    • <strong>YuvaIntern | NSDC:</strong> Supply Chain Data Analyst (#YI/2026/164976)<br>
+    • <strong>_VOIS for Tech | AICTE:</strong> Executive BI & Analytics Cohort<br>
+    • <strong>HackerRank:</strong> Verified SQL & Python Skill Certificates`;
+  }
+
+  // General Certifications Query
+  if (q.includes('certif') || q.includes('cert')) {
+    return `Piyush holds verified certifications across both domains! 📜<br><br>Which certifications would you like to see?<br>• <strong>Data Analytics & AI</strong> (IBM SkillsBuild, NSDC YuvaIntern, _VOIS AICTE)<br>• <strong>Web Development & Programming</strong> (Dits Company India, HackerRank SQL/Python)`;
   }
 
   // Education
-  if (q.includes('education') || q.includes('mca') || q.includes('bca') || q.includes('degree') || q.includes('college') || q.includes('cgpa') || q.includes('cu')) {
-    return `<strong>Educational Qualifications:</strong><br>
-    • <strong>MCA:</strong> Chandigarh University (2024–2026) | CGPA: 8.5 / 10.<br>
-    • <strong>BCA:</strong> Tilka Manjhi Bhagalpur University (2020–2023) | 77.8%.`;
+  if (q.includes('education') || q.includes('mca') || q.includes('bca') || q.includes('degree') || q.includes('college') || q.includes('cgpa') || q.includes('cu') || q.includes('study') || q.includes('qualification')) {
+    return `Here is Piyush's educational background: 🎓<br><br>
+    • <strong>Master of Computer Applications (MCA):</strong> Chandigarh University (2024–2026) | <strong>8.5 CGPA</strong><br>
+    • <strong>Bachelor of Computer Applications (BCA):</strong> Tilka Manjhi Bhagalpur University (2020–2023) | <strong>77.8% Marks</strong>`;
   }
 
-  // Certifications
-  if (q.includes('certif') || q.includes('cert') || q.includes('ibm') || q.includes('vois') || q.includes('yuva') || q.includes('hackerrank')) {
-    return `<strong>Verified Certifications:</strong><br>
-    • <strong>IBM SkillsBuild:</strong> Data Analytics with AI (#PLAN-D44A9C2C463C).<br>
-    • <strong>YuvaIntern NSDC:</strong> Supply Chain Data Analyst (#YI/2026/164976).<br>
-    • <strong>VOIS for Tech AICTE:</strong> Data Analytics Cohort.<br>
-    • <strong>Dits Company India:</strong> Web Development Internship Certificate.<br>
-    • <strong>HackerRank:</strong> SQL & Python Skill Badges.`;
+  // Achievements Sub-Categories
+  if (q.includes('sports') || q.includes('ncc') || q.includes('volleyball')) {
+    return `Here are Piyush's <strong>Sports & Co-Curricular</strong> achievements: 🏅<br>
+    • <strong>National Volleyball Runner-Up:</strong> Represented DAV National School at the national-level tournament.<br>
+    • <strong>NCC 'B' Certificate:</strong> Completed NCC B-grade camp demonstrating leadership, endurance & discipline.`;
   }
 
-  // Contact
+  if (q.includes('leadership') || q.includes('isp') || q.includes('department leader')) {
+    return `Here are Piyush's <strong>Campus Leadership</strong> roles: 👥<br>
+    • <strong>BCA Department Leader:</strong> Led the student body, organized coding workshops, tech fests & academic events.<br>
+    • <strong>Internshala Student Partner (ISP):</strong> Selected as Campus Representative for Internshala (Aug 2026 Edition).`;
+  }
+
+  // General Achievements Query (Conversational preview)
+  if (q.includes('achiev') || q.includes('award') || q.includes('leader') || q.includes('tata') || q.includes('oracle')) {
+    return `Piyush has an impressive track record across technical certifications, campus leadership, and sports! 🏆<br><br>Key highlights include being an <strong>Oracle Certified Associate in Agentic AI</strong>, serving as the <strong>BCA Department Leader</strong>, and representing as a <strong>National Volleyball Runner-Up</strong>.<br><br>Which category would you like to explore deeper?<br>• <strong>Technical & Analytics Credentials</strong> (Oracle AI, TATA Simulation)<br>• <strong>Campus Leadership</strong> (Internshala ISP, Department Leader)<br>• <strong>Sports & NCC Honors</strong> (National Volleyball, NCC 'B' Cert)`;
+  }
+
+  // Contact & Hiring
   if (q.includes('contact') || q.includes('hire') || q.includes('email') || q.includes('linkedin') || q.includes('github') || q.includes('job') || q.includes('reach') || q.includes('number')) {
-    return `<strong>Contact Information:</strong><br>
-    • <strong>Email:</strong> piyus.kr9341@gmail.com<br>
-    • <strong>LinkedIn:</strong> linkedin.com/in/piyush-kumar-9341<br>
-    • <strong>GitHub:</strong> github.com/PiyushKumar9341<br>
-    • <strong>Status:</strong> 🟢 Open to Data Analytics & Full-Stack Web Development roles!`;
+    return `You can reach Piyush directly at <strong>piyus.kr9341@gmail.com</strong> or connect with him on LinkedIn and GitHub.<br><br>He's actively open for immediate roles in:<br>1) <strong>Full-Stack Web Development</strong><br>2) <strong>Data Analytics & Business Intelligence</strong>`;
   }
 
-  return `I can answer questions about Piyush's <strong>Web Development skills</strong>, <strong>Data Analytics background</strong>, <strong>projects</strong>, <strong>education</strong>, or <strong>contact info</strong>. What would you like to know?`;
+  return `I'm here to help! Ask me anything about Piyush's web projects, Data Analytics experience, tech skills, education, achievements, or contact info. What's on your mind?`;
 }
 
 // AI endpoint
