@@ -1,985 +1,1728 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <!-- Correct responsive viewport -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Piyush Kumar | Full-Stack Developer Portfolio</title>
-    <meta
-      name="description"
-      content="Portfolio of Piyush Kumar, a Full-Stack Developer specializing in React, Node.js and Java."
-    />
+<head>
+  <meta charset="UTF-8" />
+  <!-- Correct responsive viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://piyushdev-ai.netlify.app/" />
-    <meta property="og:title" content="Piyush Kumar | Full-Stack Developer Portfolio" />
-    <meta property="og:image" content="pk2.jpeg" />
+  <title>Piyush Kumar | Full-Stack Developer & MCA Student</title>
+  <meta name="description"
+    content="Portfolio of Piyush Kumar, Full-Stack Developer and MCA Student at Galgotias College of Engineering & Technology, specializing in JavaScript, React.js, Node.js, Express.js, SQL, and Firebase." />
 
-    <!-- Favicon & Fonts -->
-    <link rel="icon" type="image/jpeg" href="pk2.jpeg" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
-      rel="stylesheet"
-    />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://piyushdev-ai.netlify.app/" />
+  <meta property="og:title" content="Piyush Kumar | Full-Stack Developer Portfolio" />
+  <meta property="og:image" content="assets/images/pk2.jpeg" />
 
-    <!-- Main Styles -->
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- Background watermark / glows -->
-    <div class="logo-watermark-container">
-      <img src="pk2.jpeg" alt="" class="watermark-img" />
-    </div>
-    <div class="third-glow"></div>
+  <!-- Favicon & Fonts -->
+  <link rel="icon" type="image/jpeg" href="assets/images/pk2.jpeg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+    rel="stylesheet" />
 
-    <div class="tech-stack-bg">
-      <i class="fab fa-react floating-icon" style="top: 15%; left: 10%"></i>
-      <i class="fab fa-js-square floating-icon" style="top: 45%; right: 10%"></i>
-      <i class="fab fa-node-js floating-icon" style="top: 120%; left: 15%"></i>
-      <i class="fab fa-java floating-icon" style="top: 180%; right: 20%"></i>
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
 
-      <span class="code-snippet" style="top: 15%; left: 10%">&lt;div&gt;</span>
-      <span class="code-snippet" style="top: 60%; left: 5%">const dev = true;</span>
-      <span class="code-snippet" style="top: 20%; right: 15%">React.useState()</span>
-      <span class="code-snippet" style="top: 70%; right: 10%">System.out.println();</span>
+<body>
+  <!-- Background watermark / glows -->
+  <div class="logo-watermark-container">
+    <img src="assets/images/pk2.jpeg" alt="" class="watermark-img" />
+  </div>
+  <div class="third-glow"></div>
 
-      <div class="data-column left">01011001 11001010 10101011 01011001</div>
-      <div class="data-column right">import { React } from 'react';</div>
-      <div class="code-frame top-left">&lt;/&gt;</div>
-      <div class="code-frame bottom-right">{}</div>
-    </div>
+  <div class="tech-stack-bg">
+    <i class="fab fa-react floating-icon" style="top: 15%; left: 10%"></i>
+    <i class="fab fa-js-square floating-icon" style="top: 45%; right: 10%"></i>
+    <i class="fab fa-node-js floating-icon" style="top: 120%; left: 15%"></i>
+    <i class="fab fa-java floating-icon" style="top: 180%; right: 20%"></i>
 
-    <!-- Navigation -->
-    <nav>
-      <div class="container nav-container">
-        <div class="hero-logo-container">
-          <div class="neon-ring"></div>
-          <div class="hero-logo-wrapper">
-            <a href="#home">
-              <img src="pk2.jpeg" alt="PK" class="hero-main-logo" />
+    <span class="code-snippet" style="top: 15%; left: 10%">&lt;div&gt;</span>
+    <span class="code-snippet" style="top: 60%; left: 5%">const dev = true;</span>
+    <span class="code-snippet" style="top: 20%; right: 15%">React.useState()</span>
+    <span class="code-snippet" style="top: 70%; right: 10%">System.out.println();</span>
+
+    <div class="data-column left">01011001 11001010 10101011 01011001</div>
+    <div class="data-column right">import { React } from 'react';</div>
+    <div class="code-frame top-left">&lt;/&gt;</div>
+    <div class="code-frame bottom-right">{}</div>
+  </div>
+
+  <!-- Floating Island Navigation Header -->
+  <header class="navbar-header">
+    <nav class="island-nav">
+      <div class="hero-logo-container">
+        <div class="neon-ring"></div>
+        <div class="hero-logo-wrapper">
+          <a href="#home" aria-label="Home">
+            <img src="assets/images/pk2.jpeg" alt="PK" class="hero-main-logo" />
+          </a>
+        </div>
+      </div>
+
+      <ul id="main-nav">
+        <li><a href="#about" class="active-link">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li class="nav-cta-item">
+          <a href="#contact" class="nav-cta-btn">
+            <i class="fas fa-paper-plane nav-cta-icon"></i>
+            <span>Contact Me</span>
+          </a>
+        </li>
+      </ul>
+
+      <button class="hamburger" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <header id="home">
+    <div class="hero-content">
+      <div class="hero-grid">
+        <div class="hero-text-wrapper">
+          <div class="hero-status-badge">
+            <span class="pulse-dot"></span>
+            <span>Available for Full-Stack & Data Analytics Roles</span>
+          </div>
+          <div class="hero-greeting">Hi, I'm</div>
+          <h1 class="hero-name">PIYUSH KUMAR</h1>
+          <p class="hero-roles">
+            <span class="role-label">I am a</span>
+            <span id="role-typing" class="role-typing"></span>
+            <span class="role-caret">|</span>
+          </p>
+          <p class="hero-description">
+            Full-stack developer and MCA student bridging software engineering with data analytics — building
+            high-performance React/Node.js web applications, SQL databases, and data-driven business insights.
+          </p>
+
+          <!-- Hero Feature Chips -->
+          <div class="hero-feature-chips">
+            <span class="hero-chip"><i class="fas fa-code"></i> Full-Stack Dev</span>
+            <span class="hero-chip"><i class="fas fa-chart-pie"></i> Data & Business Analytics</span>
+            <span class="hero-chip"><i class="fas fa-graduation-cap"></i> MCA Student @ Galgotias</span>
+            <span class="hero-chip"><i class="fas fa-database"></i> SQL & Databases</span>
+            <span class="hero-chip"><i class="fab fa-react"></i> React & Node.js</span>
+            <span class="hero-chip"><i class="fas fa-briefcase"></i> Open for Work</span>
+          </div>
+
+          <!-- Hero buttons -->
+          <div class="hero-buttons">
+            <a href="#projects" class="button btn-cyan">
+              View My Work
+            </a>
+
+            <a href="assets/docs/Resume.pdf" download class="button btn-blue">
+              <i class="fas fa-download"></i>
+              <span>Download Resume</span>
+            </a>
+
+            <a href="#contact" class="button btn-blue">
+              <i class="fas fa-envelope"></i>
+              <span>Get In Touch</span>
             </a>
           </div>
         </div>
 
-        <ul id="main-nav">
-          <li><a href="#home" class="active-link">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#certifications">Certifications</a></li>
-          <li><a href="#toolbox">Tech Toolbox</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
-          <li><a href="#resume">Resume</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-
-        
-
-        <button class="hamburger" aria-label="Toggle navigation">
-          <i class="fas fa-bars"></i>
-        </button>
-      </div>
-    </nav>
-
-    <!-- Hero -->
-    <header id="home">
-      <div class="hero-content">
-        <div class="hero-grid">
-          <div class="hero-text-wrapper">
-            <div class="hero-greeting">Hi, I'm</div>
-            <h1 class="hero-name">PIYUSH KUMAR</h1>
-            <p class="hero-roles">
-              <span class="role-label">I am a</span>
-              <span id="role-typing" class="role-typing"></span>
-              <span class="role-caret">|</span>
+        <!-- Hero side panel -->
+        <div class="hero-panel-wrapper">
+          <div class="hero-panel animate-on-scroll">
+            <h3><i class="fas fa-chart-line"></i> Full-Stack + Data Synergy</h3>
+            <p>
+              Bridging software engineering with data analytics — building responsive UIs, SQL data models, and KPI
+              dashboards.
             </p>
-            <p class="hero-description">
-              I bring digital visions to life, crafting pixel-perfect, high-performance web
-              applications that captivate and engage.
-            </p>
-            <p class="hero-looking-for">
-              Actively looking for Full-Stack Developer roles and internships.
-            </p>
-
-            <!-- Hero buttons -->
-            <div class="hero-buttons">
-              <a href="#projects" class="button btn-cyan">
-                View My Work
-              </a>
-
-              <a href="Resume.pdf" download class="button btn-blue">
-                <i class="fas fa-download"></i>
-                <span>Download Resume</span>
-              </a>
-
-              <a href="#contact" class="button btn-pink">
-                <i class="fas fa-envelope"></i>
-                <span>Get In Touch</span>
-              </a>
-            </div>
-          </div>
-
-          <!-- Hero side panel -->
-          <div class="hero-panel-wrapper">
-            <div class="hero-panel animate-on-scroll">
-              <h3><i class="fas fa-robot"></i> Working with GenAI</h3>
-              <p>
-                Exploring modern AI tooling, integrating LLMs into products, and building
-                data-aware assistants.
-              </p>
-              <ul>
-                <li><i class="fas fa-check-circle"></i> Prompt engineering & workflows</li>
-                <li><i class="fas fa-check-circle"></i> API-driven app integrations</li>
-                <li><i class="fas fa-check-circle"></i> Analytics & insights from data</li>
-              </ul>
-            </div>
+            <ul>
+              <li><i class="fas fa-check-circle"></i> Web Dev (React, Node.js, Express)</li>
+              <li><i class="fas fa-check-circle"></i> Data Insights (SQL, Dashboards, KPIs)</li>
+              <li><i class="fas fa-check-circle"></i> MCA Student @ Galgotias (AKTU)</li>
+            </ul>
           </div>
         </div>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <!-- About -->
-    <section id="about" class="about-section section-padding animate-on-scroll">
-      <div class="container about-wrapper">
-        <h2 class="section-title">
-          <span class="code-bracket">&lt;</span> About Me <span class="code-bracket">/&gt;</span>
-        </h2>
+  <!-- About -->
+  <section id="about" class="about-section section-padding animate-on-scroll">
+    <div class="container about-wrapper">
+      <h2 class="section-title">
+        <span class="code-bracket">&lt;</span> About Me <span class="code-bracket">/&gt;</span>
+      </h2>
 
-        <div class="about-top">
+      <div class="about-grid">
+        <!-- Left Column: HUD Avatar + Dev Terminal + Stats -->
+        <div class="about-left-col">
           <div class="about-image-wrapper glow">
             <div class="image-glow"></div>
-            <img src="piyush.jpeg" alt="Piyush Kumar" class="about-profile-img" />
-          </div>
-        </div>
-
-        <div class="about-bottom">
-          <div class="about-content">
-            <div class="about-card">
-              <p>
-                I am a
-                <span class="tech-tag cyan">Full-Stack Developer</span>
-                specializing in high-performance apps using
-                <span class="tech-tag cyan">React</span> and
-                <span class="tech-tag pink">Node.js</span>.
-              </p>
-              <p>
-                With a strong foundation in Java and modern web tooling, I focus on building
-                scalable digital products that feel intuitive and responsive.
-              </p>
-              <p>
-                I enjoy designing system architectures, optimizing performance, and translating
-                complex ideas into clean, maintainable code.
-              </p>
-              <ul class="dot-points animate-on-scroll">
-                <li>Building role-focused products with clean and scalable architecture.</li>
-                <li>Combining engineering quality with practical UI/UX thinking.</li>
-                <li>Turning AI and analytics concepts into usable real-world features.</li>
-              </ul>
+            <img src="assets/images/piyush.jpeg" alt="Piyush Kumar" class="about-profile-img" />
+            <div class="hud-status-badge">
+              <span class="hud-dot"></span>
+              <span>OPEN FOR ROLES</span>
             </div>
+          </div>
 
-            <div class="about-highlights">
-              <div class="highlight-item">
-                <h3>02+ Years</h3>
-                <p>Hands-on experience with modern web technologies.</p>
+          <!-- Terminal Shell Widget -->
+          <div class="about-terminal-widget">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="t-dot red"></span>
+                <span class="t-dot yellow"></span>
+                <span class="t-dot green"></span>
               </div>
-              <div class="highlight-item">
-                <h3>10+ Projects</h3>
-                <p>End-to-end applications delivered for learning and practice.</p>
+              <span class="terminal-title">piyush@dev:~$</span>
+            </div>
+            <div class="terminal-body">
+              <div class="term-line">
+                <span class="term-prompt">$</span> <span class="term-cmd">cat dev_status.json</span>
               </div>
-              <div class="highlight-item">
-                <h3>Always Exploring</h3>
-                <p>Currently diving deeper into AI tooling and cloud-native design.</p>
+              <div class="term-out">
+                <span class="term-key">"role":</span> <span class="term-val">"Full-Stack Dev & MCA Student"</span>
+              </div>
+              <div class="term-out">
+                <span class="term-key">"stack":</span> <span class="term-val">["JavaScript", "React", "Node",
+                  "SQL"]</span>
+              </div>
+              <div class="term-out">
+                <span class="term-key">"status":</span> <span class="term-val green-text">"Ready to Deploy"</span>
               </div>
             </div>
           </div>
+
+
+        </div>
+
+        <!-- Right Column: Bio Card with Dual-Persona Switcher -->
+        <div class="about-right-col">
+          <!-- Persona Switcher Buttons -->
+          <div class="about-persona-switcher">
+            <button class="persona-tab active" data-persona="dev">
+              <i class="fas fa-code"></i> Full-Stack Engineer
+            </button>
+            <button class="persona-tab" data-persona="analytics">
+              <i class="fas fa-chart-line"></i> Data Analytics & SQL
+            </button>
+          </div>
+
+          <div class="about-card">
+            <!-- Persona 1: Full-Stack Developer -->
+            <div class="persona-content active" id="persona-dev">
+              <p class="about-lead">
+                Full-Stack Engineer &amp; MCA Student specializing in building scalable web applications and high-performance digital products — from requirement analysis to cloud deployment.
+              </p>
+
+              <div class="about-spec-grid">
+                <div class="spec-group">
+                  <div class="spec-label"><i class="fas fa-layer-group icon-cyan"></i> Core Tech</div>
+                  <div class="spec-chips">
+                    <span class="about-chip">JavaScript</span>
+                    <span class="about-chip">React.js</span>
+                    <span class="about-chip">Node.js</span>
+                    <span class="about-chip">Express.js</span>
+                    <span class="about-chip">SQL</span>
+                    <span class="about-chip">Firebase</span>
+                  </div>
+                </div>
+
+                <div class="spec-group">
+                  <div class="spec-label"><i class="fas fa-brain icon-pink"></i> CS Core</div>
+                  <div class="spec-chips">
+                    <span class="about-chip">Data Structures &amp; Algorithms</span>
+                    <span class="about-chip">OOP</span>
+                    <span class="about-chip">DBMS</span>
+                    <span class="about-chip">Problem Solving</span>
+                  </div>
+                </div>
+
+                <div class="spec-group">
+                  <div class="spec-label"><i class="fas fa-tools icon-cyan"></i> Workflows &amp; Tools</div>
+                  <div class="spec-chips">
+                    <span class="about-chip">Git / GitHub</span>
+                    <span class="about-chip">Vercel</span>
+                    <span class="about-chip">Netlify</span>
+                    <span class="about-chip">VS Code</span>
+                    <span class="about-chip">Cursor</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Persona 2: Data Analytics & SQL -->
+            <div class="persona-content" id="persona-analytics">
+              <p class="about-lead">
+                Data Analyst adept at transforming complex raw datasets and unstructured requirements into clean database schemas, advanced SQL queries, and actionable executive insights.
+              </p>
+
+              <div class="about-spec-grid">
+                <div class="spec-group">
+                  <div class="spec-label"><i class="fas fa-database icon-cyan"></i> SQL &amp; Analytics</div>
+                  <div class="spec-chips">
+                    <span class="about-chip">Relational Schema Design</span>
+                    <span class="about-chip">Complex Joins &amp; Subqueries</span>
+                    <span class="about-chip">Power BI</span>
+                    <span class="about-chip">Data Aggregations</span>
+                  </div>
+                </div>
+
+                <div class="spec-group">
+                  <div class="spec-label"><i class="fas fa-certificate icon-pink"></i> Certifications</div>
+                  <div class="spec-chips">
+                    <span class="about-chip">GenAI Analytics (Forage)</span>
+                    <span class="about-chip">Databricks SQL &amp; BI</span>
+                    <span class="about-chip">Deloitte Tech Simulation</span>
+                  </div>
+                </div>
+
+                <div class="spec-group">
+                  <div class="spec-label"><i class="fas fa-chart-line icon-cyan"></i> Analytical Focus</div>
+                  <div class="spec-chips">
+                    <span class="about-chip">Data-Driven Decisions</span>
+                    <span class="about-chip">Business Reporting</span>
+                    <span class="about-chip">Data Cleaning</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Skills -->
-    <section id="skills" class="skills-section section-padding animate-on-scroll">
-      <div class="container">
-        <h2 class="section-title">
-          <span class="code-bracket">{</span> Core_Competencies <span class="code-bracket">}</span>
-        </h2>
-        <div class="skills-grid">
-          <div class="skill-card">
-            <div class="skill-icon"><i class="fab fa-java"></i></div>
-            <h3>Backend Architecture</h3>
-            <p>Core Java, Spring Boot, Microservices</p>
-            <div class="skill-level-bar"><div class="level java-level"></div></div>
-            <span class="status-tag">Intermediate</span>
+  <!-- Education -->
+  <section id="education" class="section-padding animate-on-scroll">
+    <div class="container">
+      <h2 class="section-title">
+        <span class="code-bracket">&lt;</span> Education <span class="code-bracket">/&gt;</span>
+      </h2>
+      <div class="education-grid">
+        <!-- MCA Degree -->
+        <article class="education-card">
+          <div class="edu-header">
+            <div class="edu-icon-badge">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="edu-title-wrapper">
+              <h3>Galgotias College of Engineering and Technology</h3>
+              <p class="edu-degree">Master of Computer Application (MCA)</p>
+            </div>
           </div>
-          <div class="skill-card">
-            <div class="skill-icon"><i class="fab fa-react"></i></div>
-            <h3>Frontend Engineering</h3>
-            <p>React.js, Modern CSS, Redux</p>
-            <div class="skill-level-bar"><div class="level web-level"></div></div>
-            <span class="status-tag">Advanced</span>
+          <div class="edu-meta">
+            <span class="edu-location"><i class="fas fa-map-marker-alt"></i> Gautam Budh Nagar, India</span>
+            <span class="edu-duration">2025 – 2027</span>
           </div>
-          <div class="skill-card">
-            <div class="skill-icon"><i class="fas fa-database"></i></div>
-            <h3>Data Management</h3>
-            <p>MySQL, PostgreSQL, MongoDB</p>
-            <div class="skill-level-bar"><div class="level db-level"></div></div>
-            <span class="status-tag">Proficient</span>
+          <ul class="edu-bullets">
+            <li><strong>Affiliation:</strong> Dr. A.P.J. Abdul Kalam Technical University (AKTU).</li>
+            <li><strong>Focus:</strong> Advanced programming, data structures and algorithms, DBMS, and software
+              engineering.</li>
+            <li><strong>Active Work:</strong> Working on full-stack development and application-based problem solving.
+            </li>
+          </ul>
+        </article>
+
+        <!-- BCA Degree -->
+        <article class="education-card">
+          <div class="edu-header">
+            <div class="edu-icon-badge">
+              <i class="fas fa-university"></i>
+            </div>
+            <div class="edu-title-wrapper">
+              <h3>Amity University</h3>
+              <p class="edu-degree">Bachelor of Computer Application (BCA)</p>
+            </div>
           </div>
-          <div class="skill-card">
-            <div class="skill-icon"><i class="fas fa-brain"></i></div>
-            <h3>AI & Intelligence</h3>
-            <p>OpenAI API, LangChain, Prompt Engineering</p>
-            <div class="skill-level-bar"><div class="level ai-level"></div></div>
-            <span class="status-tag">Exploring</span>
+          <div class="edu-meta">
+            <span class="edu-location"><i class="fas fa-map-marker-alt"></i> Ranchi, India</span>
+            <span class="edu-duration">2021 – 2024</span>
           </div>
-          <div class="skill-card">
-            <div class="skill-icon"><i class="fas fa-cloud"></i></div>
-            <h3>Cloud Infrastructure</h3>
-            <p>AWS, Azure Fundamentals, Cloud Storage</p>
-            <div class="skill-level-bar"><div class="level cloud-level"></div></div>
-            <span class="status-tag">Learning</span>
+          <ul class="edu-bullets">
+            <li><strong>Focus:</strong> Programming fundamentals, Object-Oriented Programming (OOP), web development,
+              and database concepts.</li>
+            <li><strong>Leadership:</strong> Led the BCA department student organization and coordinated departmental
+              activities.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="skills-section section-padding animate-on-scroll">
+    <div class="container">
+      <h2 class="section-title">
+        <span class="code-bracket">&lt;</span> Core Competencies <span class="code-bracket">/&gt;</span>
+      </h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fab fa-react"></i></div>
+          <h3>Frontend Engineering</h3>
+          <p>JavaScript (ES6+), React.js, HTML5, CSS3, Responsive UIs</p>
+          <div class="skill-level-bar">
+            <div class="level web-level"></div>
           </div>
-          <div class="skill-card">
-            <div class="skill-icon"><i class="fas fa-tools"></i></div>
-            <h3>DevOps & Version Control</h3>
-            <p>Git, GitHub, Docker, CI/CD Basics</p>
-            <div class="skill-level-bar"><div class="level devops-level"></div></div>
-            <span class="status-tag">Proficient</span>
+          <span class="status-tag">Advanced</span>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fab fa-node-js"></i></div>
+          <h3>Backend Engineering</h3>
+          <p>Node.js, Express.js, REST APIs, Router & Middleware</p>
+          <div class="skill-level-bar">
+            <div class="level java-level"></div>
           </div>
-          <div class="skill-card">
-            <div class="skill-icon"><i class="fas fa-vial"></i></div>
-            <h3>Testing & Quality</h3>
-            <p>Jest, React Testing Library, Postman Collections</p>
-            <div class="skill-level-bar"><div class="level test-level"></div></div>
-            <span class="status-tag">Proficient</span>
+          <span class="status-tag">Proficient</span>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-database"></i></div>
+          <h3>Data Analytics & SQL</h3>
+          <p>SQL Queries, Schema Design, Joins, Aggregations, Relational DBs</p>
+          <div class="skill-level-bar">
+            <div class="level da-sql-level"></div>
           </div>
-          <div class="skill-card">
-            <div class="skill-icon"><i class="fas fa-users-cog"></i></div>
-            <h3>Collaboration & Workflow</h3>
-            <p>Agile, Code Reviews, Documentation</p>
-            <div class="skill-level-bar"><div class="level collab-level"></div></div>
-            <span class="status-tag">Strong</span>
+          <span class="status-tag">Advanced</span>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-chart-pie"></i></div>
+          <h3>Data Visualization & BI</h3>
+          <p>KPI Dashboards, Data Modeling, Metric Analysis & Charts</p>
+          <div class="skill-level-bar">
+            <div class="level da-bi-level"></div>
+          </div>
+          <span class="status-tag">Proficient</span>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Business Intelligence</h3>
+          <p>Metrics Analysis, Data Pipelines, Trend Reporting & Insights</p>
+          <div class="skill-level-bar">
+            <div class="level da-stats-level"></div>
+          </div>
+          <span class="status-tag">Proficient</span>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-fire"></i></div>
+          <h3>Firebase Platform</h3>
+          <p>Firebase Authentication, Firestore DB, Hosting & Deployments</p>
+          <div class="skill-level-bar">
+            <div class="level da-bi-level"></div>
+          </div>
+          <span class="status-tag">Proficient</span>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-brain"></i></div>
+          <h3>Data Structures & Algorithms</h3>
+          <p>Data Structures, Algorithm Design, Time/Space Optimization</p>
+          <div class="skill-level-bar">
+            <div class="level da-stats-level"></div>
+          </div>
+          <span class="status-tag">Strong</span>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-tools"></i></div>
+          <h3>Developer Tools & IDEs</h3>
+          <p>Git, GitHub, Netlify, Vercel, Cursor, Codex, Antigravity, VS Code</p>
+          <div class="skill-level-bar">
+            <div class="level devops-level"></div>
+          </div>
+          <span class="status-tag">Proficient</span>
+        </div>
+      </div>
+    </div>
+    <div class="skills-footer">
+      <p class="console-text"><span class="cursor">></span> Resume_Skills_Synced: 100%</p>
+      <p class="console-text">
+        <span class="cursor">></span> System_Status:
+        <span class="green-text">Ready_to_Deploy</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="section-padding animate-on-scroll">
+    <div class="container">
+      <h2 class="section-title">
+        <span class="code-bracket">&lt;</span> Experience <span class="code-bracket">/&gt;</span>
+      </h2>
+
+      <!-- Experience Track Switcher Bar -->
+      <div class="exp-filter-bar">
+        <button class="exp-filter-btn active" data-exp-filter="web-dev" onclick="filterExp('web-dev')">
+          <i class="fas fa-code"></i> Full-Stack & Web Engineering
+        </button>
+        <button class="exp-filter-btn" data-exp-filter="data-analytics" onclick="filterExp('data-analytics')">
+          <i class="fas fa-chart-line"></i> Data & Business Analytics
+        </button>
+      </div>
+
+      <div class="timeline">
+        <!-- Internship 1: Dits Company (Web Development Track) -->
+        <div class="timeline-item" data-exp-category="web-dev">
+          <span class="timeline-dot"></span>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3>Web Developer Intern</h3>
+              <span class="track-badge dev-badge"><i class="fas fa-code"></i> Web Dev Track</span>
+            </div>
+            <p class="timeline-meta">Dits Company India Private Limited | Jul 2026 – Aug 2026</p>
+            <ul>
+              <li>Worked on frontend web development tasks as part of structured on-the-job training, gaining exposure
+                to SQL, backend fundamentals, and version control (Git/GitHub).</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="timeline-chip">Frontend Dev</span>
+              <span class="timeline-chip">Structured Training</span>
+              <span class="timeline-chip">SQL & Backend</span>
+              <span class="timeline-chip">Git / GitHub</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience 2: Freelance Web Developer (Web Development Track) -->
+        <div class="timeline-item" data-exp-category="web-dev">
+          <span class="timeline-dot"></span>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3>Freelance Web Developer</h3>
+              <span class="track-badge dev-badge"><i class="fas fa-code"></i> Web Dev Track</span>
+            </div>
+            <p class="timeline-meta">Remote | Aug 2024 – Jan 2025</p>
+            <ul>
+              <li>Developed a full-featured business website for a local retail client, integrating order placement,
+                seat/table booking, and customer reviews to establish the client's digital presence.</li>
+              <li>Built Firebase-based authentication, dynamic content management, and analytics features, enabling the
+                client to independently manage content, bookings, and customer engagement tracking.</li>
+              <li>Collaborated with a development team on requirements gathering, iteration, deployment, and final
+                handover with bug fixes.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="timeline-chip">Freelance Retail App</span>
+              <span class="timeline-chip">Firebase Auth</span>
+              <span class="timeline-chip">Order & Seat Booking</span>
+              <span class="timeline-chip">Team Handover</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Internship 3: VOIS AICTE (Data Analytics Track) -->
+        <div class="timeline-item" data-exp-category="data-analytics" style="display: none;">
+          <span class="timeline-dot"></span>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3>Data Analytics Intern</h3>
+              <span class="track-badge data-badge"><i class="fas fa-chart-bar"></i> Data & Analytics Track</span>
+            </div>
+            <p class="timeline-meta">_VOIS for Tech | AICTE | August 2026 Batch</p>
+            <ul>
+              <li>Executed data analytics capstone project focusing on dataset processing and analytical KPI reporting.
+              </li>
+              <li>Transformed raw datasets into structured business decision analytics views.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="timeline-chip">AICTE Cohort</span>
+              <span class="timeline-chip">Data Analytics</span>
+              <span class="timeline-chip">KPI Metrics</span>
+              <span class="timeline-chip">Completed</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Internship 4: IBM SkillsBuild (Data Analytics Track) -->
+        <div class="timeline-item" data-exp-category="data-analytics" style="display: none;">
+          <span class="timeline-dot"></span>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3>Data Analytics with AI Intern</h3>
+              <span class="track-badge data-badge"><i class="fas fa-chart-bar"></i> Data & Analytics Track</span>
+            </div>
+            <p class="timeline-meta">AICTE | IBM SkillsBuild | Completed Aug 19, 2026</p>
+            <ul>
+              <li>Completed academic internship on AI-driven exploratory data analysis (EDA) within IBM SkillsBuild
+                platform.</li>
+              <li>Built interactive data visualizer charts and quantitative executive summary reports.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="timeline-chip">IBM Cohort</span>
+              <span class="timeline-chip">AI & Analytics</span>
+              <span class="timeline-chip">EDA Visuals</span>
+              <span class="timeline-chip">Cert #PLAN-D44A9C2C463C</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Internship 5: YuvaIntern NSDC (Data Analytics Track) -->
+        <div class="timeline-item" data-exp-category="data-analytics" style="display: none;">
+          <span class="timeline-dot"></span>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3>Logistics Data Analyst Intern</h3>
+              <span class="track-badge data-badge"><i class="fas fa-chart-bar"></i> Data & Analytics Track</span>
+            </div>
+            <p class="timeline-meta">YuvaIntern | NSDC | Issued Aug 27, 2026</p>
+            <ul>
+              <li>Analyzed supply chain datasets to identify operational bottlenecks, KPIs, and throughput metrics.</li>
+              <li>Executed SQL aggregation queries, systematic data cleaning, and data validation routines.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="timeline-chip">NSDC Track</span>
+              <span class="timeline-chip">Logistics Data</span>
+              <span class="timeline-chip">SQL Aggregation</span>
+              <span class="timeline-chip">Cert #YI/2026/164976</span>
+            </div>
           </div>
         </div>
       </div>
-      <div class="skills-footer">
-        <p class="console-text"><span class="cursor">></span> Total_Skills_Loaded: 14</p>
-        <p class="console-text">
-          <span class="cursor">></span> System_Status:
-          <span class="green-text">Ready_to_Deploy</span>
-        </p>
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Certifications -->
-    <section id="certifications" class="section-padding animate-on-scroll">
-      <div class="container">
-        <h2 class="section-title">
-          <span class="code-bracket">&lt;</span> Certifications <span class="code-bracket">/&gt;</span>
-        </h2>
-        <div class="cert-grid">
-          <article class="cert-card js-cert">
+  <!-- Projects -->
+  <section id="projects" class="section-padding">
+    <div class="container">
+      <h2 class="section-title projects-title">
+        <span class="code-bracket">&lt;</span> Featured Projects <span class="code-bracket">/&gt;</span>
+      </h2>
+
+      <div class="project-filters" role="tablist" aria-label="Project role filters">
+        <button type="button" class="project-filter-btn active" data-filter="all">All Projects</button>
+        <button type="button" class="project-filter-btn" data-filter="fullstack">Full Stack & Web</button>
+        <button type="button" class="project-filter-btn" data-filter="analytics">Data Analytics & BI</button>
+      </div>
+
+      <!-- INFINITE HORIZONTAL MARQUEE TRACK WRAPPER -->
+      <div class="projects-marquee-wrapper">
+        <div class="projects-marquee-track">
+          <!-- SET 1: PRIMARY CARDS -->
+          <!-- PROJECT CARD 01: BUDGET YATRA -->
+          <div class="project-card marquee-card" data-category="fullstack" data-roles="fullstack" data-set="1">
+            <div class="project-cover-frame">
+              <div class="browser-bar">
+                <div class="browser-dots">
+                  <span class="browser-dot red"></span>
+                  <span class="browser-dot yellow"></span>
+                  <span class="browser-dot green"></span>
+                </div>
+                <div class="browser-address">https://budget-yatra.dev</div>
+              </div>
+              <img src="assets/images/budget_yatra.jpg" alt="Budget Yatra Travel App Preview" />
+            </div>
+
+            <div class="project-card-body">
+              <div class="project-meta-row">
+                <span class="project-no">01</span>
+                <span class="project-track">Hybrid Full-Stack & AI</span>
+              </div>
+              <h3>Budget Yatra | AI Travel Discovery Platform</h3>
+              <p class="project-desc-short">
+                Authentic Indian travel discovery platform with dynamic location-based CSS theming, Leaflet GIS mapping,
+                and AI trip planning.
+              </p>
+
+              <div class="project-tags">
+                <span class="tech-tag cyan">React & Tailwind</span>
+                <span class="tech-tag pink">Framer Motion & AI</span>
+                <span class="tech-tag cyan">Leaflet Maps</span>
+              </div>
+
+              <div class="project-links-row">
+                <button class="button btn-cyan btn-sm case-study-btn" type="button"
+                  data-case-title="Budget Yatra - AI Travel Discovery Platform"
+                  data-case-problem="Travelers needed an authentic, Gen-Z oriented Indian travel platform to explore hidden gems, homestays, and regional food with smart AI itinerary planning."
+                  data-case-build="Engineered a hybrid full-stack React app featuring dynamic location-based theming (Meghalaya, Spiti, Rishikesh), Framer Motion micro-animations, Leaflet maps, and an AI trip planning conversational engine."
+                  data-case-impact="Delivered an editorial magazine-style travel experience with real-time dynamic context switching.">
+                  <i class="fas fa-book-open"></i> Case Study
+                </button>
+                <span class="private-badge" title="Under active development"><i class="fas fa-code-branch"></i> In
+                  Production</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJECT CARD 02: RESOLVE DESK -->
+          <div class="project-card marquee-card" data-category="fullstack" data-roles="fullstack" data-set="1">
+            <div class="project-cover-frame">
+              <div class="browser-bar">
+                <div class="browser-dots">
+                  <span class="browser-dot red"></span>
+                  <span class="browser-dot yellow"></span>
+                  <span class="browser-dot green"></span>
+                </div>
+                <div class="browser-address">https://resolve-desk.vercel.app/</div>
+              </div>
+              <img src="assets/images/resolve_desk.jpg" alt="Resolve Desk Grievance Portal Preview" />
+            </div>
+
+            <div class="project-card-body">
+              <div class="project-meta-row">
+                <span class="project-no">02</span>
+                <span class="project-track">Full-Stack Web Engineering</span>
+              </div>
+              <h3>Resolve Desk | Campus Grievance Portal</h3>
+              <p class="project-desc-short">
+                Full-stack grievance platform built with React 19, Node.js, Express & MongoDB featuring email OTP auth
+                and admin workflow tracking.
+              </p>
+
+              <div class="project-tags">
+                <span class="tech-tag cyan">React 19 & Vite</span>
+                <span class="tech-tag pink">Node.js & MongoDB</span>
+                <span class="tech-tag cyan">JWT & OTP Auth</span>
+              </div>
+
+              <div class="project-links-row">
+                <a href="https://resolve-desk.vercel.app/" target="_blank" class="button btn-cyan btn-sm">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+                <button class="button btn-ghost btn-sm case-study-btn" type="button"
+                  data-case-title="Resolve Desk - Student Grievance Portal"
+                  data-case-problem="Students needed an easy, secure way to submit campus grievances and track resolution progress in real time."
+                  data-case-build="Developed a modern MERN stack application with JWT/OTP authentication, status pipelines (Pending, In Progress, Resolved), Nodemailer alerts, and admin dashboards."
+                  data-case-impact="Streamlined grievance resolution times and improved student-administration communication.">
+                  <i class="fas fa-book-open"></i> Case Study
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJECT CARD 03: SEASONAL AGRICULTURE ANALYTICS ENGINE -->
+          <div class="project-card marquee-card" data-category="analytics" data-roles="analytics" data-set="1">
+            <div class="project-cover-frame">
+              <div class="browser-bar">
+                <div class="browser-dots">
+                  <span class="browser-dot red"></span>
+                  <span class="browser-dot yellow"></span>
+                  <span class="browser-dot green"></span>
+                </div>
+                <div class="browser-address">
+                  https://github.com/PiyushKumar9341/Seasonal-Agriculture-Performance-Analysis</div>
+              </div>
+              <img src="assets/images/agriculture_analytics.jpg" alt="Seasonal Agriculture Analysis Preview" />
+            </div>
+
+            <div class="project-card-body">
+              <div class="project-meta-row">
+                <span class="project-no">03</span>
+                <span class="project-track">Data & Business Analytics</span>
+              </div>
+              <h3>Seasonal Agriculture Analytics Engine</h3>
+              <p class="project-desc-short">
+                Quantitative data analytics pipeline inspecting crop yields, seasonal weather variables, regional
+                performance metrics, and automated EDA reporting.
+              </p>
+
+              <div class="project-tags">
+                <span class="tech-tag cyan">Python & Pandas</span>
+                <span class="tech-tag pink">Exploratory Analysis</span>
+                <span class="tech-tag cyan">SQL & Data Viz</span>
+              </div>
+
+              <div class="project-links-row">
+                <a href="https://github.com/PiyushKumar9341/Seasonal-Agriculture-Performance-Analysis" target="_blank"
+                  class="button btn-cyan btn-sm">
+                  <i class="fab fa-github"></i> GitHub Repo
+                </a>
+                <button class="button btn-ghost btn-sm case-study-btn" type="button"
+                  data-case-title="Seasonal Agriculture Performance Analysis"
+                  data-case-problem="Agricultural planners required data-driven insights into crop yield patterns across diverse weather seasons."
+                  data-case-build="Engineered quantitative data cleaning, aggregated seasonal yield metrics, and generated interactive visualization charts."
+                  data-case-impact="Provided actionable yield forecasts and regional performance benchmarks.">
+                  <i class="fas fa-book-open"></i> Case Study
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJECT CARD 04: TASKCRAFT PRO -->
+          <div class="project-card marquee-card" data-category="fullstack" data-roles="fullstack" data-set="1">
+            <div class="project-cover-frame">
+              <div class="browser-bar">
+                <div class="browser-dots">
+                  <span class="browser-dot red"></span>
+                  <span class="browser-dot yellow"></span>
+                  <span class="browser-dot green"></span>
+                </div>
+                <div class="browser-address">https://advatodo.netlify.app/</div>
+              </div>
+              <img src="assets/images/taskcraft_pro.jpg" alt="TaskCraft Pro App Preview" />
+            </div>
+
+            <div class="project-card-body">
+              <div class="project-meta-row">
+                <span class="project-no">04</span>
+                <span class="project-track">Frontend & Web Engineering</span>
+              </div>
+              <h3>TaskCraft Pro | Smart Productivity Suite</h3>
+              <p class="project-desc-short">
+                High-performance task management web application engineered for instant state persistence, priority
+                tagging, and streamlined UX.
+              </p>
+
+              <div class="project-tags">
+                <span class="tech-tag cyan">Vanilla JS & ES6+</span>
+                <span class="tech-tag pink">LocalStorage Sync</span>
+                <span class="tech-tag cyan">Optimized UX</span>
+              </div>
+
+              <div class="project-links-row">
+                <a href="https://advatodo.netlify.app/" target="_blank" class="button btn-cyan btn-sm">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+                <button class="button btn-ghost btn-sm case-study-btn" type="button"
+                  data-case-title="TaskCraft Pro - Advanced Productivity Suite"
+                  data-case-problem="Managing daily tasks quickly without losing progress on browser refreshes."
+                  data-case-build="Built a keyboard-friendly task manager with localStorage persistence, filters, and micro-interactions."
+                  data-case-impact="Improved productivity flow and delivered a fast, responsive UX for everyday planning.">
+                  <i class="fas fa-book-open"></i> Case Study
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJECT CARD 05: SUPPLY CHAIN & LOGISTICS BI ENGINE -->
+          <div class="project-card marquee-card" data-category="analytics" data-roles="analytics" data-set="1">
+            <div class="project-cover-frame">
+              <div class="browser-bar">
+                <div class="browser-dots">
+                  <span class="browser-dot red"></span>
+                  <span class="browser-dot yellow"></span>
+                  <span class="browser-dot green"></span>
+                </div>
+                <div class="browser-address">https://github.com/PiyushKumar9341</div>
+              </div>
+              <img src="assets/images/logistics_bi.jpg" alt="Supply Chain BI Engine Preview" />
+            </div>
+
+            <div class="project-card-body">
+              <div class="project-meta-row">
+                <span class="project-no">05</span>
+                <span class="project-track">Data & Business Analytics</span>
+              </div>
+              <h3>Logistics Performance BI Engine</h3>
+              <p class="project-desc-short">
+                Supply chain analytics engine analyzing distribution logistics, operational bottlenecks, throughput
+                metrics, and executive KPIs.
+              </p>
+
+              <div class="project-tags">
+                <span class="tech-tag cyan">SQL Aggregations</span>
+                <span class="tech-tag pink">Supply Chain BI</span>
+                <span class="tech-tag cyan">Logistics KPIs</span>
+              </div>
+
+              <div class="project-links-row">
+                <button class="button btn-cyan btn-sm case-study-btn" type="button"
+                  data-case-title="Supply Chain & Logistics BI Engine (YuvaIntern NSDC)"
+                  data-case-problem="Logistics operations needed quantitative analysis to identify distribution bottlenecks and throughput delays across supply chains."
+                  data-case-build="Analyzed large-scale logistics datasets using SQL aggregation queries, statistical validation routines, and KPI performance metrics under NSDC virtual track."
+                  data-case-impact="Uncovered critical operational bottlenecks and established key performance metrics to optimize throughput efficiency.">
+                  <i class="fas fa-book-open"></i> Case Study
+                </button>
+                <span class="private-badge" title="NSDC Track Certified"
+                  style="background: rgba(0, 229, 255, 0.12); color: var(--cyan); border-color: rgba(0, 229, 255, 0.3);"><i
+                    class="fas fa-award"></i> NSDC Track</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- SET 2: DUPLICATE CARDS FOR CONTINUOUS INFINITE MARQUEE LOOP -->
+          <!-- PROJECT CARD 01 DUP -->
+          <div class="project-card marquee-card" data-category="fullstack" data-roles="fullstack" data-set="2">
+            <div class="project-cover-frame">
+              <div class="browser-bar">
+                <div class="browser-dots">
+                  <span class="browser-dot red"></span>
+                  <span class="browser-dot yellow"></span>
+                  <span class="browser-dot green"></span>
+                </div>
+                <div class="browser-address">https://budget-yatra.dev</div>
+              </div>
+              <img src="assets/images/budget_yatra.jpg" alt="Budget Yatra Travel App Preview" />
+            </div>
+
+            <div class="project-card-body">
+              <div class="project-meta-row">
+                <span class="project-no">01</span>
+                <span class="project-track">Hybrid Full-Stack & AI</span>
+              </div>
+              <h3>Budget Yatra | AI Travel Discovery Platform</h3>
+              <p class="project-desc-short">
+                Authentic Indian travel discovery platform with dynamic location-based CSS theming, Leaflet GIS mapping,
+                and AI trip planning.
+              </p>
+
+              <div class="project-tags">
+                <span class="tech-tag cyan">React & Tailwind</span>
+                <span class="tech-tag pink">Framer Motion & AI</span>
+                <span class="tech-tag cyan">Leaflet Maps</span>
+              </div>
+
+              <div class="project-links-row">
+                <button class="button btn-cyan btn-sm case-study-btn" type="button"
+                  data-case-title="Budget Yatra - AI Travel Discovery Platform"
+                  data-case-problem="Travelers needed an authentic, Gen-Z oriented Indian travel platform to explore hidden gems, homestays, and regional food with smart AI itinerary planning."
+                  data-case-build="Engineered a hybrid full-stack React app featuring dynamic location-based theming (Meghalaya, Spiti, Rishikesh), Framer Motion micro-animations, Leaflet maps, and an AI trip planning conversational engine."
+                  data-case-impact="Delivered an editorial magazine-style travel experience with real-time dynamic context switching.">
+                  <i class="fas fa-book-open"></i> Case Study
+                </button>
+                <span class="private-badge" title="Under active development"><i class="fas fa-code-branch"></i> In
+                  Production</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJECT CARD 02 DUP -->
+          <div class="project-card marquee-card" data-category="fullstack" data-roles="fullstack" data-set="2">
+            <div class="project-cover-frame">
+              <div class="browser-bar">
+                <div class="browser-dots">
+                  <span class="browser-dot red"></span>
+                  <span class="browser-dot yellow"></span>
+                  <span class="browser-dot green"></span>
+                </div>
+                <div class="browser-address">https://resolve-desk.vercel.app/</div>
+              </div>
+              <img src="assets/images/resolve_desk.jpg" alt="Resolve Desk Grievance Portal Preview" />
+            </div>
+
+            <div class="project-card-body">
+              <div class="project-meta-row">
+                <span class="project-no">02</span>
+                <span class="project-track">Full-Stack Web Engineering</span>
+              </div>
+              <h3>Resolve Desk | Campus Grievance Portal</h3>
+              <p class="project-desc-short">
+                Full-stack grievance platform built with React 19, Node.js, Express & MongoDB featuring email OTP auth
+                and admin workflow tracking.
+              </p>
+
+              <div class="project-tags">
+                <span class="tech-tag cyan">React 19 & Vite</span>
+                <span class="tech-tag pink">Node.js & MongoDB</span>
+                <span class="tech-tag cyan">JWT & OTP Auth</span>
+              </div>
+
+              <div class="project-links-row">
+                <a href="https://resolve-desk.vercel.app/" target="_blank" class="button btn-cyan btn-sm">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+                <button class="button btn-ghost btn-sm case-study-btn" type="button"
+                  data-case-title="Resolve Desk - Student Grievance Portal"
+                  data-case-problem="Students needed an easy, secure way to submit campus grievances and track resolution progress in real time."
+                  data-case-build="Developed a modern MERN stack application with JWT/OTP authentication, status pipelines (Pending, In Progress, Resolved), Nodemailer alerts, and admin dashboards."
+                  data-case-impact="Streamlined grievance resolution times and improved student-administration communication.">
+                  <i class="fas fa-book-open"></i> Case Study
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJECT CARD 03 DUP -->
+          <div class="project-card marquee-card" data-category="analytics" data-roles="analytics" data-set="2">
+            <div class="project-cover-frame">
+              <div class="browser-bar">
+                <div class="browser-dots">
+                  <span class="browser-dot red"></span>
+                  <span class="browser-dot yellow"></span>
+                  <span class="browser-dot green"></span>
+                </div>
+                <div class="browser-address">
+                  https://github.com/PiyushKumar9341/Seasonal-Agriculture-Performance-Analysis</div>
+              </div>
+              <img src="assets/images/agriculture_analytics.jpg" alt="Seasonal Agriculture Analysis Preview" />
+            </div>
+
+            <div class="project-card-body">
+              <div class="project-meta-row">
+                <span class="project-no">03</span>
+                <span class="project-track">Data & Business Analytics</span>
+              </div>
+              <h3>Seasonal Agriculture Analytics Engine</h3>
+              <p class="project-desc-short">
+                Quantitative data analytics pipeline inspecting crop yields, seasonal weather variables, regional
+                performance metrics, and automated EDA reporting.
+              </p>
+
+              <div class="project-tags">
+                <span class="tech-tag cyan">Python & Pandas</span>
+                <span class="tech-tag pink">Exploratory Analysis</span>
+                <span class="tech-tag cyan">SQL & Data Viz</span>
+              </div>
+
+              <div class="project-links-row">
+                <a href="https://github.com/PiyushKumar9341/Seasonal-Agriculture-Performance-Analysis" target="_blank"
+                  class="button btn-cyan btn-sm">
+                  <i class="fab fa-github"></i> GitHub Repo
+                </a>
+                <button class="button btn-ghost btn-sm case-study-btn" type="button"
+                  data-case-title="Seasonal Agriculture Performance Analysis"
+                  data-case-problem="Agricultural planners required data-driven insights into crop yield patterns across diverse weather seasons."
+                  data-case-build="Engineered quantitative data cleaning, aggregated seasonal yield metrics, and generated interactive visualization charts."
+                  data-case-impact="Provided actionable yield forecasts and regional performance benchmarks.">
+                  <i class="fas fa-book-open"></i> Case Study
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJECT CARD 04 DUP -->
+          <div class="project-card marquee-card" data-category="fullstack" data-roles="fullstack" data-set="2">
+            <div class="project-cover-frame">
+              <div class="browser-bar">
+                <div class="browser-dots">
+                  <span class="browser-dot red"></span>
+                  <span class="browser-dot yellow"></span>
+                  <span class="browser-dot green"></span>
+                </div>
+                <div class="browser-address">https://advatodo.netlify.app/</div>
+              </div>
+              <img src="assets/images/taskcraft_pro.jpg" alt="TaskCraft Pro App Preview" />
+            </div>
+
+            <div class="project-card-body">
+              <div class="project-meta-row">
+                <span class="project-no">04</span>
+                <span class="project-track">Frontend & Web Engineering</span>
+              </div>
+              <h3>TaskCraft Pro | Smart Productivity Suite</h3>
+              <p class="project-desc-short">
+                High-performance task management web application engineered for instant state persistence, priority
+                tagging, and streamlined UX.
+              </p>
+
+              <div class="project-tags">
+                <span class="tech-tag cyan">Vanilla JS & ES6+</span>
+                <span class="tech-tag pink">LocalStorage Sync</span>
+                <span class="tech-tag cyan">Optimized UX</span>
+              </div>
+
+              <div class="project-links-row">
+                <a href="https://advatodo.netlify.app/" target="_blank" class="button btn-cyan btn-sm">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+                <button class="button btn-ghost btn-sm case-study-btn" type="button"
+                  data-case-title="TaskCraft Pro - Advanced Productivity Suite"
+                  data-case-problem="Managing daily tasks quickly without losing progress on browser refreshes."
+                  data-case-build="Built a keyboard-friendly task manager with localStorage persistence, filters, and micro-interactions."
+                  data-case-impact="Improved productivity flow and delivered a fast, responsive UX for everyday planning.">
+                  <i class="fas fa-book-open"></i> Case Study
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJECT CARD 05 DUP -->
+          <div class="project-card marquee-card" data-category="analytics" data-roles="analytics" data-set="2">
+            <div class="project-cover-frame">
+              <div class="browser-bar">
+                <div class="browser-dots">
+                  <span class="browser-dot red"></span>
+                  <span class="browser-dot yellow"></span>
+                  <span class="browser-dot green"></span>
+                </div>
+                <div class="browser-address">https://github.com/PiyushKumar9341</div>
+              </div>
+              <img src="assets/images/logistics_bi.jpg" alt="Supply Chain BI Engine Preview" />
+            </div>
+
+            <div class="project-card-body">
+              <div class="project-meta-row">
+                <span class="project-no">05</span>
+                <span class="project-track">Data & Business Analytics</span>
+              </div>
+              <h3>Logistics Performance BI Engine</h3>
+              <p class="project-desc-short">
+                Supply chain analytics engine analyzing distribution logistics, operational bottlenecks, throughput
+                metrics, and executive KPIs.
+              </p>
+
+              <div class="project-tags">
+                <span class="tech-tag cyan">SQL Aggregations</span>
+                <span class="tech-tag pink">Supply Chain BI</span>
+                <span class="tech-tag cyan">Logistics KPIs</span>
+              </div>
+
+              <div class="project-links-row">
+                <button class="button btn-cyan btn-sm case-study-btn" type="button"
+                  data-case-title="Supply Chain & Logistics BI Engine (YuvaIntern NSDC)"
+                  data-case-problem="Logistics operations needed quantitative analysis to identify distribution bottlenecks and throughput delays across supply chains."
+                  data-case-build="Analyzed large-scale logistics datasets using SQL aggregation queries, statistical validation routines, and KPI performance metrics under NSDC virtual track."
+                  data-case-impact="Uncovered critical operational bottlenecks and established key performance metrics to optimize throughput efficiency.">
+                  <i class="fas fa-book-open"></i> Case Study
+                </button>
+                <span class="private-badge" title="NSDC Track Certified"
+                  style="background: rgba(0, 229, 255, 0.12); color: var(--cyan); border-color: rgba(0, 229, 255, 0.3);"><i
+                    class="fas fa-award"></i> NSDC Track</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- SET 3: DUPLICATE CARDS FOR CONTINUOUS INFINITE MARQUEE LOOP -->
+          <!-- PROJECT CARD 01 DUP 2 -->
+          <div class="project-card marquee-card" data-category="fullstack" data-roles="fullstack" data-set="3">
+            <div class="project-cover-frame">
+              <div class="browser-bar">
+                <div class="browser-dots">
+                  <span class="browser-dot red"></span>
+                  <span class="browser-dot yellow"></span>
+                  <span class="browser-dot green"></span>
+                </div>
+                <div class="browser-address">https://budget-yatra.dev</div>
+              </div>
+              <img src="assets/images/budget_yatra.jpg" alt="Budget Yatra Travel App Preview" />
+            </div>
+
+            <div class="project-card-body">
+              <div class="project-meta-row">
+                <span class="project-no">01</span>
+                <span class="project-track">Hybrid Full-Stack & AI</span>
+              </div>
+              <h3>Budget Yatra | AI Travel Discovery Platform</h3>
+              <p class="project-desc-short">
+                Authentic Indian travel discovery platform with dynamic location-based CSS theming, Leaflet GIS mapping,
+                and AI trip planning.
+              </p>
+
+              <div class="project-tags">
+                <span class="tech-tag cyan">React & Tailwind</span>
+                <span class="tech-tag pink">Framer Motion & AI</span>
+                <span class="tech-tag cyan">Leaflet Maps</span>
+              </div>
+
+              <div class="project-links-row">
+                <button class="button btn-cyan btn-sm case-study-btn" type="button"
+                  data-case-title="Budget Yatra - AI Travel Discovery Platform"
+                  data-case-problem="Travelers needed an authentic, Gen-Z oriented Indian travel platform to explore hidden gems, homestays, and regional food with smart AI itinerary planning."
+                  data-case-build="Engineered a hybrid full-stack React app featuring dynamic location-based theming (Meghalaya, Spiti, Rishikesh), Framer Motion micro-animations, Leaflet maps, and an AI trip planning conversational engine."
+                  data-case-impact="Delivered an editorial magazine-style travel experience with real-time dynamic context switching.">
+                  <i class="fas fa-book-open"></i> Case Study
+                </button>
+                <span class="private-badge" title="Under active development"><i class="fas fa-code-branch"></i> In
+                  Production</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJECT CARD 02 DUP 2 -->
+          <div class="project-card marquee-card" data-category="fullstack" data-roles="fullstack" data-set="3">
+            <div class="project-cover-frame">
+              <div class="browser-bar">
+                <div class="browser-dots">
+                  <span class="browser-dot red"></span>
+                  <span class="browser-dot yellow"></span>
+                  <span class="browser-dot green"></span>
+                </div>
+                <div class="browser-address">https://resolve-desk.vercel.app/</div>
+              </div>
+              <img src="assets/images/resolve_desk.jpg" alt="Resolve Desk Grievance Portal Preview" />
+            </div>
+
+            <div class="project-card-body">
+              <div class="project-meta-row">
+                <span class="project-no">02</span>
+                <span class="project-track">Full-Stack Web Engineering</span>
+              </div>
+              <h3>Resolve Desk | Campus Grievance Portal</h3>
+              <p class="project-desc-short">
+                Full-stack grievance platform built with React 19, Node.js, Express & MongoDB featuring email OTP auth
+                and admin workflow tracking.
+              </p>
+
+              <div class="project-tags">
+                <span class="tech-tag cyan">React 19 & Vite</span>
+                <span class="tech-tag pink">Node.js & MongoDB</span>
+                <span class="tech-tag cyan">JWT & OTP Auth</span>
+              </div>
+
+              <div class="project-links-row">
+                <a href="https://resolve-desk.vercel.app/" target="_blank" class="button btn-cyan btn-sm">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+                <button class="button btn-ghost btn-sm case-study-btn" type="button"
+                  data-case-title="Resolve Desk - Student Grievance Portal"
+                  data-case-problem="Students needed an easy, secure way to submit campus grievances and track resolution progress in real time."
+                  data-case-build="Developed a modern MERN stack application with JWT/OTP authentication, status pipelines (Pending, In Progress, Resolved), Nodemailer alerts, and admin dashboards."
+                  data-case-impact="Streamlined grievance resolution times and improved student-administration communication.">
+                  <i class="fas fa-book-open"></i> Case Study
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJECT CARD 03 DUP 2 -->
+          <div class="project-card marquee-card" data-category="analytics" data-roles="analytics" data-set="3">
+            <div class="project-cover-frame">
+              <div class="browser-bar">
+                <div class="browser-dots">
+                  <span class="browser-dot red"></span>
+                  <span class="browser-dot yellow"></span>
+                  <span class="browser-dot green"></span>
+                </div>
+                <div class="browser-address">
+                  https://github.com/PiyushKumar9341/Seasonal-Agriculture-Performance-Analysis</div>
+              </div>
+              <img src="assets/images/agriculture_analytics.jpg" alt="Seasonal Agriculture Analysis Preview" />
+            </div>
+
+            <div class="project-card-body">
+              <div class="project-meta-row">
+                <span class="project-no">03</span>
+                <span class="project-track">Data & Business Analytics</span>
+              </div>
+              <h3>Seasonal Agriculture Analytics Engine</h3>
+              <p class="project-desc-short">
+                Quantitative data analytics pipeline inspecting crop yields, seasonal weather variables, regional
+                performance metrics, and automated EDA reporting.
+              </p>
+
+              <div class="project-tags">
+                <span class="tech-tag cyan">Python & Pandas</span>
+                <span class="tech-tag pink">Exploratory Analysis</span>
+                <span class="tech-tag cyan">SQL & Data Viz</span>
+              </div>
+
+              <div class="project-links-row">
+                <a href="https://github.com/PiyushKumar9341/Seasonal-Agriculture-Performance-Analysis" target="_blank"
+                  class="button btn-cyan btn-sm">
+                  <i class="fab fa-github"></i> GitHub Repo
+                </a>
+                <button class="button btn-ghost btn-sm case-study-btn" type="button"
+                  data-case-title="Seasonal Agriculture Performance Analysis"
+                  data-case-problem="Agricultural planners required data-driven insights into crop yield patterns across diverse weather seasons."
+                  data-case-build="Engineered quantitative data cleaning, aggregated seasonal yield metrics, and generated interactive visualization charts."
+                  data-case-impact="Provided actionable yield forecasts and regional performance benchmarks.">
+                  <i class="fas fa-book-open"></i> Case Study
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJECT CARD 04 DUP 2 -->
+          <div class="project-card marquee-card" data-category="fullstack" data-roles="fullstack" data-set="3">
+            <div class="project-cover-frame">
+              <div class="browser-bar">
+                <div class="browser-dots">
+                  <span class="browser-dot red"></span>
+                  <span class="browser-dot yellow"></span>
+                  <span class="browser-dot green"></span>
+                </div>
+                <div class="browser-address">https://advatodo.netlify.app/</div>
+              </div>
+              <img src="assets/images/taskcraft_pro.jpg" alt="TaskCraft Pro App Preview" />
+            </div>
+
+            <div class="project-card-body">
+              <div class="project-meta-row">
+                <span class="project-no">04</span>
+                <span class="project-track">Frontend & Web Engineering</span>
+              </div>
+              <h3>TaskCraft Pro | Smart Productivity Suite</h3>
+              <p class="project-desc-short">
+                High-performance task management web application engineered for instant state persistence, priority
+                tagging, and streamlined UX.
+              </p>
+
+              <div class="project-tags">
+                <span class="tech-tag cyan">Vanilla JS & ES6+</span>
+                <span class="tech-tag pink">LocalStorage Sync</span>
+                <span class="tech-tag cyan">Optimized UX</span>
+              </div>
+
+              <div class="project-links-row">
+                <a href="https://advatodo.netlify.app/" target="_blank" class="button btn-cyan btn-sm">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+                <button class="button btn-ghost btn-sm case-study-btn" type="button"
+                  data-case-title="TaskCraft Pro - Advanced Productivity Suite"
+                  data-case-problem="Managing daily tasks quickly without losing progress on browser refreshes."
+                  data-case-build="Built a keyboard-friendly task manager with localStorage persistence, filters, and micro-interactions."
+                  data-case-impact="Improved productivity flow and delivered a fast, responsive UX for everyday planning.">
+                  <i class="fas fa-book-open"></i> Case Study
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJECT CARD 05 DUP 2 -->
+          <div class="project-card marquee-card" data-category="analytics" data-roles="analytics" data-set="3">
+            <div class="project-cover-frame">
+              <div class="browser-bar">
+                <div class="browser-dots">
+                  <span class="browser-dot red"></span>
+                  <span class="browser-dot yellow"></span>
+                  <span class="browser-dot green"></span>
+                </div>
+                <div class="browser-address">https://github.com/PiyushKumar9341</div>
+              </div>
+              <img src="assets/images/logistics_bi.jpg" alt="Supply Chain BI Engine Preview" />
+            </div>
+
+            <div class="project-card-body">
+              <div class="project-meta-row">
+                <span class="project-no">05</span>
+                <span class="project-track">Data & Business Analytics</span>
+              </div>
+              <h3>Logistics Performance BI Engine</h3>
+              <p class="project-desc-short">
+                Supply chain analytics engine analyzing distribution logistics, operational bottlenecks, throughput
+                metrics, and executive KPIs.
+              </p>
+
+              <div class="project-tags">
+                <span class="tech-tag cyan">SQL Aggregations</span>
+                <span class="tech-tag pink">Supply Chain BI</span>
+                <span class="tech-tag cyan">Logistics KPIs</span>
+              </div>
+
+              <div class="project-links-row">
+                <button class="button btn-cyan btn-sm case-study-btn" type="button"
+                  data-case-title="Supply Chain & Logistics BI Engine (YuvaIntern NSDC)"
+                  data-case-problem="Logistics operations needed quantitative analysis to identify distribution bottlenecks and throughput delays across supply chains."
+                  data-case-build="Analyzed large-scale logistics datasets using SQL aggregation queries, statistical validation routines, and KPI performance metrics under NSDC virtual track."
+                  data-case-impact="Uncovered critical operational bottlenecks and established key performance metrics to optimize throughput efficiency.">
+                  <i class="fas fa-book-open"></i> Case Study
+                </button>
+                <span class="private-badge" title="NSDC Track Certified"
+                  style="background: rgba(0, 229, 255, 0.12); color: var(--cyan); border-color: rgba(0, 229, 255, 0.3);"><i
+                    class="fas fa-award"></i> NSDC Track</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section id="certifications" class="section-padding animate-on-scroll">
+    <div class="container">
+      <h2 class="section-title">
+        <span class="code-bracket">&lt;</span> Certifications <span class="code-bracket">/&gt;</span>
+      </h2>
+      <div class="cert-grid">
+        <!-- Cert 1: Oracle Certified Foundations Associate -->
+        <article class="cert-card js-cert">
+          <div>
             <div class="cert-header">
-              <span class="cert-icon"><i class="fas fa-cloud"></i></span>
-              <h3>Introduction to Generative AI Studio</h3>
+              <span class="cert-icon"><i class="fas fa-certificate"></i></span>
+              <h3>Oracle Certified Foundations Associate</h3>
             </div>
-            <p class="cert-org">Google Cloud · 2025</p>
+            <p class="cert-org"><span class="cert-chip oracle">Oracle University</span> · July 2026</p>
             <p class="cert-desc">
-              Learned how to build and experiment with GenAI workflows using Google Cloud’s
-              AI Studio.
+              Officially certified in Agentic AI & Systems Foundations by Oracle Corporation (Valid through July 2028).
             </p>
-          </article>
+          </div>
+          <div class="cert-footer">
+            <span class="cert-status-badge"><i class="fas fa-award"></i> Oracle Certified</span>
+          </div>
+        </article>
 
-          <article class="cert-card js-cert">
+        <!-- Cert 2: IBM SkillsBuild Data Analytics with AI -->
+        <article class="cert-card js-cert">
+          <div>
             <div class="cert-header">
-              <span class="cert-icon"><i class="fas fa-database"></i></span>
-              <h3>Databricks for Generative AI</h3>
+              <span class="cert-icon"><i class="fas fa-chart-bar"></i></span>
+              <h3>IBM SkillsBuild Data Analytics with AI</h3>
             </div>
-            <p class="cert-org">Simplilearn · 2025</p>
+            <p class="cert-org"><span class="cert-chip ibm">IBM | AICTE | BharatCares</span> · Aug 2026</p>
             <p class="cert-desc">
-              Gained hands-on exposure to using Databricks for GenAI and data-driven
-              applications.
+              Academic certification in AI-assisted Data Analytics, data visualization, and reporting
+              (PLAN-D44A9C2C463C).
             </p>
-          </article>
+          </div>
+          <div class="cert-footer">
+            <span class="cert-status-badge"><i class="fas fa-check-circle"></i> IBM Verified</span>
+          </div>
+        </article>
 
-          <article class="cert-card js-cert">
+        <!-- Cert 3: TATA Data Analytics & Insights Simulation -->
+        <article class="cert-card js-cert">
+          <div>
             <div class="cert-header">
               <span class="cert-icon"><i class="fas fa-chart-line"></i></span>
-              <h3>GenAI Data Analytics Job Simulation</h3>
+              <h3>TATA Data Analytics & Insights Simulation</h3>
             </div>
-            <p class="cert-org">TATA Forage · 2025</p>
+            <p class="cert-org"><span class="cert-chip tata">TATA Forage</span> · 2025</p>
             <p class="cert-desc">
-              Simulated real-world analytics tasks using GenAI to extract insights from data.
+              Simulated real-world enterprise data analytics tasks, data cleaning, KPI tracking, and executive data
+              presentation.
             </p>
-            <p class="cert-verify">
-              <a href="https://www.linkedin.com/posts/piyush-kumar111_generativeai-dataanalytics-ai-activity-7349714450175643648-aS6N?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEDMls4BD1Sm6ghZLzTy25bQaAJUHNlaGr4" target="_blank" rel="noopener noreferrer" class="cert-verify-link" title="View LinkedIn verification post">
-                Verification link
+          </div>
+          <div class="cert-footer">
+            <a href="https://www.linkedin.com/posts/piyush-kumar111_generativeai-dataanalytics-ai-activity-7349714450175643648-aS6N?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEDMls4BD1Sm6ghZLzTy25bQaAJUHNlaGr4"
+              target="_blank" rel="noopener noreferrer" class="cert-verify-link">
+              <i class="fab fa-linkedin"></i> Verify Credential <i class="fas fa-external-link-alt icon-sm"></i>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements -->
+  <section id="achievements" class="section-padding animate-on-scroll">
+    <div class="container">
+      <h2 class="section-title">
+        <span class="code-bracket">&lt;</span> Achievements <span class="code-bracket">/&gt;</span>
+      </h2>
+      <div class="achievements-grid">
+        <!-- ISP -->
+        <article class="achievement-card">
+          <div class="achieve-icon-wrapper">
+            <i class="fas fa-bullhorn"></i>
+          </div>
+          <h3>Internshala Student Partner (ISP)</h3>
+          <p>
+            Selected as an Internshala Student Partner for the August 2026 edition (18–24 Aug 2026), representing
+            Internshala's internship and training programs on campus.
+          </p>
+          <span class="achieve-badge">Campus Representative</span>
+        </article>
+
+        <!-- BCA Lead -->
+        <article class="achievement-card">
+          <div class="achieve-icon-wrapper">
+            <i class="fas fa-users-cog"></i>
+          </div>
+          <h3>BCA Department Leader</h3>
+          <p>
+            Led the BCA department student organization at college and coordinated departmental activities, tech events,
+            and student workshops.
+          </p>
+          <span class="achieve-badge">Department Leadership</span>
+        </article>
+
+        <!-- Volleyball Runner-Up -->
+        <article class="achievement-card">
+          <div class="achieve-icon-wrapper">
+            <i class="fas fa-trophy"></i>
+          </div>
+          <h3>National Volleyball Runner-Up</h3>
+          <p>
+            Represented DAV National School in volleyball and finished as runner-up at a national-level tournament.
+          </p>
+          <span class="achieve-badge">Sports Achievement</span>
+        </article>
+
+        <!-- NCC B Certificate -->
+        <article class="achievement-card">
+          <div class="achieve-icon-wrapper">
+            <i class="fas fa-medal"></i>
+          </div>
+          <h3>NCC 'B' Certificate</h3>
+          <p>
+            Completed NCC 'B' Certificate and participated in a B-grade camp, demonstrating discipline, perseverance,
+            and leadership.
+          </p>
+          <span class="achieve-badge">Discipline & Service</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="section-padding animate-on-scroll">
+    <div class="container">
+      <h2 class="section-title">
+        <span class="code-bracket">&lt;</span> Testimonials <span class="code-bracket">/&gt;</span>
+      </h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p>
+            "Piyush delivered a clean, responsive web application on time and suggested
+            thoughtful UX improvements."
+          </p>
+          <h4>Gautam Kumar</h4>
+          <span class="testimonial-role">Startup</span>
+        </div>
+        <div class="testimonial-card">
+          <p>
+            "Strong problem-solving mindset, quick to pick up new tools, and very
+            collaborative in the team."
+          </p>
+          <h4> Neeraj Kaushik (Mentor)</h4>
+          <span class="testimonial-role">Engineering Lead</span>
+        </div>
+        <div class="testimonial-card">
+          <p>
+            "He turns vague ideas into well-structured features with attention to detail and
+            maintainable code."
+          </p>
+          <h4>Colleague</h4>
+          <span class="testimonial-role">Software Engineer</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resume -->
+  <section id="resume" class="section-padding animate-on-scroll">
+    <div class="container resume-container">
+      <h2 class="section-title">
+        <span class="code-bracket">&lt;</span> My Resume <span class="code-bracket">/&gt;</span>
+      </h2>
+      <p>
+        Download my resume to explore detailed experience, education, and the technologies I
+        work with.
+      </p>
+      <a href="assets/docs/Resume.pdf" download class="button btn-cyan">
+        <i class="fas fa-download"></i> Download Resume (PDF)
+      </a>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact-section animate-on-scroll">
+    <div class="container">
+      <h2 class="section-title contact-title">
+        <span class="code-bracket">&lt;</span> Get In Touch <span class="code-bracket">/&gt;</span>
+      </h2>
+      <p class="contact-subtitle">
+        Open for full-time engineering roles, freelance opportunities, and technical projects. Let's build something
+        remarkable together!
+      </p>
+
+      <div class="contact-grid">
+        <!-- Direct Contact HUD Card (Left Side) -->
+        <div class="contact-card-direct">
+          <div>
+            <div class="contact-card-header">
+              <div class="contact-card-icon-box">
+                <i class="fas fa-paper-plane"></i>
+              </div>
+              <div class="contact-card-title-group">
+                <h3>Let's Work Together</h3>
+                <span class="status-indicator-pill"><span class="pulse-dot"></span> Open to New Opportunities</span>
+              </div>
+            </div>
+
+            <p class="contact-card-desc">
+              Whether you have a job opportunity, a project proposal, or just want to discuss tech — drop me a message
+              or reach out directly.
+            </p>
+
+            <!-- Direct Email Highlight Banner -->
+            <div class="contact-email-banner">
+              <div class="email-icon-wrapper">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="email-info">
+                <span class="email-tag">DIRECT EMAIL</span>
+                <a href="mailto:piyush.s9341@gmail.com" class="email-link">piyush.s9341@gmail.com</a>
+              </div>
+              <a href="mailto:piyush.s9341@gmail.com" class="email-quick-btn" title="Compose Email">
+                <i class="fas fa-external-link-alt"></i>
               </a>
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Tech Toolbox -->
-    <section id="toolbox" class="section-padding animate-on-scroll">
-      <div class="container toolbox-container">
-        <h2 class="section-title">
-          <span class="code-bracket">&lt;</span> Tech_Toolbox <span class="code-bracket">/&gt;</span>
-        </h2>
-        <div class="toolbox-grid">
-          <div class="toolbox-column">
-            <h3>Languages</h3>
-            <ul>
-              <li><span class="pill pill-primary">Java</span> – daily driver</li>
-              <li><span class="pill pill-primary">JavaScript</span> – daily driver</li>
-              <li><span class="pill pill-soft">TypeScript</span> – exploring</li>
-            </ul>
-          </div>
-          <div class="toolbox-column">
-            <h3>Frontend</h3>
-            <ul>
-              <li>
-                <span class="pill pill-primary">React</span>,
-                <span class="pill pill-soft">Redux</span>
-              </li>
-              <li>
-                <span class="pill pill-soft">HTML5</span>,
-                <span class="pill pill-soft">CSS3</span>
-              </li>
-              <li>
-                <span class="pill pill-soft">Responsive UI</span>,
-                <span class="pill pill-soft">Animations</span>
-              </li>
-            </ul>
-          </div>
-          <div class="toolbox-column">
-            <h3>Backend & DB</h3>
-            <ul>
-              <li>
-                <span class="pill pill-primary">Node.js</span>,
-                <span class="pill pill-soft">Express</span>
-              </li>
-              <li><span class="pill pill-soft">Spring Boot</span></li>
-              <li>
-                <span class="pill pill-soft">MySQL</span>,
-                <span class="pill pill-soft">MongoDB</span>
-              </li>
-            </ul>
-          </div>
-          <div class="toolbox-column">
-            <h3>Tools & Cloud</h3>
-            <ul>
-              <li>
-                <span class="pill pill-soft">Git</span>,
-                <span class="pill pill-soft">GitHub</span>
-              </li>
-              <li>
-                <span class="pill pill-soft">VS Code</span>,
-                <span class="pill pill-soft">Postman</span>
-              </li>
-              <li>
-                <span class="pill pill-soft">Netlify</span>,
-                <span class="pill pill-soft">Render</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience -->
-    <section id="experience" class="section-padding animate-on-scroll">
-      <div class="container">
-        <h2 class="section-title">
-          <span class="code-bracket">&lt;</span> Experience <span class="code-bracket">/&gt;</span>
-        </h2>
-
-        <div class="timeline">
-          <div class="timeline-item">
-            <span class="timeline-dot"></span>
-            <div class="timeline-content">
-              <h3>Full-Stack Developer</h3>
-              <p class="timeline-meta">Freelance | 2024 - Present</p>
-              <ul>
-                <li>Built responsive web applications using React, Node.js, and REST APIs.</li>
-                <li>Implemented authentication, dashboards, and reusable UI components.</li>
-              </ul>
-              <div class="timeline-tags">
-                <span class="timeline-chip">Built</span>
-                <span class="timeline-chip">Shipped</span>
-                <span class="timeline-chip">Improved UX</span>
-              </div>
             </div>
           </div>
 
-          <div class="timeline-item">
-            <span class="timeline-dot"></span>
-            <div class="timeline-content">
-              <h3>Web Developer Intern</h3>
-              <p class="timeline-meta">Startup | 2023 - 2024</p>
-              <ul>
-                <li>Collaborated on UI improvements and bug fixes in a production codebase.</li>
-                <li>Learned Git workflows, code reviews, and agile processes.</li>
-              </ul>
-              <div class="timeline-tags">
-                <span class="timeline-chip">Collaborated</span>
-                <span class="timeline-chip">Debugged</span>
-                <span class="timeline-chip">Delivered</span>
-              </div>
+          <!-- Location, Roles & Quick Connect Buttons -->
+          <div class="contact-card-footer-info">
+            <div class="contact-meta-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Greater Noida, India (Remote Available)</span>
             </div>
-          </div>
-
-          <div class="timeline-item">
-            <span class="timeline-dot"></span>
-            <div class="timeline-content">
-              <h3>MCA</h3>
-              <p class="timeline-meta">Galgotia College</p>
-              <ul>
-                <li>Focused on data structures, algorithms, and software engineering.</li>
-              </ul>
-              <div class="timeline-tags">
-                <span class="timeline-chip">Core CS</span>
-                <span class="timeline-chip">Problem Solving</span>
-              </div>
+            <div class="contact-meta-item">
+              <i class="fas fa-briefcase"></i>
+              <span>Full-Stack & Data Analytics Roles</span>
+            </div>
+            <div class="contact-social-row">
+              <a href="https://github.com/PiyushKumar9341" target="_blank" rel="noopener noreferrer"
+                class="contact-social-btn">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+              <a href="https://www.linkedin.com/posts/piyush-kumar111_generativeai-dataanalytics-ai-activity-7349714450175643648-aS6N?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEDMls4BD1Sm6ghZLzTy25bQaAJUHNlaGr4"
+                target="_blank" rel="noopener noreferrer" class="contact-social-btn">
+                <i class="fab fa-linkedin"></i> LinkedIn
+              </a>
+              <a href="assets/docs/Resume.pdf" download class="contact-social-btn">
+                <i class="fas fa-file-pdf"></i> Resume
+              </a>
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Projects -->
-    <section id="projects" class="section-padding animate-on-scroll">
-      <div class="container">
-        <h2 class="section-title">
-          <span class="code-bracket">[</span> Featured_Projects <span class="code-bracket">]</span>
-        </h2>
-
-        <div class="project-filters animate-on-scroll" role="tablist" aria-label="Project role filters">
-          <button type="button" class="project-filter-btn active" data-filter="all">All</button>
-          <button type="button" class="project-filter-btn" data-filter="fullstack">Full Stack</button>
-          <button type="button" class="project-filter-btn" data-filter="ai">AI / ML</button>
-          <button type="button" class="project-filter-btn" data-filter="analytics">Business Analytics</button>
-        </div>
-
-        <div class="projects-grid">
-          <!-- Project 1: Advanced Todo List -->
-          <div class="project-card" data-category="frontend" data-roles="fullstack">
-            <div class="project-meta-row">
-              <span class="project-no">01</span>
-              <span class="project-track">Frontend</span>
-            </div>
-            <div class="project-image">
-              <img src="Adva.jpeg" alt="Advanced Todo List" />
-            </div>
-
-            <div class="project-description">
-              <h3>Advanced Todo List</h3>
-              <p>
-                A fast, keyboard-friendly task manager to handle daily work entirely in the browser.
-              </p>
-              <p>
-                Focused on smooth micro-interactions, LocalStorage persistence, and a clean, minimal UI.
-              </p>
-              <div class="project-tags">
-                <span class="tech-tag cyan">JavaScript</span>
-                <span class="tech-tag pink">LocalStorage</span>
-                <span class="tech-tag cyan">UX Details</span>
-              </div>
-              <div class="project-dot-highlights animate-on-scroll">
-                <div class="dot-highlight"><span class="dot"></span><span>Problem: daily task clutter</span></div>
-                <div class="dot-highlight"><span class="dot"></span><span>Build: fast keyboard flow</span></div>
-                <div class="dot-highlight"><span class="dot"></span><span>Impact: smoother daily planning</span></div>
-              </div>
-            </div>
-
-            <div class="button-container">
-              <div class="project-links">
-                <a href="https://advatodo.netlify.app/" target="_blank" class="button btn-cyan">
-                  Demo
-                </a>
-                <a href="#" class="button btn-ghost" title="Add Advanced Todo repository URL">
-                  Repo Soon
-                </a>
-                <button
-                  class="button btn-ghost case-study-btn"
-                  type="button"
-                  data-case-title="Advanced Todo List"
-                  data-case-problem="Managing daily tasks quickly without losing progress on refresh."
-                  data-case-build="Built a keyboard-friendly task manager with localStorage persistence, filters, and micro-interactions."
-                  data-case-impact="Improved productivity flow and delivered a fast, responsive UX for everyday planning."
-                >
-                  Case Study
-                </button>
-                <button
-                  class="button btn-ghost"
-                  type="button"
-                  data-tip="Bulk actions, status filters, keyboard shortcuts, and auto-save."
-                >
-                  Features
-                </button>
-                <button
-                  class="button btn-ghost"
-                  type="button"
-                  data-tip="Improved state handling, input validation, and empty-state UX."
-                >
-                  Learnings
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 2: Analytics Dashboard -->
-          <div class="project-card" data-category="fullstack" data-roles="fullstack analytics">
-            <div class="project-meta-row">
-              <span class="project-no">02</span>
-              <span class="project-track">Full Stack</span>
-            </div>
-            <div class="project-image">
-              <img src="Dashboard.jpeg" alt="Analytics Dashboard" />
-            </div>
-
-            <div class="project-description">
-              <h3>Analytics Dashboard</h3>
-              <p>
-                A responsive dashboard for monitoring KPIs with charts, filters, and role-based views.
-              </p>
-              <p>
-                Practiced structuring React components, handling API data, and keeping UI performant.
-              </p>
-              <div class="project-tags">
-                <span class="tech-tag cyan">React</span>
-                <span class="tech-tag pink">Node.js</span>
-                <span class="tech-tag cyan">Charts</span>
-              </div>
-              <div class="project-dot-highlights animate-on-scroll">
-                <div class="dot-highlight"><span class="dot"></span><span>Problem: KPI visibility gaps</span></div>
-                <div class="dot-highlight"><span class="dot"></span><span>Build: charts + role-based views</span></div>
-                <div class="dot-highlight"><span class="dot"></span><span>Impact: quicker monitoring decisions</span></div>
-              </div>
-            </div>
-
-            <div class="button-container">
-              <div class="project-links">
-                <a href="#" class="button btn-cyan" title="Demo coming soon">
-                  Demo Soon
-                </a>
-                <a href="#" class="button btn-ghost" title="Add Analytics Dashboard repository URL">
-                  Repo Soon
-                </a>
-                <button
-                  class="button btn-ghost case-study-btn"
-                  type="button"
-                  data-case-title="Analytics Dashboard"
-                  data-case-problem="Teams lacked one place to track KPI trends and role-specific views."
-                  data-case-build="Created a responsive dashboard layout with chart zones, filters, and API-driven role sections."
-                  data-case-impact="Made key metrics easier to read quickly and improved decision visibility."
-                >
-                  Case Study
-                </button>
-                <button
-                  class="button btn-ghost"
-                  type="button"
-                  data-tip="Dynamic charts, date filters, and role-based menu sections."
-                >
-                  Features
-                </button>
-                <button
-                  class="button btn-ghost"
-                  type="button"
-                  data-tip="Learned API error handling, loading states, and dashboard layout."
-                >
-                  Learnings
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 3: AI-Powered Assistant -->
-          <div class="project-card" data-category="ai" data-roles="ai fullstack">
-            <div class="project-meta-row">
-              <span class="project-no">03</span>
-              <span class="project-track">AI / GenAI</span>
-            </div>
-            <div class="project-image">
-              <img src="Aii.jpeg" alt="AI-Powered Assistant" />
-            </div>
-
-            <div class="project-description">
-              <h3>AI-Powered Assistant</h3>
-              <p>
-                A web interface that connects to GenAI APIs to generate content and answer questions.
-              </p>
-              <p>
-                Experimented with prompt design, API integration, and handling latency gracefully.
-              </p>
-              <div class="project-tags">
-                <span class="tech-tag cyan">OpenAI API</span>
-                <span class="tech-tag pink">LangChain</span>
-                <span class="tech-tag cyan">GenAI</span>
-              </div>
-              <div class="project-dot-highlights animate-on-scroll">
-                <div class="dot-highlight"><span class="dot"></span><span>Problem: instant AI guidance</span></div>
-                <div class="dot-highlight"><span class="dot"></span><span>Build: prompt-aware assistant flow</span></div>
-                <div class="dot-highlight"><span class="dot"></span><span>Impact: better user engagement</span></div>
-              </div>
-            </div>
-
-            <div class="button-container">
-              <div class="project-links">
-                <a href="#" class="button btn-cyan" title="Demo coming soon">
-                  Demo Soon
-                </a>
-                <a href="#" class="button btn-ghost" title="Add AI Assistant repository URL">
-                  Repo Soon
-                </a>
-                <button
-                  class="button btn-ghost case-study-btn"
-                  type="button"
-                  data-case-title="AI-Powered Assistant"
-                  data-case-problem="Users needed quick contextual answers inside a web product."
-                  data-case-build="Integrated GenAI APIs with frontend chat flow, prompt tuning, and response/error handling."
-                  data-case-impact="Delivered interactive AI support and improved engagement with guided responses."
-                >
-                  Case Study
-                </button>
-                <button
-                  class="button btn-ghost"
-                  type="button"
-                  data-tip="Multi-step prompts, context-aware replies, and simple history view."
-                >
-                  Features
-                </button>
-                <button
-                  class="button btn-ghost"
-                  type="button"
-                  data-tip="Learned prompt tuning, rate-limit handling, and error messaging."
-                >
-                  Learnings
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 4: This Portfolio -->
-          <div class="project-card" data-category="frontend" data-roles="fullstack ai">
-            <div class="project-meta-row">
-              <span class="project-no">04</span>
-              <span class="project-track">Brand / UI</span>
-            </div>
-            <div class="project-image">
-              <img src="Portfolio.jpeg" alt="Portfolio Website" />
-            </div>
-
-            <div class="project-description">
-              <h3>This Portfolio</h3>
-              <p>
-                A modern single-page portfolio with glassmorphism, neon accents, and scroll animations.
-              </p>
-              <p>
-                Implemented responsive layouts, reusable components, and smooth navigation for recruiters.
-              </p>
-              <div class="project-tags">
-                <span class="tech-tag cyan">HTML</span>
-                <span class="tech-tag pink">CSS</span>
-                <span class="tech-tag cyan">JavaScript</span>
-              </div>
-              <div class="project-dot-highlights animate-on-scroll">
-                <div class="dot-highlight"><span class="dot"></span><span>Problem: showcase skills clearly</span></div>
-                <div class="dot-highlight"><span class="dot"></span><span>Build: modern neon UI + sections</span></div>
-                <div class="dot-highlight"><span class="dot"></span><span>Impact: stronger recruiter storytelling</span></div>
-              </div>
-            </div>
-
-            <div class="button-container">
-              <div class="project-links">
-                <a href="https://piyushdev-ai.netlify.app/" target="_blank" class="button btn-cyan">
-                  Demo
-                </a>
-                <a href="#" class="button btn-ghost" title="Add Portfolio repository URL">
-                  Repo Soon
-                </a>
-                <button
-                  class="button btn-ghost case-study-btn"
-                  type="button"
-                  data-case-title="Portfolio Website"
-                  data-case-problem="Needed one platform to present skills across Full Stack, AI/ML, and Analytics roles."
-                  data-case-build="Designed and built a modern portfolio with role filters, animations, AI assistant, and Netlify integrations."
-                  data-case-impact="Improved recruiter clarity and created a memorable personal brand experience."
-                >
-                  Case Study
-                </button>
-                <button
-                  class="button btn-ghost"
-                  type="button"
-                  data-tip="Hero typing, tech background, certifications, and experience timeline."
-                >
-                  Features
-                </button>
-                <button
-                  class="button btn-ghost"
-                  type="button"
-                  data-tip="Learned portfolio storytelling, responsive design, and UI consistency."
-                >
-                  Learnings
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 5: Business Analytics Case Study -->
-          
-        </div>
-      </div>
-    </section>
-
-    <section id="analytics-artifact" class="section-padding animate-on-scroll">
-      <div class="container analytics-artifact-container">
-        <h2 class="section-title">
-          <span class="code-bracket">&lt;</span> Analytics_Artifact <span class="code-bracket">/&gt;</span>
-        </h2>
-        <div class="analytics-artifact-card">
-          <div class="artifact-header">
-            <h3>Sample KPI Insight Snapshot</h3>
-            <span class="artifact-badge">Business Analytics Focus</span>
-          </div>
-          <p>
-            This artifact style shows how I convert data into business actions: define KPIs, detect
-            trend movement, and summarize recommendations for stakeholders.
-          </p>
-          <div class="artifact-kpis">
-            <div class="artifact-kpi">
-              <span class="kpi-label">Revenue Growth</span>
-              <strong class="kpi-value">+18.4%</strong>
-              <span class="kpi-note">Quarter-over-quarter trend</span>
-            </div>
-            <div class="artifact-kpi">
-              <span class="kpi-label">Customer Churn</span>
-              <strong class="kpi-value">-7.2%</strong>
-              <span class="kpi-note">Retention improved after campaign</span>
-            </div>
-            <div class="artifact-kpi">
-              <span class="kpi-label">Lead Conversion</span>
-              <strong class="kpi-value">+11.6%</strong>
-              <span class="kpi-note">Funnel drop-offs reduced</span>
-            </div>
-          </div>
-          <div class="artifact-insights">
-            <p><span>Insight 1:</span> Revenue momentum is strongest in recurring-customer segments.</p>
-            <p><span>Insight 2:</span> Churn reduction correlates with faster support response windows.</p>
-            <p><span>Recommendation:</span> Prioritize retention playbooks before scaling acquisition spend.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section id="testimonials" class="section-padding animate-on-scroll">
-      <div class="container">
-        <h2 class="section-title">
-          <span class="code-bracket">&lt;</span> Testimonials <span class="code-bracket">/&gt;</span>
-        </h2>
-        <div class="testimonials-grid">
-          <div class="testimonial-card">
-            <p>
-              "Piyush delivered a clean, responsive web application on time and suggested
-              thoughtful UX improvements."
-            </p>
-            <h4>Gautam Kumar</h4>
-            <span class="testimonial-role">Startup</span>
-          </div>
-          <div class="testimonial-card">
-            <p>
-              "Strong problem-solving mindset, quick to pick up new tools, and very
-              collaborative in the team."
-            </p>
-            <h4> Neeraj Kaushik (Mentor)</h4>
-            <span class="testimonial-role">Engineering Lead</span>
-          </div>
-          <div class="testimonial-card">
-            <p>
-              "He turns vague ideas into well-structured features with attention to detail and
-              maintainable code."
-            </p>
-            <h4>Colleague</h4>
-            <span class="testimonial-role">Software Engineer</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Resume -->
-    <section id="resume" class="section-padding animate-on-scroll">
-      <div class="container resume-container">
-        <h2 class="section-title">
-          <span class="code-bracket">&lt;</span> My_Resume <span class="code-bracket">/&gt;</span>
-        </h2>
-        <p>
-          Download my resume to explore detailed experience, education, and the technologies I
-          work with.
-        </p>
-        <a href="Resume.pdf" download class="button btn-cyan">
-          <i class="fas fa-download"></i> Download Resume (PDF)
-        </a>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="section-padding animate-on-scroll">
-      <div class="container contact-container">
-        <h2 class="section-title">
-          <span class="code-bracket">&lt;</span> Get_In_Touch <span class="code-bracket">/&gt;</span>
-        </h2>
-        <p>
-          I'm always open to new opportunities, collaborations, and interesting problems. Feel
-          free to reach out.
-        </p>
-        <div class="contact-info">
-          <p>Greater Noida, India · Open to remote and onsite roles.</p>
-          <p>
-            <i class="fas fa-envelope"></i> Email:
-            <a href="mailto:piyush.s9341@gmail.com">piyush.s9341@gmail.com</a>
-          </p>
-          <p>
-            <i class="fab fa-linkedin"></i> LinkedIn:
-            <a href="https://www.linkedin.com/in/piyush-kumar111/" target="_blank"
-              >piyush-kumar111</a
-            >
-          </p>
-          <p>
-            <i class="fab fa-github"></i> GitHub:
-            <a href="https://github.com/PiyushKumar9341" target="_blank"
-              >PiyushKumar9341</a
-            >
-          </p>
-        </div>
-
-        <!-- Netlify contact form -->
-        <form
-          id="contact-form"
-          name="contact"
-          method="POST"
-          action="/"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
-        >
-          <!-- Netlify hidden fields -->
+        <!-- Glassmorphism Form Card (Right Side) -->
+        <form id="contact-form" class="contact-form-card" name="contact" method="POST" action="/" data-netlify="true"
+          netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="contact" />
           <p style="display:none;">
-            <label>
-              Don’t fill this out if you’re human:
-              <input name="bot-field" />
-            </label>
+            <label>Don’t fill this out: <input name="bot-field" /></label>
           </p>
 
-          <h3>Send Me a Message</h3>
-          <div class="form-group">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required />
+          <div class="form-header">
+            <h3>Send Me a Message</h3>
+            <p>Fill out the form below and I will get back to you promptly.</p>
           </div>
-          <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required />
+
+          <!-- 2 Column Input Row -->
+          <div class="form-row-2col">
+            <div class="form-group-custom">
+              <label for="name"><i class="fas fa-user icon-sm"></i> Your Name</label>
+              <div class="input-wrapper">
+                <input type="text" id="name" name="name" placeholder="Enter your name..." required />
+              </div>
+            </div>
+
+            <div class="form-group-custom">
+              <label for="email"><i class="fas fa-at icon-sm"></i> Your Email</label>
+              <div class="input-wrapper">
+                <input type="email" id="email" name="email" placeholder="Enter your email..." required />
+              </div>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="6" required></textarea>
+
+          <div class="form-group-custom">
+            <label for="message"><i class="fas fa-comment-dots icon-sm"></i> Message</label>
+            <div class="input-wrapper">
+              <textarea id="message" name="message" rows="2" placeholder="Write your message here..."
+                required></textarea>
+            </div>
           </div>
-          <button type="submit" class="button btn-pink">
-            Send Message
+
+          <button type="submit" class="contact-submit-btn">
+            <i class="fas fa-paper-plane"></i>
+            <span>Send Message</span>
           </button>
           <p id="form-message" class="message-text"></p>
         </form>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="gift-footer">
-      <div class="container">
-        <div class="footer-line"></div>
-        <p>&copy; <span id="current-year"></span> Piyush Kumar. All rights reserved.</p>
-        <p>Designed & Developed by <span>Piyush Kumar</span></p>
-        <div class="footer-logo-wrapper">
-          <img src="pk2.jpeg" alt="PK Logo" class="footer-logo" />
-        </div>
-      </div>
-    </footer>
-
-    <!-- AI Portfolio Assistant -->
-    <div id="ai-assistant">
-      <button id="ai-toggle-btn" class="ai-toggle-btn" title="Chat with my AI Assistant">
-        <i class="fas fa-robot"></i>
-      </button>
-
-      <div id="ai-chat-panel" class="ai-chat-panel">
-        <div class="ai-chat-header">
-          <div class="ai-chat-title">
-            <i class="fas fa-robot"></i>
-            <span>AI Portfolio Assistant</span>
-          </div>
-          <button id="ai-close-btn" class="ai-close-btn" aria-label="Close chat">
-            <i class="fas fa-times"></i>
-          </button>
-        </div>
-
-        <div id="ai-chat-messages" class="ai-chat-messages">
-          <div class="ai-message ai-bot">
-            <p>
-              Hi, I can answer questions about Piyush’s skills, projects, and tech choices. Ask
-              anything!
-            </p>
-          </div>
-        </div>
-
-        <form id="ai-chat-form" class="ai-chat-input-row">
-          <input
-            type="text"
-            id="ai-user-input"
-            placeholder="Ask about a project, tech, or role..."
-            autocomplete="off"
-            required
-          />
-          <button type="submit" id="ai-send-btn">
-            <i class="fas fa-paper-plane"></i>
-          </button>
-        </form>
-      </div>
+  <!-- Footer Section -->
+  <footer class="footer-section">
+    <!-- 100% Edge-to-Edge Vector Watermark Text -->
+    <div class="footer-watermark-wrapper" aria-hidden="true">
+      <svg class="footer-watermark-svg" viewBox="0 0 1000 135" width="100%" preserveAspectRatio="none">
+        <text x="0" y="118" font-size="125" font-weight="900" font-family="'Inter', 'Montserrat', sans-serif" fill="rgba(255, 255, 255, 0.045)" textLength="1000" lengthAdjust="spacingAndGlyphs">PIYUSH KUMAR</text>
+      </svg>
     </div>
 
-    <!-- Scroll To Top -->
-    <button id="scrollToTopBtn" title="Go to top" class="button btn-cyan">
-      <i class="fas fa-arrow-up"></i>
+    <div class="container footer-watermark-container">
+      <!-- Top Row: Live Status Pill -->
+      <div class="watermark-header-row">
+        <div class="footer-status-pill">
+          <span class="status-pulse-dot"></span>
+          <span>Open to New Opportunities</span>
+        </div>
+      </div>
+
+      <!-- Center: Executive Identity & Socials -->
+      <div class="watermark-center-content">
+        <h4 class="watermark-brand-name">PIYUSH KUMAR</h4>
+        <p class="watermark-sub-role">Full-Stack Engineer &amp; Data Analyst</p>
+        <p class="watermark-tagline">
+          Architecting high-performance web applications &amp; actionable data intelligence with modern precision.
+        </p>
+
+        <!-- Social Connections -->
+        <div class="watermark-social-row">
+          <a href="https://github.com/PiyushKumar9341" target="_blank" rel="noopener noreferrer" class="social-pill github">
+            <i class="fab fa-github"></i>
+            <span>GitHub</span>
+          </a>
+          <a href="https://www.linkedin.com/posts/piyush-kumar111_generativeai-dataanalytics-ai-activity-7349714450175643648-aS6N?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEDMls4BD1Sm6ghZLzTy25bQaAJUHNlaGr4" target="_blank" rel="noopener noreferrer" class="social-pill linkedin">
+            <i class="fab fa-linkedin"></i>
+            <span>LinkedIn</span>
+          </a>
+          <a href="mailto:piyush.s9341@gmail.com" class="social-pill email">
+            <i class="fas fa-envelope"></i>
+            <span>Email</span>
+          </a>
+          <a href="assets/docs/Resume.pdf" download class="social-pill resume">
+            <i class="fas fa-file-pdf"></i>
+            <span>Resume</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Bottom: Copyright Info -->
+      <div class="watermark-bottom-row">
+        <p>&copy; <span id="current-year"></span> Piyush Kumar. All rights reserved.</p>
+        <p class="footer-crafted">Designed &amp; Crafted by <span>Piyush Kumar</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AI Portfolio Assistant -->
+  <div id="ai-assistant">
+    <button id="ai-toggle-btn" class="ai-toggle-btn" title="Chat with my AI Assistant">
+      <i class="fas fa-robot"></i>
     </button>
 
-    <div id="case-study-modal" class="case-study-modal" aria-hidden="true">
-      <div class="case-study-backdrop" data-close-modal="true"></div>
-      <div class="case-study-content" role="dialog" aria-modal="true" aria-labelledby="case-study-title">
-        <button id="case-study-close" class="case-study-close" type="button" aria-label="Close case study">
+    <div id="ai-chat-panel" class="ai-chat-panel">
+      <div class="ai-chat-header">
+        <div class="ai-chat-title">
+          <i class="fas fa-robot"></i>
+          <span>AI Portfolio Assistant</span>
+        </div>
+        <button id="ai-close-btn" class="ai-close-btn" aria-label="Close chat">
           <i class="fas fa-times"></i>
         </button>
-        <h3 id="case-study-title"></h3>
-        <div class="case-study-block">
-          <h4>Problem</h4>
-          <p id="case-study-problem"></p>
-        </div>
-        <div class="case-study-block">
-          <h4>What I Built</h4>
-          <p id="case-study-build"></p>
-        </div>
-        <div class="case-study-block">
-          <h4>Impact</h4>
-          <p id="case-study-impact"></p>
+      </div>
+
+      <div id="ai-chat-messages" class="ai-chat-messages">
+        <div class="ai-message ai-bot">
+          <p>
+            Hi, I can answer questions about Piyush’s skills, projects, and tech choices. Ask
+            anything!
+          </p>
         </div>
       </div>
-    </div>
 
-    <!-- Scripts -->
-    <script src="script.js"></script>
-  </body>
+      <form id="ai-chat-form" class="ai-chat-input-row">
+        <input type="text" id="ai-user-input" placeholder="Ask about a project, tech, or role..." autocomplete="off"
+          required />
+        <button type="submit" id="ai-send-btn">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scroll To Top -->
+  <button id="scrollToTopBtn" title="Go to top" class="button btn-cyan">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <div id="case-study-modal" class="case-study-modal" aria-hidden="true">
+    <div class="case-study-backdrop" data-close-modal="true"></div>
+    <div class="case-study-content" role="dialog" aria-modal="true" aria-labelledby="case-study-title">
+      <button id="case-study-close" class="case-study-close" type="button" aria-label="Close case study">
+        <i class="fas fa-times"></i>
+      </button>
+      <h3 id="case-study-title"></h3>
+      <div class="case-study-block">
+        <h4>Problem</h4>
+        <p id="case-study-problem"></p>
+      </div>
+      <div class="case-study-block">
+        <h4>What I Built</h4>
+        <p id="case-study-build"></p>
+      </div>
+      <div class="case-study-block">
+        <h4>Impact</h4>
+        <p id="case-study-impact"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/script.js"></script>
+</body>
+
 </html>

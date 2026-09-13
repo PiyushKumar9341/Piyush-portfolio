@@ -1,3 +1,15 @@
+// Scrolled Navbar Header Toggle
+const navHeader = document.querySelector('.navbar-header');
+if (navHeader) {
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 40) {
+      navHeader.classList.add('scrolled');
+    } else {
+      navHeader.classList.remove('scrolled');
+    }
+  }, { passive: true });
+}
+
 // Mobile nav toggle
 const hamburger = document.querySelector('.hamburger');
 const nav = document.getElementById('main-nav');
@@ -15,9 +27,35 @@ if (hamburger && nav) {
   });
 }
 
+// Butter-smooth easeInOutCubic scroll animation helper
+function smoothScrollTo(targetY, duration = 750) {
+  const startY = window.pageYOffset;
+  const distance = targetY - startY;
+  let startTime = null;
+
+  function step(currentTime) {
+    if (!startTime) startTime = currentTime;
+    const timeElapsed = currentTime - startTime;
+    const progress = Math.min(timeElapsed / duration, 1);
+
+    // easeInOutCubic easing function
+    const ease = progress < 0.5
+      ? 4 * progress * progress * progress
+      : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+    window.scrollTo(0, startY + distance * ease);
+
+    if (timeElapsed < duration) {
+      requestAnimationFrame(step);
+    }
+  }
+
+  requestAnimationFrame(step);
+}
+
 // Smooth scroll with offset for fixed navbar
-const navScrollLinks = document.querySelectorAll('#main-nav a[href^="#"]');
-const headerOffset = 80; // adjust if your navbar height is different
+const navScrollLinks = document.querySelectorAll('nav a[href^="#"]');
+const headerOffset = 70;
 
 navScrollLinks.forEach((link) => {
   link.addEventListener('click', (e) => {
@@ -28,12 +66,9 @@ navScrollLinks.forEach((link) => {
     e.preventDefault();
 
     const elementPosition = targetEl.getBoundingClientRect().top + window.pageYOffset;
-    const offsetPosition = elementPosition - headerOffset;
+    const offsetPosition = Math.max(0, elementPosition - headerOffset);
 
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth',
-    });
+    smoothScrollTo(offsetPosition, 750);
   });
 });
 
@@ -112,15 +147,16 @@ window.addEventListener(
 // Scroll-to-top click
 if (scrollBtn) {
   scrollBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    smoothScrollTo(0, 750);
   });
 }
 
 // Typing effect for roles
 const roles = [
   'Full-Stack Developer',
+  'Data & Business Analyst',
   'React & Node.js Engineer',
-  'Generative AI Enthusiast'
+  'Software & Web Engineer'
 ];
 let roleIndex = 0;
 let charIndex = 0;
@@ -153,7 +189,8 @@ typeRole();
 
 // Scroll reveal + certifications stagger (JS-controlled animations)
 const observerOptions = {
-  threshold: 0.2
+  threshold: 0.05,
+  rootMargin: '0px 0px -40px 0px'
 };
 
 const revealObserver = new IntersectionObserver((entries) => {
@@ -202,7 +239,11 @@ const revealObserver = new IntersectionObserver((entries) => {
 document
   .querySelectorAll('.animate-on-scroll, .skill-card, .project-card, .about-card')
   .forEach((el) => {
-    revealObserver.observe(el);
+    if (el.classList.contains('marquee-card')) {
+      el.classList.add('revealed');
+    } else {
+      revealObserver.observe(el);
+    }
   });
 
 // Certifications stagger animation
@@ -247,6 +288,7 @@ if (timeline) {
 // Project role filters
 const projectFilterButtons = document.querySelectorAll('.project-filter-btn');
 const projectCards = document.querySelectorAll('.project-card');
+const marqueeTrack = document.querySelector('.projects-marquee-track');
 
 if (projectFilterButtons.length && projectCards.length) {
   projectFilterButtons.forEach((button) => {
@@ -256,11 +298,20 @@ if (projectFilterButtons.length && projectCards.length) {
       projectFilterButtons.forEach((btn) => btn.classList.remove('active'));
       button.classList.add('active');
 
-      projectCards.forEach((card) => {
-        const roles = (card.getAttribute('data-roles') || '').split(/\s+/).filter(Boolean);
-        const shouldShow = selected === 'all' || roles.includes(selected);
-        card.classList.toggle('is-hidden', !shouldShow);
-      });
+      if (selected === 'all') {
+        if (marqueeTrack) marqueeTrack.classList.remove('is-filtered');
+        projectCards.forEach((card) => {
+          card.classList.remove('is-hidden');
+        });
+      } else {
+        if (marqueeTrack) marqueeTrack.classList.add('is-filtered');
+        projectCards.forEach((card) => {
+          const roles = (card.getAttribute('data-roles') || '').split(/\s+/).filter(Boolean);
+          const isSetOne = card.getAttribute('data-set') === '1';
+          const shouldShow = isSetOne && roles.includes(selected);
+          card.classList.toggle('is-hidden', !shouldShow);
+        });
+      }
     });
   });
 }
@@ -527,3 +578,69 @@ if (contactForm) {
       });
   });
 }
+
+// About Section Dual Persona Switcher + Experience Track Auto-Sync
+const personaTabs = document.querySelectorAll('.persona-tab');
+const personaContents = document.querySelectorAll('.persona-content');
+
+if (personaTabs.length > 0 && personaContents.length > 0) {
+  personaTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const persona = tab.getAttribute('data-persona');
+
+      personaTabs.forEach(t => t.classList.remove('active'));
+      personaContents.forEach(c => c.classList.remove('active'));
+
+      tab.classList.add('active');
+      const targetContent = document.getElementById(`persona-${persona}`);
+      if (targetContent) {
+        targetContent.classList.add('active');
+      }
+
+      // Sync experience filter track button
+      const targetTrack = persona === 'analytics' ? 'data-analytics' : 'web-dev';
+      const expBtn = document.querySelector(`.exp-filter-btn[data-exp-filter="${targetTrack}"]`);
+      if (expBtn && !expBtn.classList.contains('active')) {
+        expBtn.click();
+      }
+    });
+  });
+}
+
+// Experience Track Filter Switcher (Global Function + Event Listener)
+window.filterExp = function(selectedFilter) {
+  const expBtns = document.querySelectorAll('.exp-filter-btn');
+  const expItems = document.querySelectorAll('#experience .timeline-item');
+
+  expBtns.forEach((b) => {
+    if (b.getAttribute('data-exp-filter') === selectedFilter) {
+      b.classList.add('active');
+    } else {
+      b.classList.remove('active');
+    }
+  });
+
+  expItems.forEach((item) => {
+    const category = item.getAttribute('data-exp-category');
+    if (category === selectedFilter) {
+      item.style.display = 'block';
+      item.style.opacity = '1';
+      item.style.transform = 'translateY(0)';
+      item.classList.add('revealed');
+    } else {
+      item.style.display = 'none';
+    }
+  });
+};
+
+const expFilterBtns = document.querySelectorAll('.exp-filter-btn');
+if (expFilterBtns.length > 0) {
+  expFilterBtns.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const selectedFilter = btn.getAttribute('data-exp-filter');
+      if (selectedFilter) window.filterExp(selectedFilter);
+    });
+  });
+}
+

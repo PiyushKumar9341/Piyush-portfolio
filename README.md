@@ -49,7 +49,11 @@ A modern single‑page portfolio website for showcasing my work as a Full‑Stac
 ```text
 /
 ├── index.html      # Main portfolio page
-├── style.css       # All styling
-├── script.js       # Interactivity (nav, scroll, animations, etc.)
-├── pk2.jpeg        # Profile / favicon image
-└── assets/         # (Optional) other images, icons, etc.
+├── netlify.toml    # Netlify configuration
+├── README.md       # Project documentation
+└── assets/         # Structured static assets
+    ├── css/        # Custom CSS (style.css)
+    ├── js/         # JavaScript logic & interactivity (script.js)
+    ├── images/     # Profile images, logos, project screenshots
+    └── docs/       # Downloadable resume (Resume.pdf)
+```
