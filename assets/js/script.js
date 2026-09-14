@@ -807,3 +807,50 @@ if (expFilterBtns.length > 0) {
   });
 }
 
+// Copy Email Button Pill Handler
+const copyEmailBtn = document.getElementById('copy-email-btn');
+const copyEmailText = document.getElementById('copy-email-text');
+const copyEmailIcon = document.getElementById('copy-email-icon');
+
+if (copyEmailBtn) {
+  copyEmailBtn.addEventListener('click', () => {
+    const emailToCopy = 'piyush.s9341@gmail.com';
+
+    // Clipboard API with executive fallback
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(emailToCopy);
+    } else {
+      const textArea = document.createElement('textarea');
+      textArea.value = emailToCopy;
+      textArea.style.position = 'fixed';
+      textArea.style.left = '-999999px';
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+        document.execCommand('copy');
+      } catch (err) {
+        console.error('Clipboard copy failed:', err);
+      }
+      document.body.removeChild(textArea);
+    }
+
+    // Interactive visual feedback state
+    copyEmailBtn.classList.add('copied');
+    if (copyEmailText) copyEmailText.textContent = 'Email Copied!';
+    if (copyEmailIcon) copyEmailIcon.className = 'fas fa-check pill-icon';
+
+    setTimeout(() => {
+      copyEmailBtn.classList.remove('copied');
+      if (copyEmailText) copyEmailText.textContent = 'Copy Email';
+      if (copyEmailIcon) copyEmailIcon.className = 'far fa-copy pill-icon';
+    }, 2000);
+  });
+}
+
+// Auto-update footer copyright year
+const currentYearEl = document.getElementById('current-year');
+if (currentYearEl) {
+  currentYearEl.textContent = new Date().getFullYear();
+}
+
+
