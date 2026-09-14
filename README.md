@@ -6,7 +6,7 @@ A modern single‑page portfolio website for showcasing my work as a Full‑Stac
 
 ## 🌐 Live Demo
 
-- **URL:** https://piyushdev-ai.netlify.app/
+- **URL:** https://piyushkumar-dev.netlify.app/
 
 ---
 
